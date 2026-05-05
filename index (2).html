@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>St Thomas Kavingoni Senior School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0a1f44;
+      --gold: #c8960c;
+      --gold-light: #f0c040;
+      --green: #1a6b3a;
+      --green-light: #2d9e5c;
+      --red: #b22222;
+      --white: #ffffff;
+      --gray-light: #f4f6f9;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito', sans-serif; background: var(--gray-light); color: #222; }
+    .magazine-title, .article-title, h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d2d60 60%, #1a3a7a 100%);
+      color: white; position: relative; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    header::before {
+      content: ''; position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(ellipse at center, rgba(200,150,12,0.08) 0%, transparent 60%);
+      animation: headerShimmer 12s linear infinite;
+    }
+    @keyframes headerShimmer {
+      0% { transform: translateX(-10%) translateY(-10%); }
+      100% { transform: translateX(10%) translateY(10%); }
+    }
+    .header-inner { position: relative; z-index: 2; padding: 20px 32px 0; }
+    .header-top { display: flex; align-items: center; gap: 20px; margin-bottom: 16px; }
+
+    /* LOGO */
+    .logo-circle {
+      width: 90px; height: 90px; border-radius: 50%;
+      border: 3px solid var(--gold);
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; cursor: pointer; transition: all 0.3s; position: relative; flex-shrink: 0;
+    }
+    .logo-circle:hover { border-color: var(--gold-light); background: rgba(255,255,255,0.15); }
+    .logo-circle:hover .logo-hint { opacity: 1; }
+    .logo-hint {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.7); color: white;
+      font-size: 9px; text-align: center; padding: 4px; opacity: 0; transition: opacity 0.3s;
+    }
+    #logo-img { width: 100%; height: 100%; object-fit: cover; display: none; border-radius: 50%; }
+    #logo-input { display: none; }
+
+    .school-name-block h1 {
+      font-size: clamp(1.3rem, 3vw, 2.3rem); font-weight: 900; color: white;
+      line-height: 1.1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .school-name-block h1 span { color: var(--gold-light); }
+    .school-tagline { color: rgba(255,255,255,0.75); font-size: 0.85rem; margin-top: 4px; letter-spacing: 0.05em; }
+    .kenya-badge {
+      background: linear-gradient(135deg, var(--red), #8b0000); color: white;
+      padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; display: inline-block; margin-top: 6px;
+    }
+
+    /* NAV */
+    nav { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 8px; }
+    nav ul { display: flex; flex-wrap: wrap; list-style: none; gap: 2px; padding: 6px 0; justify-content: flex-start; }
+    nav ul li button {
+      background: none; border: none; color: rgba(255,255,255,0.8);
+      padding: 9px 16px; border-radius: 6px 6px 0 0; cursor: pointer;
+      font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 700; transition: all 0.25s; letter-spacing: 0.01em;
+    }
+    nav ul li button:hover { background: rgba(255,255,255,0.12); color: white; }
+    nav ul li button.active { background: var(--gold); color: var(--navy); font-weight: 800; }
+
+    /* HERO */
+    .hero-banner { position: relative; height: 340px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: linear-gradient(160deg, #0a1228 0%, #0d2d60 45%, #1a5a8a 75%, #c87030 100%); }
+    .hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; }
+    .hero-content { position: relative; z-index: 3; text-align: center; color: white; padding: 20px; }
+    .hero-content h2 { font-size: clamp(1.5rem, 4vw, 2.8rem); font-weight: 900; color: white; text-shadow: 0 3px 15px rgba(0,0,0,0.5); margin-bottom: 10px; }
+    .hero-content p { font-size: 1.1rem; color: rgba(255,255,255,0.9); text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+    .hero-scroll { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); z-index: 4; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-8px)} }
+    .hero-scroll svg { width: 28px; height: 28px; opacity: 0.7; }
+
+    /* PAGE BANNER */
+    .page-banner { height: 180px; position: relative; overflow: hidden; display: flex; align-items: center; padding: 0 32px; background: linear-gradient(135deg, #0a1f44, #1a3a7a); }
+    .page-banner canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; }
+    .page-banner-content { position: relative; z-index: 2; color: white; }
+    .page-banner-content h1 { font-size: 2.2rem; font-weight: 900; text-shadow: 0 2px 10px rgba(0,0,0,0.4); color: white; }
+    .page-banner-content p { color: rgba(255,255,255,0.85); margin-top: 6px; }
+
+    /* STATS */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 16px; padding: 24px 32px; }
+    .stat-card { background: white; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.07); border-top: 4px solid var(--gold); transition: transform 0.3s,box-shadow 0.3s; }
+    .stat-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+    .stat-number { font-size: 2rem; font-weight: 800; color: var(--navy); font-family: 'Playfair Display',serif; }
+    .stat-label { color: #666; font-size: 0.8rem; margin-top: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* FEATURED */
+    .featured-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 24px; padding: 0 32px 32px; }
+    .featured-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s,box-shadow 0.3s; display: flex; flex-direction: column; }
+    .featured-card:hover { transform: translateY(-6px); box-shadow: 0 12px 35px rgba(0,0,0,0.14); }
+    .fc-img { height: 200px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .fc-img canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    .fc-img-label { position: relative; z-index: 2; background: rgba(0,0,0,0.35); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .fc-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .fc-tag { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
+    .fc-title { font-size: 1.2rem; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 8px; }
+    .fc-meta { font-size: 0.78rem; color: #888; margin-bottom: 10px; }
+    .fc-text { color: #555; font-size: 0.9rem; line-height: 1.6; flex: 1; }
+    .rm-btn { display: inline-block; margin-top: 16px; background: var(--navy); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; border: none; cursor: pointer; transition: background 0.25s; }
+    .rm-btn:hover { background: var(--gold); color: var(--navy); }
+
+    /* SECTION HEADING */
+    .sec-head { padding: 24px 32px 8px; display: flex; align-items: center; gap: 12px; }
+    .sec-head h2 { font-size: 1.6rem; color: var(--navy); }
+    .sec-head::after { content: ''; flex: 1; height: 2px; background: linear-gradient(to right,var(--gold),transparent); }
+
+    /* ARTICLE GRID */
+    .article-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap: 20px; padding: 0 32px 32px; }
+    .article-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,0.07); transition: transform 0.3s,box-shadow 0.3s; }
+    .article-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .ac-img { height: 160px; position: relative; overflow: hidden; }
+    .ac-img canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    .ac-body { padding: 16px; }
+    .ac-tag { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
+    .ac-title { font-size: 1rem; font-weight: 700; color: var(--navy); margin: 4px 0; line-height: 1.3; }
+    .ac-text { font-size: 0.82rem; color: #666; line-height: 1.5; }
+    .ac-link { font-size: 0.8rem; font-weight: 700; color: var(--green); cursor: pointer; background: none; border: none; margin-top: 8px; display: block; }
+    .ac-link:hover { color: var(--navy); }
+
+    /* POLL */
+    .poll-section { margin: 0 32px 32px; background: white; border-radius: 16px; padding: 28px; box-shadow: 0 4px 15px rgba(0,0,0,0.07); border-left: 5px solid var(--green); }
+    .poll-opt { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .poll-opt input { accent-color: var(--green); width: 18px; height: 18px; }
+    .poll-opt label { font-weight: 600; cursor: pointer; }
+    .vote-btn { background: var(--green); color: white; border: none; padding: 10px 24px; border-radius: 25px; font-weight: 700; cursor: pointer; margin-top: 8px; transition: background 0.25s; font-family: 'Nunito',sans-serif; }
+    .vote-btn:hover { background: var(--navy); }
+    .bar-row { margin-bottom: 10px; }
+    .bar-label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px; font-weight: 600; }
+    .bar-track { background: #eee; border-radius: 10px; height: 10px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 10px; background: linear-gradient(to right,var(--green),var(--green-light)); }
+
+    /* CONTENT */
+    .cwrap { max-width: 1200px; margin: 0 auto; padding: 32px; }
+    .card { background: white; border-radius: 14px; box-shadow: 0 3px 14px rgba(0,0,0,0.07); padding: 28px; margin-bottom: 24px; }
+    .card h2 { color: var(--navy); margin-bottom: 14px; font-size: 1.5rem; }
+    .card p { color: #555; line-height: 1.7; margin-bottom: 10px; }
+    .card ul { color: #555; line-height: 2; padding-left: 20px; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+    @media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+    .admin-card { background: linear-gradient(160deg,var(--navy) 0%,#1a3a7a 100%); color: white; border-radius: 14px; padding: 24px; box-shadow: 0 6px 20px rgba(10,31,68,0.25); margin-bottom: 20px; }
+    .admin-card h2 { color: var(--gold-light); margin-bottom: 16px; font-size: 1.2rem; }
+    .admin-item { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .admin-item:last-child { border-bottom: none; }
+    .admin-av { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; flex-shrink: 0; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; transition: border-color 0.3s; position: relative; }
+    .admin-av:hover { border-color: var(--gold-light); }
+    .admin-av img { width: 100%; height: 100%; object-fit: cover; display: none; border-radius: 50%; }
+    .admin-av input { display: none; }
+    .admin-name { font-weight: 700; font-size: 0.95rem; color: white; }
+    .admin-role { font-size: 0.75rem; color: var(--gold-light); margin-top: 2px; }
+    .qfacts li { display: flex; align-items: center; gap: 8px; padding: 6px 0; color: #555; font-size: 0.88rem; border-bottom: 1px dashed #eee; list-style: none; }
+    .qfacts li:last-child { border-bottom: none; }
+
+    /* STAFF */
+    .staff-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 20px; }
+    .staff-card { background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: center; transition: transform 0.3s,box-shadow 0.3s; }
+    .staff-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(0,0,0,0.13); }
+    .staff-photo { height: 160px; background: linear-gradient(135deg,#dde8f8,#c8daf0); position: relative; display: flex; align-items: center; justify-content: center; cursor: pointer; overflow: hidden; }
+    .staff-photo:hover .upload-ov { opacity: 1; }
+    .upload-ov { position: absolute; inset: 0; background: rgba(10,31,68,0.65); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; color: white; font-size: 0.8rem; font-weight: 700; flex-direction: column; gap: 6px; }
+    .staff-photo img { width: 100%; height: 100%; object-fit: cover; display: none; }
+    .staff-photo input { display: none; }
+    .initials { width: 72px; height: 72px; border-radius: 50%; background: var(--navy); color: var(--gold-light); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; font-weight: 700; font-family: 'Playfair Display',serif; }
+    .staff-info { padding: 14px; }
+    .staff-name { font-weight: 700; color: var(--navy); font-size: 0.95rem; }
+    .staff-role { color: var(--green); font-size: 0.78rem; font-weight: 600; margin-top: 3px; }
+    .staff-dept { color: #888; font-size: 0.72rem; margin-top: 2px; }
+
+    /* SPORTS */
+    .sports-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 20px; margin-bottom: 32px; }
+    .score-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,0.07); }
+    .score-hdr { background: var(--navy); color: white; padding: 10px 16px; font-weight: 700; font-size: 0.9rem; }
+    .score-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-bottom: 1px solid #f0f0f0; font-size: 0.88rem; }
+    .score-row:last-child { border-bottom: none; }
+    .score-win { font-weight: 800; color: var(--green); }
+    .spotlight { background: white; border-radius: 16px; padding: 28px; display: flex; gap: 24px; align-items: flex-start; box-shadow: 0 4px 16px rgba(0,0,0,0.08); margin-bottom: 32px; }
+    .spot-photo { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--gold); flex-shrink: 0; overflow: hidden; background: linear-gradient(135deg,#dde8f8,#b8cef0); display: flex; align-items: center; justify-content: center; }
+
+    /* ARTS */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); gap: 16px; margin-bottom: 32px; }
+    .gallery-item { border-radius: 12px; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,0.08); background: white; transition: transform 0.3s; }
+    .gallery-item:hover { transform: scale(1.03); }
+    .gallery-canvas { width: 100%; height: 180px; display: block; }
+    .gallery-info { padding: 12px; }
+    .gallery-title { font-weight: 700; color: var(--navy); font-size: 0.9rem; }
+    .gallery-by { color: #888; font-size: 0.75rem; margin-top: 2px; }
+
+    /* EVENTS */
+    .events-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap: 20px; }
+    .event-card { background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.08); transition: transform 0.3s; }
+    .event-card:hover { transform: translateY(-4px); }
+    .event-date { padding: 16px 20px 12px; background: var(--navy); color: white; }
+    .event-day { font-size: 2.2rem; font-weight: 900; font-family: 'Playfair Display',serif; color: var(--gold-light); line-height: 1; }
+    .event-month { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); }
+    .event-body { padding: 16px 20px; }
+    .event-title { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .event-detail { font-size: 0.82rem; color: #666; line-height: 1.6; }
+    .event-tag { display: inline-block; background: #e8f5e9; color: var(--green); padding: 2px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; margin-top: 8px; }
+
+    /* NEWS */
+    .news-main { display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+    @media(max-width:900px){.news-main{grid-template-columns:1fr}}
+    .news-sidebar { background: linear-gradient(160deg,var(--navy),#1a3a7a); color: white; border-radius: 14px; padding: 22px; margin-bottom: 20px; }
+    .news-sidebar h3 { color: var(--gold-light); margin-bottom: 14px; font-size: 1.1rem; }
+    .se-item { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .se-item:last-child { border-bottom: none; }
+    .se-date { font-weight: 800; color: var(--gold-light); font-size: 0.85rem; }
+    .se-title { font-size: 0.9rem; color: white; }
+    .se-loc { font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
+    .ci-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+    .ci-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--navy); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
+    .fg { margin-bottom: 16px; }
+    .fg label { display: block; font-weight: 700; font-size: 0.85rem; color: var(--navy); margin-bottom: 6px; }
+    .fg input,.fg select,.fg textarea { width: 100%; padding: 10px 14px; border: 2px solid #e0e0e0; border-radius: 8px; font-family: 'Nunito',sans-serif; font-size: 0.9rem; transition: border-color 0.25s; outline: none; }
+    .fg input:focus,.fg select:focus,.fg textarea:focus { border-color: var(--navy); }
+    .fg textarea { height: 120px; resize: vertical; }
+    .sub-btn { width: 100%; background: var(--navy); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: background 0.25s; font-family: 'Nunito',sans-serif; }
+    .sub-btn:hover { background: var(--gold); color: var(--navy); }
+
+    /* DEPT */
+    .dept-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: 16px; }
+    .dept-card { border-left: 4px solid; padding: 16px; border-radius: 0 12px 12px 0; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .dept-card h3 { color: var(--navy); font-size: 1rem; margin-bottom: 6px; }
+    .dept-card p { color: #666; font-size: 0.82rem; line-height: 1.5; }
+
+    /* FADE */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s,transform 0.6s; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* MODAL */
+    .modal-ov { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+    .modal-ov.open { display: flex; }
+    .modal-box { background: white; border-radius: 16px; max-width: 700px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 32px; position: relative; }
+    .modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #888; line-height: 1; }
+    .modal-close:hover { color: var(--red); }
+    .modal-box h2 { color: var(--navy); font-size: 1.6rem; margin-bottom: 6px; }
+    .modal-box .meta { color: #999; font-size: 0.85rem; margin-bottom: 16px; }
+    .modal-box p { color: #444; line-height: 1.8; margin-bottom: 12px; }
+
+    /* FOOTER */
+    footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 32px; margin-top: 40px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+    .footer-col h4 { color: var(--gold-light); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+    .footer-col p,.footer-col li { font-size: 0.82rem; line-height: 1.8; list-style: none; }
+    .footer-bottom { text-align: center; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.78rem; color: rgba(255,255,255,0.45); max-width: 1200px; margin-left: auto; margin-right: auto; }
+
+    @media(max-width:600px){
+      .header-inner{padding:16px}
+      .stats-grid,.featured-grid,.article-grid{padding:0 16px 24px}
+      .sec-head{padding:20px 16px 8px}
+      .cwrap{padding:16px}
+      .poll-section{margin:0 16px 24px}
+      .hero-banner{height:240px}
+      .spotlight{flex-direction:column;align-items:center;text-align:center}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="logo-circle" onclick="document.getElementById('logo-input').click()">
+        <svg id="logo-svg" width="60" height="60" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="36" stroke="#c8960c" stroke-width="3" fill="rgba(255,255,255,0.05)"/>
+          <text x="40" y="32" font-size="10" fill="#f0c040" text-anchor="middle" font-family="serif" font-weight="700">ST</text>
+          <text x="40" y="44" font-size="7" fill="#c8960c" text-anchor="middle" font-family="sans-serif">THOMAS</text>
+          <text x="40" y="54" font-size="6" fill="rgba(255,255,255,0.6)" text-anchor="middle" font-family="sans-serif">KAVINGONI</text>
+          <line x1="20" y1="58" x2="60" y2="58" stroke="#c8960c" stroke-width="1"/>
+        </svg>
+        <img id="logo-img" alt="School Logo"/>
+      </div>
+      <div class="school-name-block">
+        <h1>ST THOMAS <span>KAVINGONI</span> SENIOR SCHOOL</h1>
+        <p class="school-tagline">Education for a Better Life</p>
+        <span class="kenya-badge">KATHONZWENI, MAKUENI — KENYA</span>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><button class="active" onclick="changePage('home',this)">Home</button></li>
+        
+        <li><button onclick="changePage('staff',this)">Staff</button></li>
+        <li><button onclick="changePage('academics',this)">Academics</button></li>
+        <li><button onclick="changePage('news',this)">News</button></li>
+        <li><button onclick="changePage('sports',this)">Sports</button></li>
+        <li><button onclick="changePage('arts',this)">Arts</button></li>
+        <li><button onclick="changePage('events',this)">Events</button></li>
+        <li><button onclick="changePage('contact',this)">Contact</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="hero-banner">
+    <canvas id="hero-canvas" class="hero-canvas"></canvas>
+    <div class="hero-content">
+      <h2>Welcome to St Thomas Kavingoni</h2>
+      <p>Nurturing excellence in the heart of Makueni County</p>
+    </div>
+    <div class="hero-scroll">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </div>
+
+  <!-- STATS AS TAB-STYLE COLOURED BLOCKS -->
+  <div style="display:flex;flex-wrap:wrap;gap:0;margin-bottom:0;" class="fade-in">
+    <div style="flex:1;min-width:120px;background:#0a1f44;padding:20px;text-align:center;border-right:2px solid rgba(255,255,255,0.1)">
+      <div style="font-size:2rem;font-weight:900;color:#f0c040;font-family:'Playfair Display',serif">600+</div>
+      <div style="color:rgba(255,255,255,0.85);font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:4px">Students</div>
+    </div>
+    <div style="flex:1;min-width:120px;background:#1a6b3a;padding:20px;text-align:center;border-right:2px solid rgba(255,255,255,0.1)">
+      <div style="font-size:2rem;font-weight:900;color:#a8f0c0;font-family:'Playfair Display',serif">10+</div>
+      <div style="color:rgba(255,255,255,0.85);font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:4px">Departments</div>
+    </div>
+    <div style="flex:1;min-width:120px;background:#b22222;padding:20px;text-align:center;border-right:2px solid rgba(255,255,255,0.1)">
+      <div style="font-size:2rem;font-weight:900;color:#ffc0c0;font-family:'Playfair Display',serif">6.5</div>
+      <div style="color:rgba(255,255,255,0.85);font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:4px">Mean Grade 2025</div>
+    </div>
+    <div style="flex:1;min-width:120px;background:#c8960c;padding:20px;text-align:center;border-right:2px solid rgba(255,255,255,0.1)">
+      <div style="font-size:2rem;font-weight:900;color:#fff3b0;font-family:'Playfair Display',serif">7.0</div>
+      <div style="color:rgba(255,255,255,0.85);font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:4px">Target 2026</div>
+    </div>
+    <div style="flex:1;min-width:120px;background:#4a0a7a;padding:20px;text-align:center">
+      <div style="font-size:2rem;font-weight:900;color:#d9b3ff;font-family:'Playfair Display',serif">10+</div>
+      <div style="color:rgba(255,255,255,0.85);font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:4px">Clubs & Activities</div>
+    </div>
+  </div>
+
+  <!-- ABOUT CONTENT -->
+  <div class="cwrap" style="padding-top:28px">
+
+    <!-- MOTTO / VISION / MISSION / SLOGAN -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:28px" class="fade-in">
+      <div style="background:linear-gradient(160deg,#0a1f44,#1a3a7a);border-radius:16px;padding:28px 22px;text-align:center;box-shadow:0 6px 24px rgba(10,31,68,0.18);display:flex;flex-direction:column;align-items:center;gap:10px">
+        <div style="font-size:0.7rem;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light)">MOTTO</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:white;line-height:1.3">Education for a Better Life</div>
+      </div>
+      <div style="background:linear-gradient(160deg,#1a6b3a,#0a4a28);border-radius:16px;padding:28px 22px;text-align:center;box-shadow:0 6px 24px rgba(26,107,58,0.18);display:flex;flex-direction:column;align-items:center;gap:10px">
+        <div style="font-size:0.7rem;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:#a8f0c0">VISION</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:white;line-height:1.4">To produce highly disciplined and responsible citizens to meet world challenges</div>
+      </div>
+      <div style="background:linear-gradient(160deg,#b22222,#7a0a0a);border-radius:16px;padding:28px 22px;text-align:center;box-shadow:0 6px 24px rgba(178,34,34,0.18);display:flex;flex-direction:column;align-items:center;gap:10px">
+        <div style="font-size:0.7rem;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:#ffc0c0">MISSION</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:white;line-height:1.4">Committed to instill discipline and knowledge</div>
+      </div>
+      <div style="background:linear-gradient(160deg,#c8960c,#8a6000);border-radius:16px;padding:28px 22px;text-align:center;box-shadow:0 6px 24px rgba(200,150,12,0.18);display:flex;flex-direction:column;align-items:center;gap:10px">
+        <div style="font-size:0.7rem;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:#fff3b0">SCHOOL SLOGAN</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:white;line-height:1.3;font-style:italic">"Talk Less... Do More"</div>
+      </div>
+    </div>
+
+    <!-- CORE VALUES -->
+    <div class="card fade-in" style="margin-bottom:28px">
+      <h2 style="color:var(--navy);margin-bottom:16px">Core Values</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px">
+        <div style="display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#0a1f44,#1a3a7a);padding:12px 16px;border-radius:10px"><span style="width:10px;height:10px;background:var(--red);border-radius:50%;flex-shrink:0"></span><span style="color:white;font-weight:800;font-size:0.9rem;letter-spacing:0.05em">COMMITMENT</span></div>
+        <div style="display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#1a6b3a,#0a4a28);padding:12px 16px;border-radius:10px"><span style="width:10px;height:10px;background:var(--gold);border-radius:50%;flex-shrink:0"></span><span style="color:white;font-weight:800;font-size:0.9rem;letter-spacing:0.05em">INTEGRITY</span></div>
+        <div style="display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#b22222,#7a0a0a);padding:12px 16px;border-radius:10px"><span style="width:10px;height:10px;background:white;border-radius:50%;flex-shrink:0"></span><span style="color:white;font-weight:800;font-size:0.9rem;letter-spacing:0.05em">HONESTY</span></div>
+        <div style="display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#c8960c,#8a6000);padding:12px 16px;border-radius:10px"><span style="width:10px;height:10px;background:white;border-radius:50%;flex-shrink:0"></span><span style="color:white;font-weight:800;font-size:0.9rem;letter-spacing:0.05em">RESPECT</span></div>
+        <div style="display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#0a1f44,#1a3a7a);padding:12px 16px;border-radius:10px"><span style="width:10px;height:10px;background:var(--gold);border-radius:50%;flex-shrink:0"></span><span style="color:white;font-weight:800;font-size:0.9rem;letter-spacing:0.05em">COURTESY</span></div>
+        <div style="display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#1a6b3a,#0a4a28);padding:12px 16px;border-radius:10px"><span style="width:10px;height:10px;background:var(--red);border-radius:50%;flex-shrink:0"></span><span style="color:white;font-weight:800;font-size:0.9rem;letter-spacing:0.05em">TEAM WORK</span></div>
+        <div style="display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#b22222,#7a0a0a);padding:12px 16px;border-radius:10px"><span style="width:10px;height:10px;background:var(--gold);border-radius:50%;flex-shrink:0"></span><span style="color:white;font-weight:800;font-size:0.9rem;letter-spacing:0.05em">CONSISTENCY</span></div>
+        <div style="display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#c8960c,#8a6000);padding:10px 16px;border-radius:10px"><span style="width:10px;height:10px;background:white;border-radius:50%;flex-shrink:0"></span><span style="color:white;font-weight:800;font-size:0.9rem;letter-spacing:0.05em">ACCOUNTABILITY</span></div>
+      </div>
+    </div>
+
+    <!-- HISTORY, SCHOOL LIFE, ADMINISTRATION -->
+    <div class="about-grid fade-in" style="margin-bottom:28px">
+      <div>
+        <div class="card" style="margin-bottom:20px"><h2>History</h2><p>Located in Kathonzweni, Makueni County, St Thomas Kavingoni Senior School has grown to become one of the most respected educational institutions in the region. With over 600 students, the school offers a rich environment of learning, discipline, and opportunity.</p><p style="margin-top:8px">Our alumni network includes professionals, civil servants, entrepreneurs and community leaders who continue to make Makueni and Kenya proud.</p></div>
+        <div class="card"><h2>School Life</h2><p>Students enjoy a wide range of co-curricular activities including sports, drama, music, debate, and community service clubs. The school provides a safe, structured environment with academic support programs, remedial classes, and experienced teacher mentorship.</p></div>
+      </div>
+      <div>
+        <div class="admin-card">
+          <h2>Administration</h2>
+          <div class="admin-item"><div class="admin-av"><span id="adm-e0">👨‍💼</span><img id="adm-i0" alt=""></div><div><div class="admin-name">Mr. Nicholas Muange</div><div class="admin-role">Principal</div></div></div>
+          <div class="admin-item"><div class="admin-av"><span id="adm-e1">👨‍💼</span><img id="adm-i1" alt=""></div><div><div class="admin-name">Mr. Abednego Mainga</div><div class="admin-role">Deputy School Principal</div></div></div>
+          <div class="admin-item"><div class="admin-av"><span id="adm-e2">👨‍🏫</span><img id="adm-i2" alt=""></div><div><div class="admin-name">Mr. Johnstone Kithuka</div><div class="admin-role">Senior Teacher</div></div></div>
+          <div class="admin-item"><div class="admin-av"><span id="adm-e3">👨‍🏫</span><img id="adm-i3" alt=""></div><div><div class="admin-name">Mr. Daniel Nzioki</div><div class="admin-role">Dean of Studies</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURED STORIES -->
+    <div class="sec-head fade-in"><h2>Featured Stories</h2></div>
+    <div class="featured-grid fade-in">
+      <div class="featured-card">
+        <div class="fc-img" style="background:#e8edf5;position:relative;overflow:hidden">
+          <img src="" id="fimg1" alt="Easter Holiday" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.style.display='none'" onload="this.style.display='block'">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a1f44,#1a3a7a)">
+            <span style="font-size:2.5rem">📢</span>
+            <span style="color:rgba(255,255,255,0.6);font-size:0.75rem;margin-top:6px">HOLIDAY NOTICE</span>
+          </div>
+        </div>
+        <div class="fc-body">
+          <div class="fc-tag">Announcement</div>
+          <div class="fc-title">Easter Holiday Break — Assignments Ongoing</div>
+          <div class="fc-meta">By Mr. Nzioki D.K • April 1, 2026</div>
+          <div class="fc-text">Parents are encouraged to oversee holiday assignments and personal revision ahead of the opener exam on Wednesday 29th. Happy Easter!</div>
+          <button class="rm-btn" onclick="openModal('easter')">Read More</button>
+        </div>
+      </div>
+      <div class="featured-card">
+        <div class="fc-img" style="position:relative;overflow:hidden">
+          <img src="https://imgur.com/Un3q5RY" id="fimg2" alt="Sports Glory" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.style.display='none'" onload="this.style.display='block'">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a6b3a,#0a4a28)">
+            <span style="font-size:2.5rem">🏆</span>
+            <span style="color:rgba(255,255,255,0.6);font-size:0.75rem;margin-top:6px">SPORTS GLORY</span>
+          </div>
+        </div>
+        <div class="fc-body">
+          <div class="fc-tag">Sports Achievement</div>
+          <div class="fc-title">Peter Laun Advances to Nationals in Kisumu!</div>
+          <div class="fc-meta">By Mr. Musila O.M • April 6, 2026</div>
+          <div class="fc-text">Peter Laun, Form 4B, is representing our school at the national games in Kisumu, competing in triple jump and high jump. Go Laun!</div>
+          <button class="rm-btn" onclick="openModal('laun')">Read More</button>
+        </div>
+      </div>
+      <div class="featured-card">
+        <div class="fc-img" style="position:relative;overflow:hidden">
+          <img src="" id="fimg3" alt="KCSE 2025" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.style.display='none'" onload="this.style.display='block'">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#b22222,#7a0a0a)">
+            <span style="font-size:2.5rem">🎓</span>
+            <span style="color:rgba(255,255,255,0.6);font-size:0.75rem;margin-top:6px">KCSE 2025</span>
+          </div>
+        </div>
+        <div class="fc-body">
+          <div class="fc-tag">Academics</div>
+          <div class="fc-title">KCSE 2025: School Posts Mean Grade of 6.5</div>
+          <div class="fc-meta">By DOS • February 2026</div>
+          <div class="fc-text">St Thomas Kavingoni achieved a school mean of 6.5 in KCSE 2025, with several students scoring B+ and above. Target: 7.0 in 2026.</div>
+          <button class="rm-btn" onclick="openModal('kcse')">Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LATEST ARTICLES -->
+    <div class="sec-head fade-in"><h2>Latest Articles</h2></div>
+    <div class="article-grid fade-in">
+      <div class="article-card">
+        <div class="ac-img" style="position:relative;overflow:hidden;background:#e8edf5">
+          <img src="" alt="Science Lab" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a1f44,#1a3a7a)"><span style="font-size:2rem">🔬</span></div>
+        </div>
+        <div class="ac-body">
+          <div class="ac-tag">Sciences</div>
+          <div class="ac-title">New Science Laboratory Equipped</div>
+          <div class="ac-text">The school's science lab has been upgraded to enhance KCSE preparation in Biology, Chemistry and Physics...</div>
+          <button class="ac-link" onclick="openModal('sciencelab')">Continue Reading →</button>
+        </div>
+      </div>
+      <div class="article-card">
+        <div class="ac-img" style="position:relative;overflow:hidden;background:#e8edf5">
+          <img src="" alt="Drama" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#4a0a7a,#2d0a4a)"><span style="font-size:2rem">🎭</span></div>
+        </div>
+        <div class="ac-body">
+          <div class="ac-tag">Arts & Culture</div>
+          <div class="ac-title">Drama Club Shines at County Festival</div>
+          <div class="ac-text">Our drama club brought home silver at the Makueni County Drama Festival with their Kiswahili play performance...</div>
+          <button class="ac-link" onclick="openModal('drama')">Continue Reading →</button>
+        </div>
+      </div>
+      <div class="article-card">
+        <div class="ac-img" style="position:relative;overflow:hidden;background:#e8edf5">
+          <img src="" alt="Prize Giving" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#c8960c,#8a6000)"><span style="font-size:2rem">🏅</span></div>
+        </div>
+        <div class="ac-body">
+          <div class="ac-tag">Events</div>
+          <div class="ac-title">Prize Giving Day — Term 2, 2026</div>
+          <div class="ac-text">Parents and guardians are invited to the school's annual Prize Giving Day to celebrate academic and co-curricular excellence...</div>
+          <button class="ac-link" onclick="openModal('prize')">Continue Reading →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUICK FACTS + STUDENT POLL -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px" class="fade-in">
+      <div class="card"><h2>Quick Facts</h2>
+        <ul class="qfacts">
+          <li><span style="color:var(--green);font-weight:800;">✓</span> KCSE &amp; CBC Aligned Curriculum</li>
+          <li><span style="color:var(--green);font-weight:800;">✓</span> Boarding &amp; Day School</li>
+          <li><span style="color:var(--green);font-weight:800;">✓</span> County Games Participants</li>
+          <li><span style="color:var(--green);font-weight:800;">✓</span> Drama &amp; Music Festivals</li>
+          <li><span style="color:var(--green);font-weight:800;">✓</span> Science Congress Participants</li>
+          <li><span style="color:var(--green);font-weight:800;">✓</span> Clubs &amp; Student Governance</li>
+          <li><span style="color:var(--green);font-weight:800;">✓</span> P.O. BOX 73-90302, Kathonzweni</li>
+        </ul>
+      </div>
+      <div class="poll-section">
+        <p style="font-weight:700;color:var(--navy);margin-bottom:14px;">What should we improve most at St Thomas Kavingoni?</p>
+        <div id="poll-opts">
+          <div class="poll-opt"><input type="radio" id="p1" name="poll" value="labs"><label for="p1">Science &amp; Computer Labs</label></div>
+          <div class="poll-opt"><input type="radio" id="p2" name="poll" value="lib"><label for="p2">Library &amp; Study Resources</label></div>
+          <div class="poll-opt"><input type="radio" id="p3" name="poll" value="sports"><label for="p3">Sports Facilities</label></div>
+          <div class="poll-opt"><input type="radio" id="p4" name="poll" value="transport"><label for="p4">Student Transport</label></div>
+        </div>
+        <button class="vote-btn" onclick="castVote()">Cast Vote</button>
+        <div id="poll-results" style="display:none;margin-top:20px;">
+          <p style="font-weight:700;margin-bottom:12px;color:var(--navy);">Current Results:</p>
+          <div class="bar-row"><div class="bar-label"><span>Science &amp; Computer Labs</span><span>40%</span></div><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div></div>
+          <div class="bar-row"><div class="bar-label"><span>Library &amp; Study Resources</span><span>30%</span></div><div class="bar-track"><div class="bar-fill" style="width:30%"></div></div></div>
+          <div class="bar-row"><div class="bar-label"><span>Sports Facilities</span><span>20%</span></div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div></div>
+          <div class="bar-row"><div class="bar-label"><span>Student Transport</span><span>10%</span></div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div></div>
+          <p style="margin-top:12px;font-size:0.82rem;color:#888;">Thank you! Total votes: <strong>247</strong></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ACADEMICS -->
+<div id="academics" class="page">
+  <div class="page-banner"><canvas id="acad-c"></canvas>
+    <div class="page-banner-content"><h1>Academics</h1><p>KCSE-focused curriculum preparing students for national excellence</p></div>
+  </div>
+  <div class="cwrap">
+    <div class="card" style="background:linear-gradient(135deg,#fff8e1,#fffde7);border-left:4px solid var(--gold);margin-bottom:24px">
+      <h2 style="color:var(--navy)">📢 Academic Updates — Term 2, 2026</h2>
+      <div style="margin-top:14px;display:grid;gap:14px">
+        <div style="background:white;padding:14px 18px;border-radius:10px;border-left:3px solid var(--red)">
+          <div style="font-weight:800;color:var(--red);font-size:0.82rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px">🔴 Term 2 Opener Exams</div>
+          <p style="color:#444;font-size:0.9rem;line-height:1.7">The <strong>Opener Examinations</strong> have just concluded. Papers are currently being marked by subject teachers. Results will be communicated to students and parents as soon as marking is complete. Form 4 students are encouraged to remain focused and continue with personal revision as they await their results.</p>
+        </div>
+        <div style="background:white;padding:14px 18px;border-radius:10px;border-left:3px solid var(--green)">
+          <div style="font-weight:800;color:var(--green);font-size:0.82rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px">🟢 Academic Family Meetings — Term 2</div>
+          <p style="color:#444;font-size:0.9rem;line-height:1.7">Academic and family meetings are scheduled to be <strong>very strong this Term 2</strong>.Academic Parents are strongly encouraged to make themselves available and attend all scheduled meetings.your child's academic progress depends on this partnership.</p>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;">
+      <div class="card"><h2>KCSE Curriculum</h2><p>Aligned with KNEC requirements, covering all compulsory and optional subjects for maximum KCSE performance.</p><ul><li>• English Language &amp; Literature</li><li>• Kiswahili</li><li>• Mathematics</li><li>• Biology, Chemistry, Physics</li><li>• History &amp; Government</li><li>• Geography</li><li>• Christian Religious Education</li><li>• Business Studies</li><li>• Agriculture</li><li>• Computer Studies</li></ul></div>
+      <div class="card"><h2>Academic Support</h2><p>We go beyond the classroom to ensure every student achieves their KCSE potential.</p><ul><li>• Remedial &amp; Catch-up Classes</li><li>• Morning and Evening Preps</li><li>• Peer Tutoring Groups</li><li>• Mock Examinations — 3 times per year</li><li>• KNEC Past Papers Practice</li><li>• University &amp; Career Guidance</li><li>• Mentorship from Alumni</li></ul></div>
+    </div>
+    <div class="card"><h2>Department Highlights</h2>
+      <div class="dept-grid">
+        <div class="dept-card" style="border-color:var(--navy)"><h3>Sciences</h3><p>Well-equipped labs for practical Biology, Chemistry, and Physics. Students regularly excel at county science fairs.</p></div>
+        <div class="dept-card" style="border-color:var(--green)"><h3>Humanities &amp; Languages</h3><p>Strong Kiswahili, History, and Geography departments with a focus on analytical writing and critical thinking.</p></div>
+        <div class="dept-card" style="border-color:var(--gold)"><h3>Mathematics</h3><p>Dedicated maths teachers offering additional help sessions, targeting improvement in the county mean score.</p></div>
+        <div class="dept-card" style="border-color:var(--red)"><h3>Agriculture &amp; Business</h3><p>Practical-oriented subjects with a school farm for hands-on agricultural learning aligned with the Kenyan curriculum.</p></div>
+      </div>
+    </div>
+    <div class="card" style="background:linear-gradient(135deg,#e8f5e9,#f1f8e9)"><h2>KCSE Target 2026</h2><p>Building on our 2025 mean of <strong>6.5</strong>, St Thomas Kavingoni is targeting a school mean of <strong>7.0</strong> in KCSE 2026.</p>
+      <div style="display:flex;gap:16px;margin-top:16px;flex-wrap:wrap;">
+        <div style="background:white;padding:14px 22px;border-radius:10px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.07)"><div style="font-size:1.8rem;font-weight:900;color:var(--navy);font-family:'Playfair Display',serif">6.5</div><div style="font-size:0.75rem;color:#888;font-weight:700">2025 Achieved</div></div>
+        <div style="background:white;padding:14px 22px;border-radius:10px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.07)"><div style="font-size:1.8rem;font-weight:900;color:var(--green);font-family:'Playfair Display',serif">7.0</div><div style="font-size:0.75rem;color:#888;font-weight:700">2026 Target</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWS -->
+<div id="news" class="page">
+  <div class="page-banner"><canvas id="news-c"></canvas>
+    <div class="page-banner-content"><h1>School News</h1><p>Latest updates from St Thomas Kavingoni</p></div>
+  </div>
+  <div class="cwrap">
+    <div class="news-main">
+      <div>
+        <div class="card" style="border-left:4px solid var(--gold);background:linear-gradient(135deg,#fffde7,#fff)">
+          <div style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:6px">🔥 Breaking News</div>
+          <h2>Principal Launches 3rd Edition of Form 4 Mathematics Kesha</h2>
+          <p style="color:#999;font-size:0.82rem;margin-bottom:14px;">By Mathematics Department • May 2, 2026</p>
+          <p>Principal Mr. Nicholas Muange has officially launched the <strong>3rd Edition of the Form 4 Mathematics Kesha</strong> programme, which kicked off yesterday with tremendous energy and a very high note. The launch was met with enthusiasm from both students and teachers, signalling the school's renewed commitment to improving Mathematics performance in the 2026 KCSE.</p>
+          <p style="margin-top:10px">The programme brings together targeted revision, intensive practice with past KNEC papers, and one-on-one support for students who need it most. Mr. Muange challenged all Form 4 students to treat Mathematics as a priority subject this term. "Mathematics is the gateway to many opportunities — we will not leave any student behind," he said.</p>
+          <p style="margin-top:10px;background:#f0f9f4;padding:10px 14px;border-radius:8px;font-size:0.88rem"><strong style="color:var(--green)">Note to Parents:</strong> Please encourage your Form 4 children to fully participate in this programme. It runs alongside regular classes and is designed to significantly boost their KCSE Mathematics grade.</p>
+        </div>
+        <div class="card"><h2>Principal Launches 2026 Academic Excellence Drive</h2><p style="color:#999;font-size:0.82rem;margin-bottom:14px;">By Editorial Team • April 2026</p><p>Principal Mr. Nicholas Muange has launched the school's "Excellence 2026" initiative, aimed at improving the KCSE mean score from 6.5 to 7.0. The programme includes early morning revision sessions, enhanced teacher supervision, and regular student-teacher dialogue.</p><p>"Every student in this school has the potential to reach grade B and above. Our job as teachers is to unlock that potential," said Mr. Muange at the school assembly.</p></div>
+        <div class="card"><h2>St Thomas Kavingoni Wins at Makueni County Music Festival</h2><p style="color:#999;font-size:0.82rem;margin-bottom:14px;">By Mr. Peter Nashon • March 2026</p><p>The school's music ensemble clinched second place at the Makueni County Music Festival held in Wote. The choir performed a traditional Kamba folk song and a patriotic piece, earning praise from adjudicators for their rich harmonies and discipline.</p><p>The team will now represent Makueni County at the Eastern Regional Festival in April. The school wishes them all the best!</p></div>
+      </div>
+      <div>
+        <div class="news-sidebar">
+          <h3>📅 Upcoming Events</h3>
+          <div class="se-item"><div class="se-date">May 6, 2026</div><div class="se-title">Form 3 Academic Day</div><div class="se-loc">⚠️ All Parents Must Attend</div></div>
+          <div class="se-item"><div class="se-date">May 9, 2026</div><div class="se-title">Imperiums Class Launch 🎉</div><div class="se-loc">School Grounds — 10:00 AM</div></div>
+          <div class="se-item"><div class="se-date">May 10, 2026</div><div class="se-title">Sports Day</div><div class="se-loc">School Grounds</div></div>
+          <div class="se-item"><div class="se-date">May 20, 2026</div><div class="se-title">Prize Giving Day</div><div class="se-loc">Assembly Grounds</div></div>
+          <div class="se-item"><div class="se-date">Jun 24, 2026</div><div class="se-title">Mid-Term Break 🏠</div><div class="se-loc">Send fares early!</div></div>
+          <div class="se-item"><div class="se-date">Jul 3, 2026</div><div class="se-title">Phoenixes Prize Giving 🏆</div><div class="se-loc">Assembly Grounds</div></div>
+          <div class="se-item" style="background:linear-gradient(135deg,#fff0f0,#fff);border-left:3px solid var(--red)"><div class="se-date" style="color:var(--red)">Jul 24, 2026</div><div class="se-title" style="color:var(--red);font-weight:800">🚌 School Bus Harambee</div><div class="se-loc">Chief Guest: CS Julius Migos — ALL must attend!</div></div>
+        </div>
+        <div class="card"><h2 style="font-size:1.1rem;margin-bottom:14px">Quick News</h2>
+          <div style="border-bottom:1px solid #eee;padding-bottom:10px;margin-bottom:10px"><div style="font-weight:700;font-size:0.88rem;color:var(--navy)">term two games </div><div style="font-size:0.78rem;color:#666">All students will be expected to be fully changed i games attires on the games days.</div></div>
+          <div style="border-bottom:1px solid #eee;padding-bottom:10px;margin-bottom:10px"><div style="font-weight:700;font-size:0.88rem;color:var(--navy)">Debate Club Open</div><div style="font-size:0.78rem;color:#666">Students interested in debate should contact the patron teacher.</div></div>
+          <div style="border-bottom:1px solid #eee;padding-bottom:10px;margin-bottom:10px"><div style="font-weight:700;font-size:0.88rem;color:var(--navy)">Fees payment reminder</div><div style="font-size:0.78rem;color:#666">A.</div></div>
+          <div><div style="font-weight:700;font-size:0.88rem;color:var(--navy)">New Computer Lab</div><div style="font-size:0.78rem;color:#666">10 new computers donated by the alumni association. Training starts soon.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SPORTS -->
+<div id="sports" class="page">
+  <div class="page-banner"><canvas id="sports-c"></canvas>
+    <div class="page-banner-content"><h1>Sports</h1><p>Representing Makueni County with pride and determination</p></div>
+  </div>
+  <div class="cwrap">
+    <div class="spotlight">
+      <div class="spot-photo">
+        <svg viewBox="0 0 80 80" fill="none" style="width:80px;height:80px"><circle cx="40" cy="28" r="18" fill="#1a6b3a"/><rect x="18" y="48" width="44" height="32" rx="8" fill="#1a6b3a"/><circle cx="33" cy="27" r="4" fill="white" opacity="0.8"/><circle cx="47" cy="27" r="4" fill="white" opacity="0.8"/><path d="M33 38 Q40 44 47 38" stroke="white" stroke-width="2" fill="none"/></svg>
+      </div>
+      <div>
+        <div style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:6px">⭐ Athlete Spotlight</div>
+        <h3 style="font-size:1.5rem;color:var(--navy);margin-bottom:4px">Peter Laun</h3>
+        <p style="color:var(--green);font-weight:600;margin-bottom:12px">Form 4B — Track &amp; Field (Triple Jump &amp; High Jump)</p>
+        <p style="color:#555;line-height:1.7">Peter Laun has qualified to represent our school at the <strong>National Schools Games in Kisumu</strong>. He competes in Triple Jump and High Jump. His consistent training and dedication inspire the entire school. Beyond the track, Peter maintains strong academic standing. The school wishes him great success on the national stage!</p>
+      </div>
+    </div>
+    <div class="sec-head" style="padding-left:0"><h2>Recent Results</h2></div>
+    <div class="sports-grid">
+      <div class="score-card">
+        <div class="score-hdr">⚽ Football — Term 1 Zone Games</div>
+        <div class="score-row"><span><strong>St Thomas</strong></span><span style="color:#888;font-size:0.75rem">Zone Final</span><span><strong class="score-win">2</strong> — 1 Kyamatu Sec</span></div>
+        <div class="score-row"><span><strong>St Thomas</strong></span><span style="color:#888;font-size:0.75rem">Semi-Final</span><span><strong class="score-win">3</strong> — 0 Kathonzweni</span></div>
+        <div class="score-row"><span><strong>St Thomas</strong></span><span style="color:#888;font-size:0.75rem">Quarter-Final</span><span>1 — 1 Nzaui Boys</span></div>
+      </div>
+      <div class="score-card">
+        <div class="score-hdr">🏃 Athletics — County Games</div>
+        <div class="score-row"><span>Peter Laun</span><span style="color:#888;font-size:0.75rem">Triple Jump</span><span class="score-win">1st Place 🥇</span></div>
+        <div class="score-row"><span>Peter Laun</span><span style="color:#888;font-size:0.75rem">High Jump</span><span class="score-win">2nd Place 🥈</span></div>
+        <div class="score-row"><span>Jane Mutua</span><span style="color:#888;font-size:0.75rem">400m</span><span style="color:var(--gold);font-weight:700">3rd Place 🥉</span></div>
+      </div>
+      <div class="score-card">
+        <div class="score-hdr">🏐 Volleyball — County League</div>
+        <div class="score-row"><span><strong>Girls</strong></span><span style="color:#888;font-size:0.75rem">vs Kibwezi Girls</span><span><strong class="score-win">3</strong> — 1</span></div>
+        <div class="score-row"><span><strong>Girls</strong></span><span style="color:#888;font-size:0.75rem">vs Makindu Sec</span><span><strong class="score-win">3</strong> — 0</span></div>
+        <div class="score-row"><span><strong>Boys</strong></span><span style="color:#888;font-size:0.75rem">vs Kilungu Boys</span><span>2 — 3</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTS -->
+<div id="arts" class="page">
+  <div class="page-banner"><canvas id="arts-c"></canvas>
+    <div class="page-banner-content"><h1>Arts &amp; Culture</h1><p>Celebrating creativity, talent, and Kenyan heritage</p></div>
+  </div>
+  <div class="cwrap">
+    <div class="card" style="margin-bottom:28px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;">
+        <canvas id="arts-feat" style="width:100%;height:200px;border-radius:10px;display:block"></canvas>
+        <div>
+          <div style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:6px">Drama Department</div>
+          <h2 style="margin-bottom:8px">County Drama Festival — Silver Medal 🥈</h2>
+          <p>Our drama club delivered a captivating Kiswahili performance at the Makueni County Drama Festival, earning Silver and qualifying for the Eastern Region stage.</p>
+          <p style="margin-top:8px">The play, <em>"Ndoto za Vijana"</em> (Dreams of the Youth), explored themes of education and ambition, resonating deeply with audiences.</p>
+          <div style="margin-top:14px;background:#f0f9f4;padding:12px 16px;border-radius:8px"><strong style="color:var(--green)">Next:</strong> Eastern Region Festival, April 2026</div>
+        </div>
+      </div>
+    </div>
+    <div class="sec-head" style="padding-left:0"><h2>Student Art Gallery</h2></div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><canvas class="gallery-canvas" id="gc1"></canvas><div class="gallery-info"><div class="gallery-title">"Mto wa Maisha" (River of Life)</div><div class="gallery-by">Faith Mwikali, Form 3A — Watercolour</div></div></div>
+      <div class="gallery-item"><canvas class="gallery-canvas" id="gc2"></canvas><div class="gallery-info"><div class="gallery-title">"Mlima wa Ndoto" (Mountain of Dreams)</div><div class="gallery-by">Brian Mutua, Form 4B — Acrylic</div></div></div>
+      <div class="gallery-item"><canvas class="gallery-canvas" id="gc3"></canvas><div class="gallery-info"><div class="gallery-title">"Jua Kali" (Bright Sun)</div><div class="gallery-by">Grace Ndinda, Form 2C — Oil Pastel</div></div></div>
+    </div>
+    <div class="sec-head" style="padding-left:0"><h2>Creative Writing Corner</h2></div>
+    <div class="card">
+      <h3 style="color:var(--navy);font-size:1.2rem;margin-bottom:6px">"Ndoto" — An Essay on Dreams and Education</h3>
+      <p style="color:#888;font-size:0.82rem;margin-bottom:14px">By James Mwangangi, Form 3 — Winner, School Essay Competition 2026</p>
+      <p>When I look at the hills of Makueni from our school grounds at dawn, I think about every student who has walked these paths. Education, I have come to believe, is not just about passing examinations. It is about discovering who you are — your strengths, your voice, your place in the world.</p>
+      <p>My teacher once told me: "The pen you hold today is more powerful than any tool your parents ever held." I carry those words with me into every examination room.</p>
+      <button class="rm-btn" style="margin-top:12px" onclick="openModal('essay')">Read Full Essay →</button>
+    </div>
+  </div>
+</div>
+
+<!-- EVENTS -->
+<div id="events" class="page">
+  <div class="page-banner"><canvas id="events-c"></canvas>
+    <div class="page-banner-content"><h1>Events Calendar</h1><p>Key dates for Term 1 &amp; Term 2, 2026</p></div>
+  </div>
+  <div class="cwrap">
+
+    <!-- INTERACTIVE CALENDAR -->
+    <div class="card" style="margin-bottom:28px">
+      <h2 style="margin-bottom:16px">📅 School Calendar — 2026</h2>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+        <button onclick="calPrev()" style="background:var(--navy);color:white;border:none;border-radius:8px;padding:6px 14px;cursor:pointer;font-size:1rem">‹</button>
+        <div id="cal-title" style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--navy)"></div>
+        <button onclick="calNext()" style="background:var(--navy);color:white;border:none;border-radius:8px;padding:6px 14px;cursor:pointer;font-size:1rem">›</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:6px">
+        <div style="text-align:center;font-size:0.72rem;font-weight:800;color:#888;padding:4px">Sun</div>
+        <div style="text-align:center;font-size:0.72rem;font-weight:800;color:#888;padding:4px">Mon</div>
+        <div style="text-align:center;font-size:0.72rem;font-weight:800;color:#888;padding:4px">Tue</div>
+        <div style="text-align:center;font-size:0.72rem;font-weight:800;color:#888;padding:4px">Wed</div>
+        <div style="text-align:center;font-size:0.72rem;font-weight:800;color:#888;padding:4px">Thu</div>
+        <div style="text-align:center;font-size:0.72rem;font-weight:800;color:#888;padding:4px">Fri</div>
+        <div style="text-align:center;font-size:0.72rem;font-weight:800;color:#888;padding:4px">Sat</div>
+      </div>
+      <div id="cal-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px"></div>
+      <div id="cal-event-popup" style="display:none;margin-top:16px;background:linear-gradient(135deg,#e8f4fd,#f0f9ff);border-left:4px solid var(--navy);padding:14px 18px;border-radius:10px">
+        <div id="cal-popup-title" style="font-weight:800;color:var(--navy);font-size:1rem;margin-bottom:4px"></div>
+        <div id="cal-popup-detail" style="color:#555;font-size:0.88rem;line-height:1.6"></div>
+        <div id="cal-popup-tag" style="margin-top:8px"></div>
+      </div>
+    </div>
+
+    <!-- EVENT CARDS -->
+    <div class="events-grid">
+      <div class="event-card"><div class="event-date"><div class="event-day">29</div><div class="event-month">April 2026</div></div><div class="event-body"><div class="event-title">Term 1 Opener Examination</div><div class="event-detail">All students sit the Term 1 opener. Exams concluded and results are currently being marked. Parents will be notified of results.</div><span class="event-tag">Academics</span></div></div>
+      <div class="event-card" style="border-left:4px solid var(--red)"><div class="event-date" style="background:var(--red)"><div class="event-day">6</div><div class="event-month">May 2026</div></div><div class="event-body"><div class="event-title">⚠️ Form 3 Academic Day</div><div class="event-detail"><strong>All parents and guardians of Form 3 students MUST attend in full.</strong> This is a mandatory academic review day covering student progress, performance, and the way forward for Term 2. Attendance is compulsory — no parent should be absent. Begins at 9:00 AM at the school assembly grounds.</div><span class="event-tag" style="background:var(--red)">Parents MUST Attend</span></div></div>
+      <div class="event-card" style="border-left:4px solid var(--gold)"><div class="event-date" style="background:linear-gradient(135deg,var(--gold),#a07000)"><div class="event-day">9</div><div class="event-month">May 2026</div></div><div class="event-body"><div class="event-title">🎉 Launch of The Imperiums — Form 4 Class of 2026</div><div class="event-detail">A grand launch event for our current Form 4 class — <strong>The Imperiums</strong>. Distinguished guests have been invited for this milestone occasion. The entire school community, parents, and invited guests are warmly welcomed to this big celebration. Dress code: Smart/Formal. Time: 10:00 AM.</div><span class="event-tag" style="background:var(--gold);color:var(--navy)">Special Event</span></div></div>
+      <div class="event-card"><div class="event-date"><div class="event-day">10</div><div class="event-month">May 2026</div></div><div class="event-body"><div class="event-title">Annual Sports Day</div><div class="event-detail">Inter-house sports day. All students participate in athletics, team games, and relay races. Parents and guardians welcome.</div><span class="event-tag">Sports</span></div></div>
+      <div class="event-card"><div class="event-date"><div class="event-day">20</div><div class="event-month">May 2026</div></div><div class="event-body"><div class="event-title">Prize Giving Day — Term 1</div><div class="event-detail">Celebrating top performers of Term 1. Parents, guests, and the school board cordially invited. Begins at 10:00 AM.</div><span class="event-tag">Ceremony</span></div></div>
+      <div class="event-card"><div class="event-date"><div class="event-day">5</div><div class="event-month">June 2026</div></div><div class="event-body"><div class="event-title">Form 4 Mock Examinations</div><div class="event-detail">First KCSE mock examinations for all Form 4 students in full KNEC format. Duration: 2 weeks.</div><span class="event-tag">Academics</span></div></div>
+      <div class="event-card"><div class="event-date"><div class="event-day">15</div><div class="event-month">June 2026</div></div><div class="event-body"><div class="event-title">Makueni County Drama Festival</div><div class="event-detail">Our drama club performs at the county festival in Wote. Targeting gold and progression to the regional stage!</div><span class="event-tag">Arts</span></div></div>
+      <div class="event-card" style="border-left:4px solid var(--green)"><div class="event-date" style="background:var(--green)"><div class="event-day">24</div><div class="event-month">June 2026</div></div><div class="event-body"><div class="event-title">🏠 Mid-Term Break — One Week</div><div class="event-detail">Students break for one week mid-term holiday. <strong>Parents are strongly advised to send bus fares and pocket money EARLY</strong> to avoid last-minute inconvenience. Students should travel home safely and return on time. The school will communicate the exact return date via circular.</div><span class="event-tag" style="background:var(--green)">Holiday</span></div></div>
+      <div class="event-card" style="border-left:4px solid var(--gold)"><div class="event-date" style="background:linear-gradient(135deg,var(--gold),#a07000)"><div class="event-day">3</div><div class="event-month">July 2026</div></div><div class="event-body"><div class="event-title">🏆 Prize Giving Day — The Phoenixes Class</div><div class="event-detail">A special Prize Giving ceremony honouring <strong>The Phoenixes</strong> — last year's Form 4 class who achieved a commendable school mean of <strong>6.5</strong> in the 2025 KCSE. This celebration recognises their hard work, dedication, and contribution to the school's academic legacy. All parents, guardians, and guests are cordially invited.</div><span class="event-tag" style="background:var(--gold);color:var(--navy)">Ceremony</span></div></div>
+      <div class="event-card" style="border-left:4px solid var(--red);background:linear-gradient(135deg,#fff8f8,#fff)"><div class="event-date" style="background:linear-gradient(135deg,#8b0000,var(--red))"><div class="event-day">24</div><div class="event-month">July 2026</div></div><div class="event-body"><div class="event-title">🚌 School Bus Harambee — THE BIGGEST EVENT OF THE YEAR</div><div class="event-detail"><strong>This is the most important community event of the year.</strong> St Thomas Kavingoni Senior School is holding a Harambee to raise funds for the school bus — a critical need for our students. The <strong>Chief Guest is H.E. Julius Migos, Cabinet Secretary for Education</strong>. All parents, guardians, alumni, well-wishers, and guests are EXPECTED to attend and contribute. <em>Every parent is required to comply — this bus will serve your children directly.</em> Come early, come prepared, come in large numbers. Let us build our school together! 🇰🇪</div><span class="event-tag" style="background:var(--red)">⚠️ All Parents Must Attend</span></div></div>
+      <div class="event-card"><div class="event-date"><div class="event-day">1</div><div class="event-month">Aug 2026</div></div><div class="event-body"><div class="event-title">Term 2 Opening Day</div><div class="event-detail">All students report back to school. New students should arrive with all requirements as listed in the school circular.</div><span class="event-tag">School</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- STAFF -->
+<div id="staff" class="page">
+  <div class="page-banner"><canvas id="staff-c"></canvas>
+    <div class="page-banner-content"><h1>Our Staff</h1><p>Meet the dedicated team behind St Thomas Kavingoni</p></div>
+  </div>
+  <div class="cwrap">
+    
+    <div class="sec-head" style="padding-left:0"><h2>School Administration</h2></div>
+    <div class="staff-grid" style="margin-bottom:32px">
+      <div class="staff-card">
+        <div class="staff-photo" id="sph-0">
+          <div class="initials" id="sf-i0">NM</div>
+          <img id="sf-p0" alt="Mr. Nicholas Muange" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%">
+        </div>
+        <div class="staff-info">
+          <div class="staff-name">Mr. Nicholas Muange</div>
+          <div class="staff-role">Principal</div>
+          <div class="staff-dept">School Administration</div>
+        </div>
+      </div>
+      <div class="staff-card">
+        <div class="staff-photo" id="sph-1">
+          <div class="initials" id="sf-i1">AM</div>
+          <img id="sf-p1" alt="Mr. Abednego Mainga" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%">
+        </div>
+        <div class="staff-info">
+          <div class="staff-name">Mr. Abednego Mainga</div>
+          <div class="staff-role">Deputy Principal</div>
+          <div class="staff-dept">School Administration</div>
+        </div>
+      </div>
+      <div class="staff-card">
+        <div class="staff-photo" id="sph-2">
+          <div class="initials" id="sf-i2">JK</div>
+          <img id="sf-p2" alt="Mr. Johnstone Kithuka" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%">
+        </div>
+        <div class="staff-info">
+          <div class="staff-name">Mr. Johnstone Kithuka</div>
+          <div class="staff-role">Senior Teacher</div>
+          <div class="staff-dept">School Administration</div>
+        </div>
+      </div>
+      <div class="staff-card">
+        <div class="staff-photo" id="sph-3">
+          <div class="initials" id="sf-i3">DN</div>
+          <img id="sf-p3" alt="Mr. Daniel Nzioki" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%">
+        </div>
+        <div class="staff-info">
+          <div class="staff-name">Mr. Daniel Nzioki</div>
+          <div class="staff-role">Dean of Studies</div>
+          <div class="staff-dept">School Administration</div>
+        </div>
+      </div>
+    </div>
+    <div class="sec-head" style="padding-left:0"><h2>Teaching Staff</h2></div>
+    <div class="staff-grid">
+      <div class="staff-card">
+        <div class="staff-photo" id="sph-t0"><div class="initials" id="sf-it0">DK</div><img id="sf-pt0" alt="Mr. Nzioki D.K" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+        <div class="staff-info"><div class="staff-name">Mr. Nzioki D.K</div><div class="staff-role">Class Teacher</div><div class="staff-dept">Sciences Department</div></div>
+      </div>
+      <div class="staff-card">
+        <div class="staff-photo" id="sph-t1"><div class="initials" id="sf-it1">OM</div><img id="sf-pt1" alt="Mr. Musila O.M" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+        <div class="staff-info"><div class="staff-name">Mr. Musila O.M</div><div class="staff-role">Sports Master</div><div class="staff-dept">PE &amp; Sports</div></div>
+      </div>
+      <div class="staff-card">
+        <div class="staff-photo" id="sph-t2"><div class="initials" id="sf-it2">TM</div><img id="sf-pt2" alt="Ms. Tabitha Mwangi" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+        <div class="staff-info"><div class="staff-name">Ms. Tabitha Mwangi</div><div class="staff-role">Teacher</div><div class="staff-dept">Mathematics Dept</div></div>
+      </div>
+      <div class="staff-card">
+        <div class="staff-photo" id="sph-t3"><div class="initials" id="sf-it3">JM</div><img id="sf-pt3" alt="Mr. Joseph Mutisya" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+        <div class="staff-info"><div class="staff-name">Mr. Joseph Mutisya</div><div class="staff-role">Teacher</div><div class="staff-dept">English &amp; Literature</div></div>
+      </div>
+      <div class="staff-card">
+        <div class="staff-photo" id="sph-t4"><div class="initials" id="sf-it4">RK</div><img id="sf-pt4" alt="Ms. Rose Kioko" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+        <div class="staff-info"><div class="staff-name">Ms. Rose Kioko</div><div class="staff-role">Teacher</div><div class="staff-dept">Kiswahili Dept</div></div>
+      </div>
+      <div class="staff-card">
+        <div class="staff-photo" id="sph-t5"><div class="initials" id="sf-it5">PM</div><img id="sf-pt5" alt="Mr. Peter Muthoka" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+        <div class="staff-info"><div class="staff-name">Mr. Peter Muthoka</div><div class="staff-role">Teacher</div><div class="staff-dept">Agriculture &amp; Biology</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page">
+  <div class="page-banner"><canvas id="contact-c"></canvas>
+    <div class="page-banner-content"><h1>Contact Us</h1><p>We'd love to hear from you</p></div>
+  </div>
+  <div class="cwrap">
+    <div class="contact-grid">
+      <div>
+        <div class="card">
+          <h2>Main Office</h2>
+          <div class="ci-item"><div class="ci-icon">📍</div><div><strong>St Thomas Kavingoni Senior School</strong><br>P.O. BOX 73-90302<br>Kathonzweni, Makueni County, Kenya</div></div>
+          <div class="ci-item"><div class="ci-icon">📞</div><div><strong>Phone:</strong> (+254) 741209140</div></div>
+          <div class="ci-item"><div class="ci-icon">🕐</div><div><strong>School Hours:</strong> 6:30 AM – 5:00 PM (Mon–Fri)<br><strong>Office Hours:</strong> 8:00 AM – 4:30 PM (Mon–Fri)</div></div>
+        </div>
+        <div class="card">
+          <h2>Key Departments</h2>
+          <ul style="list-style:none;line-height:2.2;color:#555;font-size:0.88rem">
+            <li><strong style="color:var(--navy)">Main Office:</strong> (+254) 741209140</li>
+            <li><strong style="color:var(--navy)">Admissions:</strong> (+254) 719128295</li>
+            <li><strong style="color:var(--navy)">Bursar's Office:</strong> (+254) 741209140</li>
+            <li><strong style="color:var(--navy)">Sports Office:</strong> (+254) 719128295</li>
+            <li><strong style="color:var(--navy)">Dean of Studies:</strong> (+254) 741209140</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <h2>Send Us a Message</h2>
+          <form id="contact-form" action="https://formspree.io/f/xzdoepop" method="POST" onsubmit="handleFormspree(event)">
+            <div class="fg"><label>Full Name</label><input type="text" name="name" id="cf-name" placeholder="Your full name" required></div>
+            <div class="fg"><label>Email Address</label><input type="email" name="email" id="cf-email" placeholder="your@email.com" required></div>
+            <div class="fg"><label>Subject</label>
+              <select name="subject" id="cf-subj" required>
+                <option value="">Select a subject</option>
+                <option>Admissions Enquiry</option>
+                <option>Fees &amp; Bursaries</option>
+                <option>Academic Performance</option>
+                <option>Sports &amp; Activities</option>
+                <option>General Enquiry</option>
+              </select>
+            </div>
+            <div class="fg"><label>Message</label><textarea name="message" id="cf-msg" placeholder="Write your message here..." required></textarea></div>
+            <button class="sub-btn" type="submit" id="cf-btn">Send Message ✉️</button>
+            <div id="cf-ok" style="display:none;margin-top:14px;background:#e8f5e9;color:var(--green);padding:12px;border-radius:8px;text-align:center;font-weight:700">✅ Message sent! We will get back to you soon.</div>
+            <div id="cf-err" style="display:none;margin-top:14px;background:#fdecea;color:var(--red);padding:12px;border-radius:8px;text-align:center;font-weight:700">❌ Failed to send. Please try again or call us directly.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col"><h4>St Thomas Kavingoni</h4><p>Education for a Better Life<br>Elimu Bora kwa Maisha Bora</p><p style="margin-top:8px">P.O. BOX 73-90302<br>Kathonzweni, Makueni</p></div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="#" onclick="changePage('academics',null)" style="color:rgba(255,255,255,0.6);text-decoration:none">Academics</a></li><li><a href="#" onclick="changePage('sports',null)" style="color:rgba(255,255,255,0.6);text-decoration:none">Sports</a></li><li><a href="#" onclick="changePage('events',null)" style="color:rgba(255,255,255,0.6);text-decoration:none">Events</a></li><li><a href="#" onclick="changePage('staff',null)" style="color:rgba(255,255,255,0.6);text-decoration:none">Our Staff</a></li></ul></div>
+    <div class="footer-col"><h4>School Values</h4><ul><li>Excellence in Academics</li><li>Discipline &amp; Integrity</li><li>National Pride 🇰🇪</li><li>Community Service</li></ul></div>
+    <div class="footer-col"><h4>KCSE Target 2026</h4><p>Current Mean: <strong style="color:var(--gold-light)">6.5</strong></p><p>Target: <strong style="color:var(--gold-light)">7.0</strong></p><p style="margin-top:8px;font-size:0.75rem;opacity:0.6">Makueni County, Kenya</p></div>
+  </div>
+  <div class="footer-bottom">© 2026 St Thomas Kavingoni Senior School, Kathonzweni, Makueni, Kenya. All rights reserved.</div>
+</footer>
+
+<!-- MODAL -->
+<div id="art-modal" class="modal-ov" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h2 id="m-title"></h2><p class="meta" id="m-author"></p><div id="m-content"></div>
+  </div>
+</div>
+
+<script>
+// INTERACTIVE CALENDAR
+const calEvents = {
+  '2026-04-29': { title: 'Term 1 Opener Examination', detail: 'All students sit the Term 1 opener. Papers are being marked. Results coming soon.', tag: 'Academics', color: '#0a1f44' },
+  '2026-05-06': { title: '⚠️ Form 3 Academic Day', detail: 'MANDATORY — All parents of Form 3 students MUST attend in full. 9:00 AM at the assembly grounds.', tag: 'Parents Must Attend', color: '#b22222' },
+  '2026-05-09': { title: '🎉 Launch of The Imperiums (Form 4)', detail: 'Grand class launch for Form 4 — The Imperiums. Distinguished guests invited. Smart/formal dress. 10:00 AM.', tag: 'Special Event', color: '#c8960c' },
+  '2026-05-10': { title: 'Annual Sports Day', detail: 'Inter-house sports day. Athletics, team games and relay races. Parents welcome.', tag: 'Sports', color: '#1a6b3a' },
+  '2026-05-20': { title: 'Prize Giving Day — Term 1', detail: 'Celebrating top performers. Parents and guests cordially invited. 10:00 AM.', tag: 'Ceremony', color: '#c8960c' },
+  '2026-06-05': { title: 'Form 4 Mock Examinations', detail: 'First KCSE mock in full KNEC format. Duration: 2 weeks.', tag: 'Academics', color: '#0a1f44' },
+  '2026-06-15': { title: 'Makueni County Drama Festival', detail: 'Our drama club performs in Wote. Targeting gold!', tag: 'Arts', color: '#4a0a7a' },
+  '2026-06-24': { title: '🏠 Mid-Term Break Begins', detail: 'One week holiday. Parents: please send fares EARLY. Return date in circular.', tag: 'Holiday', color: '#1a6b3a' },
+  '2026-07-03': { title: '🏆 Phoenixes Prize Giving Day', detail: 'Honouring The Phoenixes (Form 4, 2025 — mean 6.5). All parents and guests invited.', tag: 'Ceremony', color: '#c8960c' },
+  '2026-07-24': { title: '🚌 School Bus Harambee', detail: 'BIGGEST EVENT OF THE YEAR. Chief Guest: CS Julius Migos. ALL parents must attend and contribute!', tag: '⚠️ All Parents Must Comply', color: '#b22222' },
+  '2026-08-01': { title: 'Term 2 Opening Day', detail: 'All students report back to school with all requirements.', tag: 'School', color: '#0a1f44' },
+};
+
+let calYear = 2026, calMonth = 4; // 0-indexed: 4 = May
+const calMonthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+function renderCal() {
+  const title = document.getElementById('cal-title');
+  const grid = document.getElementById('cal-grid');
+  if (!title || !grid) return;
+  title.textContent = calMonthNames[calMonth] + ' ' + calYear;
+  grid.innerHTML = '';
+  const firstDay = new Date(calYear, calMonth, 1).getDay();
+  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  for (let i = 0; i < firstDay; i++) {
+    const blank = document.createElement('div'); blank.style.cssText = 'padding:6px;'; grid.appendChild(blank);
+  }
+  for (let d = 1; d <= daysInMonth; d++) {
+    const key = `${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const ev = calEvents[key];
+    const cell = document.createElement('div');
+    const today = new Date(); const isToday = today.getFullYear()===calYear && today.getMonth()===calMonth && today.getDate()===d;
+    cell.style.cssText = `text-align:center;padding:7px 2px;border-radius:8px;font-size:0.82rem;font-weight:${ev?'800':'500'};cursor:${ev?'pointer':'default'};background:${ev ? ev.color : isToday ? '#e8f4fd' : 'transparent'};color:${ev ? 'white' : isToday ? '#0a1f44' : '#444'};border:${isToday && !ev ? '2px solid #0a1f44' : '2px solid transparent'};transition:transform 0.15s;position:relative`;
+    cell.textContent = d;
+    if (ev) {
+      cell.title = ev.title;
+      cell.addEventListener('click', () => showCalEvent(key));
+      cell.addEventListener('mouseenter', () => cell.style.transform = 'scale(1.15)');
+      cell.addEventListener('mouseleave', () => cell.style.transform = 'scale(1)');
+      const dot = document.createElement('div');
+      dot.style.cssText = 'width:5px;height:5px;background:white;border-radius:50%;margin:2px auto 0;opacity:0.8';
+      cell.appendChild(dot);
+    }
+    grid.appendChild(cell);
+  }
+}
+
+function showCalEvent(key) {
+  const ev = calEvents[key]; if (!ev) return;
+  const popup = document.getElementById('cal-event-popup');
+  document.getElementById('cal-popup-title').textContent = ev.title;
+  document.getElementById('cal-popup-detail').textContent = ev.detail;
+  const tag = document.getElementById('cal-popup-tag');
+  tag.innerHTML = `<span style="background:${ev.color};color:white;padding:3px 10px;border-radius:20px;font-size:0.72rem;font-weight:800">${ev.tag}</span>`;
+  popup.style.display = 'block';
+  popup.style.borderLeftColor = ev.color;
+}
+
+function calPrev() { calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderCal(); document.getElementById('cal-event-popup').style.display='none'; }
+function calNext() { calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderCal(); document.getElementById('cal-event-popup').style.display='none'; }
+
+window.addEventListener('load', renderCal);
+
+// NAVIGATION
+function changePage(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  window.scrollTo(0, 0);
+  setTimeout(() => initPage(id), 50);
+  setTimeout(fadeIns, 100);
+}
+
+function fadeIns() {
+  document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+}
+setTimeout(fadeIns, 200);
+
+// ============================================================
+// IMGUR BACKEND CONFIG
+// 1. Go to https://api.imgur.com/oauth2/addclient
+// 2. Log in or create a free Imgur account
+// 3. Register your app (select "Anonymous usage without user authorization")
+// 4. Copy the "Client ID" you receive and paste it below
+// ============================================================
+const IMGUR_CLIENT_ID = 'YOUR_IMGUR_CLIENT_ID'; // e.g. 'a1b2c3d4e5f6789'
+const STORAGE_KEY = 'stkav_photos_v1';
+
+// Load all saved photos from localStorage on page load
+function loadSavedPhotos() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    Object.entries(saved).forEach(([key, url]) => {
+      if (key === 'logo') {
+        const img = document.getElementById('logo-img');
+        const svg = document.getElementById('logo-svg');
+        if (img && url) { img.src = url; img.style.display = 'block'; if (svg) svg.style.display = 'none'; }
+      } else {
+        const img = document.getElementById(key);
+        if (img && url) {
+          img.src = url; img.style.display = 'block';
+          const parent = img.closest('.staff-photo') || img.closest('.adm-photo');
+          if (parent) { const ini = parent.querySelector('.initials'); if (ini) ini.style.display = 'none'; }
+        }
+      }
+    });
+  } catch(e) {}
+}
+
+// Save a photo URL to localStorage so it reloads next time
+function savePhotoUrl(key, url) {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    saved[key] = url;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+  } catch(e) {}
+}
+
+// Upload a file to Imgur and return the image URL
+async function uploadToImgur(file) {
+  if (IMGUR_CLIENT_ID === 'YOUR_IMGUR_CLIENT_ID') {
+    alert('⚠️ Please set your Imgur Client ID in the script section of this file.\n\nSee the IMGUR BACKEND CONFIG comment near the top of the <script> tag.\n\nGet a free Client ID at: https://api.imgur.com/oauth2/addclient');
+    return null;
+  }
+  const fd = new FormData();
+  fd.append('image', file);
+  fd.append('type', 'file');
+  try {
+    const res = await fetch('https://api.imgur.com/3/image', {
+      method: 'POST',
+      headers: { 'Authorization': 'Client-ID ' + IMGUR_CLIENT_ID },
+      body: fd
+    });
+    const data = await res.json();
+    if (data.success && data.data && data.data.link) return data.data.link;
+    console.error('Imgur error:', data);
+    alert('Upload failed. Please check your Imgur Client ID.');
+    return null;
+  } catch(err) {
+    console.error('Upload error:', err);
+    alert('Upload failed. Check your internet connection.');
+    return null;
+  }
+}
+
+// Show uploading spinner
+function showUploading(el) {
+  const ov = el.querySelector('.upload-ov');
+  if (ov) { ov._orig = ov.innerHTML; ov.innerHTML = '<span style="font-size:1.3rem">⏳</span><span style="font-size:0.75rem">Uploading...</span>'; }
+}
+function hideUploading(el) {
+  const ov = el.querySelector('.upload-ov');
+  if (ov && ov._orig) ov.innerHTML = ov._orig;
+}
+
+// LOGO UPLOAD
+document.getElementById('logo-input') && document.getElementById('logo-input').addEventListener('change', async function(e) {
+  const f = e.target.files[0]; if (!f) return;
+  const circle = document.querySelector('.logo-circle');
+  if (circle) showUploading(circle);
+  const url = await uploadToImgur(f);
+  if (url) {
+    const img = document.getElementById('logo-img');
+    const svg = document.getElementById('logo-svg');
+    img.src = url; img.style.display = 'block';
+    if (svg) svg.style.display = 'none';
+    savePhotoUrl('logo', url);
+  }
+  if (circle) hideUploading(circle);
+});
+
+// STAFF UPLOAD
+async function upStaff(imgId, initId, e) {
+  const f = e.target.files[0]; if (!f) return;
+  const photoDiv = e.target.closest('.staff-photo');
+  if (photoDiv) showUploading(photoDiv);
+  const url = await uploadToImgur(f);
+  if (url) {
+    const img = document.getElementById(imgId);
+    img.src = url; img.style.display = 'block';
+    const ini = document.getElementById(initId); if (ini) ini.style.display = 'none';
+    savePhotoUrl(imgId, url);
+  }
+  if (photoDiv) hideUploading(photoDiv);
+}
+
+// ADMIN PHOTO UPLOAD
+async function uploadAdm(i, e) {
+  const f = e.target.files[0]; if (!f) return;
+  const photoDiv = e.target.closest('.adm-photo') || e.target.closest('.staff-photo');
+  if (photoDiv) showUploading(photoDiv);
+  const url = await uploadToImgur(f);
+  if (url) {
+    const img = document.getElementById('adm-i' + i);
+    if (img) { img.src = url; img.style.display = 'block'; }
+    const em = document.getElementById('adm-e' + i);
+    if (em) em.style.display = 'none';
+    savePhotoUrl('adm-i' + i, url);
+  }
+  if (photoDiv) hideUploading(photoDiv);
+}
+
+// SET PHOTO FROM IMGUR LINK
+function setImgurPhoto(imgId, initId, url, photoDiv) {
+  if (!url || url.trim() === '') return;
+  const img = document.getElementById(imgId);
+  const ini = document.getElementById(initId);
+  if (!img) return;
+  img.onload = function() {
+    img.style.display = 'block';
+    if (ini) ini.style.display = 'none';
+    savePhotoUrl(imgId, url.trim());
+  };
+  img.onerror = function() {
+    img.style.display = 'none';
+    if (ini) ini.style.display = 'flex';
+    alert('⚠️ Could not load image. Make sure you paste a direct Imgur image link (e.g. https://i.imgur.com/xxxxxx.jpg)');
+  };
+  img.src = url.trim();
+}
+
+// Load saved Imgur links into photo fields on load
+function loadSavedImgurPhotos() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    Object.entries(saved).forEach(([imgId, url]) => {
+      if (!url) return;
+      const img = document.getElementById(imgId);
+      if (img) {
+        img.src = url;
+        img.style.display = 'block';
+        img.style.cssText += 'width:100%;height:100%;object-fit:cover;border-radius:50%';
+        // find sibling initials
+        const parent = img.parentElement;
+        if (parent) { const ini = parent.querySelector('.initials'); if (ini) ini.style.display = 'none'; }
+        // fill the input box if present
+        const card = img.closest('.staff-card');
+        if (card) { const inp = card.querySelector('input[type=text]'); if (inp) inp.value = url; }
+      }
+    });
+  } catch(e) {}
+}
+
+window.addEventListener('DOMContentLoaded', loadSavedImgurPhotos);
+
+
+
+// MODAL
+const articles = {
+  easter: { title: 'Easter Holiday Break', author: 'By Mr. Nzioki D.K • April 1, 2026', content: '<p>St Thomas Kavingoni Senior School wishes all students and parents a blessed Easter holiday. Holiday assignments are compulsory and form part of continuous assessment.</p><p>Students are expected to complete all holiday assignments and engage in personal revision ahead of the <strong>Term 1 Opener Examination on Wednesday, April 29th, 2026</strong>.</p><p>Parents are strongly encouraged to create a conducive study environment at home. Happy Easter to all!</p>' },
+  laun: { title: 'Peter Laun to National Games in Kisumu!', author: 'By Mr. Musila O.M • April 6, 2026', content: '<p>We are immensely proud that <strong>Peter Laun of Form 4B</strong> has qualified to represent St Thomas Kavingoni Senior School at the <strong>National Schools Games in Kisumu</strong>!</p><p>Peter competes in the <strong>Triple Jump</strong> and <strong>High Jump</strong>. He qualified after a stellar performance at the Makueni County Games, placing 1st in Triple Jump and 2nd in High Jump.</p><p>Peter combines sporting excellence with strong academic performance. The entire school community is behind him. <strong>Go go Laun!!!</strong></p>' },
+  kcse: { title: 'KCSE 2025: School Posts Mean Grade of 6.5', author: 'By Dean of studies • February 2026', content: '<p>St Thomas Kavingoni Senior School achieved a <strong>school mean grade of 6.5</strong> in the 2025 KCSE examinations, reflecting the hard work of students and teachers alike.</p><p>Several candidates scored B+ and above, with the school\'s top student achieving an impressive A-. The school performed particularly well in Biology, Kiswahili, and History & Government.</p><p>Principal Mr. Nicholas Muange said: "This result is a foundation — not a ceiling. We will build on it and achieve 7.0 in 2026."</p>' },
+  sciencelab: { title: 'New Science Laboratory Equipped', author: 'By Editorial Team • March 2026', content: '<p>The school\'s science laboratory has received a significant upgrade, with new equipment for Biology, Chemistry, and Physics practicals. The upgrade was made possible through a joint effort by the school board, the PTA, and a donation from alumni.</p><p>New equipment includes microscopes, titration apparatus, and specimen collections that align with the current KCSE syllabus. Students can now complete all required KNEC practicals without leaving school.</p><p>"This is a game-changer for our KCSE candidates," said the Head of Sciences.</p>' },
+  drama: { title: 'Drama Club Shines at County Festival', author: 'By Arts Department • March 2026', content: '<p>St Thomas Kavingoni\'s drama club earned a <strong>Silver Medal</strong> at the Makueni County Drama Festival and qualified for the Eastern Region stage.</p><p>The play, <em>"Ndoto za Vijana"</em> (Dreams of the Youth), told the story of a rural Kenyan community navigating the challenges of modern education. The performance was praised for its emotional depth and well-choreographed scenes.</p><p>The club will now prepare intensively for the Eastern Region Festival. We wish them great success!</p>' },
+  prize: { title: 'Prize Giving Day — Term 1, 2026', author: 'By School Administration • April 2026', content: '<p>The school cordially invites all parents and guardians to the <strong>Term 1 Prize Giving Day</strong> on <strong>May 20, 2026</strong> at the school assembly grounds.</p><p>The event will recognise top-performing students in academics, sports, arts, and discipline. A guest speaker from the county education office will also address students and parents.</p><p>The ceremony begins at <strong>10:00 AM</strong>. All parents are encouraged to attend and support their children.</p>' },
+  essay: { title: '"Ndoto" — An Essay on Dreams and Education', author: 'By James Mwangangi, Form 3 — Winner, Essay Competition 2026', content: '<p>When I look at the hills of Makueni from our school grounds at dawn, I think about every student who has walked these paths. Education, I have come to believe, is not just about passing examinations. It is about discovering who you are.</p><p>My teacher once told me: "The pen you hold today is more powerful than any tool your parents ever held." I carry those words with me into every examination room, every morning prep, every difficult evening when I would rather sleep than revise.</p><p>I grew up in a home where my father woke before sunrise to tend his fields, and my mother sold vegetables so that I could pay school fees. I do not take that sacrifice lightly. Education, to me, is the bridge between where I come from and where Kenya needs me to go.</p><p>When I sit the KCSE examination, I will not just be sitting it for myself. I will be sitting it for every parent who packed ugali and sent their child to school with hope. That is the true purpose of education in Kenya.</p>' }
+};
+
+function openModal(id) {
+  const a = articles[id]; if (!a) return;
+  document.getElementById('m-title').textContent = a.title;
+  document.getElementById('m-author').textContent = a.author;
+  document.getElementById('m-content').innerHTML = a.content;
+  document.getElementById('art-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('art-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// POLL
+function castVote() {
+  const sel = document.querySelector('input[name="poll"]:checked');
+  if (!sel) { alert('Please select an option first!'); return; }
+  document.getElementById('poll-opts').style.display = 'none';
+  document.querySelector('.vote-btn').style.display = 'none';
+  document.getElementById('poll-results').style.display = 'block';
+}
+
+// CONTACT — Formspree backend
+// SETUP: Go to https://formspree.io → sign up free with school email
+// → New Form → copy the form ID (e.g. xpwzabcd)
+// → Replace YOUR_FORM_ID in the form action above with your actual ID
+async function handleFormspree(e) {
+  e.preventDefault();
+  const btn = document.getElementById('cf-btn');
+  const ok  = document.getElementById('cf-ok');
+  const err = document.getElementById('cf-err');
+  ok.style.display = 'none'; err.style.display = 'none';
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  try {
+    const form = document.getElementById('contact-form');
+    const data = new FormData(form);
+    const res  = await fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
+    if (res.ok) {
+      ok.style.display = 'block';
+      form.reset();
+      setTimeout(() => ok.style.display = 'none', 6000);
+    } else {
+      err.style.display = 'block';
+    }
+  } catch(ex) {
+    err.style.display = 'block';
+  }
+  btn.textContent = 'Send Message ✉️'; btn.disabled = false;
+}
+
+
+// ============ CANVAS ANIMATIONS ============
+
+function initHero() {
+  const canvas = document.getElementById('hero-canvas'); if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let birds = Array.from({length:8}, () => ({ x:Math.random(), y:0.1+Math.random()*0.35, sp:0.0007+Math.random()*0.001, s:0.4+Math.random()*0.7, flap:Math.random()*Math.PI*2 }));
+  let t = 0;
+  (function draw() {
+    t += 0.012;
+    const w = canvas.width = canvas.offsetWidth, h = canvas.height = canvas.offsetHeight;
+    // Sky
+    const sky = ctx.createLinearGradient(0, 0, 0, h);
+    sky.addColorStop(0, '#0a1228'); sky.addColorStop(0.45, '#0d2d60'); sky.addColorStop(0.75, '#1a5a8a'); sky.addColorStop(1, '#c87030');
+    ctx.fillStyle = sky; ctx.fillRect(0, 0, w, h);
+    // Sun glow
+    const sx = w*0.78, sy = h*0.62;
+    const sg = ctx.createRadialGradient(sx,sy,0,sx,sy,200);
+    sg.addColorStop(0,'rgba(255,200,50,0.4)'); sg.addColorStop(0.5,'rgba(255,140,30,0.15)'); sg.addColorStop(1,'transparent');
+    ctx.fillStyle = sg; ctx.fillRect(0,0,w,h);
+    // Sun
+    ctx.beginPath(); ctx.arc(sx, sy, 34, 0, Math.PI*2);
+    const sf = ctx.createRadialGradient(sx,sy,0,sx,sy,34);
+    sf.addColorStop(0,'#fff9c4'); sf.addColorStop(0.6,'#ffc107'); sf.addColorStop(1,'#ff8c00');
+    ctx.fillStyle = sf; ctx.fill();
+    // Stars
+    if (!initHero._stars) initHero._stars = Array.from({length:50}, () => ({x:Math.random()*2-0.5,y:Math.random()*0.6,s:Math.random()*1.8+0.3,o:Math.random()*0.6+0.2}));
+    initHero._stars.forEach(s => { ctx.beginPath(); ctx.arc(s.x*w,s.y*h,s.s,0,Math.PI*2); ctx.fillStyle=`rgba(255,255,255,${s.o})`; ctx.fill(); });
+    // Hills silhouette
+    ctx.fillStyle = '#060e03';
+    ctx.beginPath(); ctx.moveTo(0,h);
+    for (let x = 0; x <= w; x += 5) { ctx.lineTo(x, h*0.68 - Math.sin(x/w*Math.PI*2.5)*h*0.1 - Math.sin(x/w*Math.PI*7)*h*0.04); }
+    ctx.lineTo(w,h); ctx.closePath(); ctx.fill();
+    // Acacia trees
+    function acacia(tx, ty, sc) {
+      ctx.fillStyle = '#060e03';
+      ctx.fillRect(tx-2*sc, ty, 4*sc, 28*sc);
+      ctx.beginPath(); ctx.ellipse(tx, ty, 24*sc, 9*sc, 0, 0, Math.PI*2); ctx.fill();
+    }
+    acacia(w*0.08, h*0.68, 0.8); acacia(w*0.88, h*0.70, 0.95); acacia(w*0.52, h*0.73, 0.65);
+    // Birds
+    birds.forEach(b => {
+      b.x += b.sp; if (b.x > 1.1) b.x = -0.05;
+      b.flap += 0.09;
+      const bx = b.x*w, by = b.y*h, fw = 9*b.s, fh = Math.sin(b.flap)*5*b.s;
+      ctx.strokeStyle = 'rgba(255,255,255,0.75)'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(bx-fw, by-fh); ctx.quadraticCurveTo(bx, by+3, bx+fw, by-fh); ctx.stroke();
+    });
+    requestAnimationFrame(draw);
+  })();
+}
+
+function drawBanner(cid, c1, c2, c3) {
+  const canvas = document.getElementById(cid); if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const pts = Array.from({length:40}, () => ({x:Math.random(),y:Math.random(),vx:(Math.random()-0.5)*0.0018,vy:(Math.random()-0.5)*0.0018,r:1+Math.random()*3,o:Math.random()*0.35+0.1}));
+  let t = 0;
+  (function draw() {
+    t += 0.01;
+    const w = canvas.width = canvas.offsetWidth, h = canvas.height = canvas.offsetHeight;
+    const g = ctx.createLinearGradient(0,0,w,h);
+    g.addColorStop(0,c1); g.addColorStop(0.5,c2); g.addColorStop(1,c3||c1);
+    ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
+    ctx.beginPath();
+    for (let x = 0; x <= w; x += 4) { const y = h*0.62+Math.sin(x/80+t)*22+Math.sin(x/40+t*1.6)*10; x===0?ctx.moveTo(x,y):ctx.lineTo(x,y); }
+    ctx.lineTo(w,h); ctx.lineTo(0,h); ctx.closePath(); ctx.fillStyle='rgba(0,0,0,0.22)'; ctx.fill();
+    pts.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if(p.x<0||p.x>1)p.vx*=-1; if(p.y<0||p.y>1)p.vy*=-1;
+      ctx.beginPath(); ctx.arc(p.x*w,p.y*h,p.r,0,Math.PI*2); ctx.fillStyle=`rgba(255,255,255,${p.o})`; ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  })();
+}
+
+function drawFC(cid, bg1, bg2, acc) {
+  const c = document.getElementById(cid); if (!c) return;
+  const ctx = c.getContext('2d'); let t = 0;
+  (function draw() {
+    t += 0.012;
+    const w = c.width = c.offsetWidth, h = c.height = c.offsetHeight;
+    const g = ctx.createLinearGradient(0,0,w,h); g.addColorStop(0,bg1); g.addColorStop(1,bg2);
+    ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
+    for (let i = 0; i < 5; i++) {
+      const a = t + i*(Math.PI*2/5), cx2 = w/2+Math.cos(a)*w*0.22, cy2 = h/2+Math.sin(a*0.7)*h*0.22;
+      const rg = ctx.createRadialGradient(cx2,cy2,0,cx2,cy2,50+i*12);
+      rg.addColorStop(0,acc+'50'); rg.addColorStop(1,'transparent');
+      ctx.fillStyle = rg; ctx.beginPath(); ctx.arc(cx2,cy2,60+i*12,0,Math.PI*2); ctx.fill();
+    }
+    ctx.strokeStyle='rgba(255,255,255,0.04)'; ctx.lineWidth=1;
+    for(let x=0;x<w;x+=28){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}
+    for(let y=0;y<h;y+=28){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+    requestAnimationFrame(draw);
+  })();
+}
+
+function drawAC(cid, c1, c2) {
+  const c = document.getElementById(cid); if (!c) return;
+  const ctx = c.getContext('2d'); let t = 0;
+  (function draw() {
+    t += 0.008;
+    const w = c.width = c.offsetWidth, h = c.height = c.offsetHeight;
+    const g = ctx.createLinearGradient(0,0,w,h); g.addColorStop(0,c1); g.addColorStop(1,c2);
+    ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
+    for(let i=0;i<3;i++){const r=(t*30+i*40)%(Math.max(w,h)*1.2);ctx.beginPath();ctx.arc(w/2,h/2,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,255,255,0.07)';ctx.lineWidth=2;ctx.stroke();}
+    requestAnimationFrame(draw);
+  })();
+}
+
+function drawGallery(cid, style) {
+  const c = document.getElementById(cid); if (!c) return;
+  const ctx = c.getContext('2d'); let t = 0;
+  (function draw() {
+    t += 0.007;
+    const w = c.width = c.offsetWidth, h = c.height = c.offsetHeight;
+    if (style==='river') {
+      ctx.fillStyle='#87CEEB'; ctx.fillRect(0,0,w,h);
+      ctx.fillStyle='#2d8b3a'; ctx.beginPath(); ctx.ellipse(w*0.28,h*0.55,w*0.25,h*0.22,0,0,Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(w*0.72,h*0.5,w*0.3,h*0.25,0,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle='#1a6b9a'; ctx.beginPath(); ctx.moveTo(0,h*0.62);
+      for(let x=0;x<=w;x+=4)ctx.lineTo(x,h*0.62+Math.sin(x/40+t)*14);
+      ctx.lineTo(w,h);ctx.lineTo(0,h);ctx.closePath();ctx.fill();
+      ctx.beginPath();ctx.arc(w*0.82,h*0.16,18,0,Math.PI*2);ctx.fillStyle='#ffc107';ctx.fill();
+    } else if (style==='mountain') {
+      const g=ctx.createLinearGradient(0,0,0,h);g.addColorStop(0,'#e8f4fd');g.addColorStop(1,'#b8d4ed');
+      ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+      ctx.fillStyle='#4a6741';ctx.beginPath();ctx.moveTo(0,h);ctx.lineTo(w*0.18,h*0.22);ctx.lineTo(w*0.5,h*0.52);ctx.lineTo(w*0.78,h*0.18);ctx.lineTo(w,h*0.42);ctx.lineTo(w,h);ctx.closePath();ctx.fill();
+      ctx.fillStyle='white';ctx.beginPath();ctx.moveTo(w*0.76,h*0.2);ctx.lineTo(w*0.78,h*0.18);ctx.lineTo(w*0.8,h*0.2);ctx.lineTo(w*0.79,h*0.27);ctx.lineTo(w*0.77,h*0.27);ctx.closePath();ctx.fill();
+      const cx=((t*14)%(w+100))-50;ctx.fillStyle='rgba(255,255,255,0.88)';ctx.beginPath();ctx.ellipse(cx,h*0.2,32,14,0,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.ellipse(cx+22,h*0.22,22,12,0,0,Math.PI*2);ctx.fill();
+    } else {
+      const g=ctx.createLinearGradient(0,0,w,h);g.addColorStop(0,'#fff9c4');g.addColorStop(1,'#ffcc02');
+      ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+      for(let i=0;i<8;i++){const a=t+i*Math.PI/4;ctx.beginPath();ctx.moveTo(w/2,h/2);ctx.lineTo(w/2+Math.cos(a)*w*0.7,h/2+Math.sin(a)*h*0.7);ctx.strokeStyle='rgba(255,150,0,0.18)';ctx.lineWidth=18;ctx.stroke();}
+      ctx.beginPath();ctx.arc(w/2,h/2,Math.min(w,h)*0.23,0,Math.PI*2);ctx.fillStyle='#ff8c00';ctx.fill();
+      ctx.beginPath();ctx.arc(w/2,h/2,Math.min(w,h)*0.14,0,Math.PI*2);ctx.fillStyle='#ffc107';ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  })();
+}
+
+function drawArtsFeature() {
+  const c = document.getElementById('arts-feat'); if (!c) return;
+  const ctx = c.getContext('2d'); let t = 0;
+  (function draw() {
+    t += 0.01;
+    const w = c.width = c.offsetWidth, h = c.height = 200; c.height = h;
+    ctx.fillStyle='#1a0a2e'; ctx.fillRect(0,0,w,h);
+    [0.22,0.5,0.78].forEach(px => {
+      const sx = px*w, g=ctx.createRadialGradient(sx,0,0,sx,0,h*1.3);
+      g.addColorStop(0,'rgba(255,240,180,0.2)');g.addColorStop(1,'transparent');
+      const a=0.22+Math.sin(t)*0.08;
+      ctx.beginPath();ctx.moveTo(sx,0);ctx.lineTo(sx-h*Math.tan(a),h);ctx.lineTo(sx+h*Math.tan(a),h);ctx.closePath();ctx.fillStyle=g;ctx.fill();
+    });
+    ctx.fillStyle='#8b0000';ctx.fillRect(0,0,w*0.12,h);ctx.fillRect(w*0.88,0,w*0.12,h);
+    ctx.fillStyle='#2a1500';ctx.fillRect(0,h*0.75,w,h*0.25);
+    [{x:0.35,bump:0},{x:0.5,bump:0.5},{x:0.65,bump:1}].forEach((p,i) => {
+      const px=p.x*w, py=h*0.66;
+      ctx.fillStyle='#0a0a0a';
+      ctx.beginPath();ctx.arc(px,py-18,8,0,Math.PI*2);ctx.fill();
+      ctx.fillRect(px-6,py-10,12,24);
+      ctx.save();ctx.translate(px,py-6);ctx.rotate(Math.sin(t+i+p.bump)*0.35);ctx.fillRect(-14,-2,8,4);ctx.restore();
+      ctx.save();ctx.translate(px,py-6);ctx.rotate(-Math.sin(t+i+p.bump)*0.35);ctx.fillRect(6,-2,8,4);ctx.restore();
+    });
+    requestAnimationFrame(draw);
+  })();
+}
+
+function initPage(id) {
+  switch(id) {
+    case 'about': drawBanner('about-c','#0a1f44','#1a3a7a','#0d2d60'); break;
+    case 'academics': drawBanner('acad-c','#1a6b3a','#0a4a28','#2d9e5c'); break;
+    case 'news': drawBanner('news-c','#1a1a2e','#16213e','#0f3460'); break;
+    case 'sports': drawBanner('sports-c','#0a3a1a','#1a6b3a','#0d5228'); break;
+    case 'arts':
+      drawBanner('arts-c','#4a0a7a','#2a0550','#6b1a9a');
+      drawArtsFeature();
+      drawGallery('gc1','river'); drawGallery('gc2','mountain'); drawGallery('gc3','sun'); break;
+    case 'events': drawBanner('events-c','#7b1818','#3a0a0a','#9a2222'); break;
+    case 'staff': drawBanner('staff-c','#0a1f44','#1a3a7a','#2a4a8a'); break;
+    case 'contact': drawBanner('contact-c','#1a4a1a','#0a2a0a','#2d6b2d'); break;
+  }
+}
+
+window.addEventListener('load', () => {
+  initHero();
+  window.addEventListener('resize', initHero);
+  drawFC('fc1','#1a6b3a','#0a4a28','#f0c04080');
+  drawFC('fc2','#0a1f44','#1a3a7a','#ff8c0080');
+  drawFC('fc3','#7b1818','#3a0a0a','#f0c04080');
+  drawAC('ac1','#1a3a7a','#0a1f44');
+  drawAC('ac2','#4a0a7a','#2a0550');
+  drawAC('ac3','#7b1818','#3a0a0a');
+  fadeIns();
+});
+</script>
+</body>
+</html>
