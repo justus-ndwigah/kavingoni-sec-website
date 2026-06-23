@@ -11,6 +11,9 @@ A fully responsive official school website built to provide students, parents, a
 ---
 ## Screenshots 
 <img width="1078" height="1464" alt="capture_temp" src="https://github.com/user-attachments/assets/61e7551d-56bc-464f-956f-a557003622b5" />
+<img width="1069" height="1777" alt="capture_temp" src="https://github.com/user-attachments/assets/f95c82bb-838a-410e-b3c2-6c2a81fdc98b" />
+<img width="1064" height="2098" alt="capture_temp" src="https://github.com/user-attachments/assets/68749735-e12f-412f-8d10-4a2ec152badd" />
+
 
 ##  Built With
 
