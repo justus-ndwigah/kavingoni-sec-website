@@ -7,6 +7,7 @@
 <meta name="theme-color" content="#0a1f44">
 <title>St. Thomas Kavingoni Senior School | Education for a Better Life</title>
 <link rel="icon" type="image/png" href="web-photos/school-logo.png">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Nunito:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   /* =========================================================
@@ -391,6 +392,32 @@
     .map-button{width:100%}
     .track-card{padding:28px 18px}
   }
+
+  .social-links {
+  display: flex;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.social-links a {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #00d4b4;
+  border-radius: 50%;
+  color: #00d4b4;
+  font-size: 22px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.social-links a:hover {
+  background: #00d4b4;
+  color: #07101f;
+  transform: translateY(-3px);
+}
+  
 </style>
 </head>
 <body id="top">
@@ -934,11 +961,50 @@
         <div class="kicker">Get in touch</div>
         <h2 class="section-title">We Would Love to Hear From You</h2>
         <p class="lead">For admissions, school information or general enquiries, please use the contact details below or send us a message.</p>
-        <div class="contact-list">
-          <div class="contact-item"><div><b>Phone</b><span>+254 736 975 416</span></div></div>
-          <div class="contact-item"><div><b>Email</b><span>skavingoni@gmail.com</span></div></div>
-          <div class="contact-item"><div><b>Location</b><span>Kavingoni, Kathonzweni Subcounty, Makueni County, Kenya</span></div></div>
-        </div>
+        <div class="contact-info">
+
+  <a href="tel:>+254 736 975 416" class="contact-item">
+    <span class="contact-icon">📞</span>
+    >+254 736 975 416
+  </a>
+
+  <a href="mailto:skavingoni@gmail.com" class="contact-item">
+    <span class="contact-icon">✉️</span>
+    skavingoni@gmail.com
+  </a>
+
+  <div class="contact-item static">
+    <span class="contact-icon">📍</span>
+    Kavingoni, Kathonzweni Subcounty, Makueni County, Kenya
+  </div>
+
+  <div class="social-links" aria-label="Social media links">
+    <a href="https://wa.me/254736975416"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat with me on WhatsApp"
+       title="WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <a href="PASTE-YOUR-TIKTOK-LINK-HERE"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Follow me on TikTok"
+       title="TikTok">
+      <i class="fa-brands fa-tiktok"></i>
+    </a>
+
+    <a href="PASTE-YOUR-FACEBOOK-LINK-HERE"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Follow me on Facebook"
+       title="Facebook">
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
+  </div>
+
+</div>
       </div>
 
        <form id="contact-form" action="https://formspree.io/f/xzdoepop" method="POST" onsubmit="handleFormspree(event)">
