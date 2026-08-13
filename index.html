@@ -258,6 +258,24 @@
 
   .rm-btn{display:inline-block;background:var(--navy);color:#fff;padding:9px 19px;border-radius:20px;font-size:.8rem;font-weight:700;border:none;cursor:pointer;transition:background .25s}
   .rm-btn:hover{background:var(--gold);color:var(--navy-deep)}
+ /* Mobile news layout */
+@media (max-width: 768px) {
+  .news-section .wrap {padding-left: 18px;padding-right: 18px;}
+  .featured-grid,
+  .article-grid {grid-template-columns: 1fr;gap: 24px;}
+  .featured-card,
+  .article-card {width: 100%;min-width: 0;}
+  .fc-img,
+  .ac-img {height: 230px;}
+  .fc-img img,
+  .ac-img img {width: 100%;height: 100%;object-fit: cover;}
+  .fc-body,
+  .ac-body {padding: 22px;}
+  .fc-title {font-size: 1.45rem;line-height: 1.3;}
+  .ac-title {font-size: 1.25rem;line-height: 1.3;}
+  .fc-text,
+  .ac-text {font-size: 1rem;line-height: 1.65;}
+}
 
   /* ---------- arts & culture ---------- */
   .arts-section{background:var(--paper)}
@@ -387,16 +405,10 @@
     .map-button{width:100%}
     .track-card{padding:28px 18px}
   }
-  .social-links {display: flex;gap: 16px;margin-top: 24px;
-}
-.social-links a {width: 48px;height: 48px;display: grid;place-items: center;border: 1px solid #00d4b4;border-radius: 50%;color: #00d4b4;font-size: 22px;text-decoration: none;transition: 0.2s ease;
-}
+  .social-links {display: flex;gap: 16px;margin-top: 24px;}
+.social-links a {width: 48px;height: 48px;display: grid;place-items: center;border: 1px solid #00d4b4;border-radius: 50%;color: #00d4b4;font-size: 22px;text-decoration: none;transition: 0.2s ease;}
 
-.social-links a:hover {
-  background: #00d4b4;
-  color: #07101f;
-  transform: translateY(-3px);
-}
+.social-links a:hover {background: #00d4b4;color: #07101f;transform: translateY(-3px);}
   
 </style>
 </head>
@@ -597,7 +609,7 @@
 
       <div class="featured-grid">
         <article class="featured-card">
-          <div class="fc-img"><div class="fc-fallback" style="background:linear-gradient(135deg,#0a1f44,#1a3a7a)"><span>📢</span><span>HOLIDAY NOTICE</span></div></div>
+         <div class="fc-img"><img src="WEBSITE-PHOTOS/dean.jpg" alt="Peter Laun at the national games"></div>
           <div class="fc-body">
             <div class="fc-tag">Announcement</div>
             <div class="fc-title">Easter Holiday Break — Assignments Ongoing</div>
@@ -607,10 +619,10 @@
           </div>
         </article>
         <article class="featured-card">
-          <div class="fc-img"><img src="web-photos/laun-national-games.png" alt="Peter Laun at the national games"></div>
+          <div class="fc-img"><img src="WEBSITE-PHOTOS/laun-kisumu.jpg" alt="Peter Laun at the national games"></div>
           <div class="fc-body">
             <div class="fc-tag">Sports Achievement</div>
-            <div class="fc-title">Peter Laun Advances to Nationals in Kisumu!</div>
+            <div class="fc-title">Peter Laun to Nationals in Kisumu!</div>
             <div class="fc-meta">By Mr. Musila O.M · April 6, 2026</div>
             <div class="fc-text">Peter Laun, Form 4B, is representing our school at the national games in Kisumu, competing in triple jump and high jump. Go Laun!</div>
             <button class="rm-btn" onclick="openModal('laun')">Read More</button>
@@ -635,25 +647,25 @@
             <div class="ac-tag">Sciences</div>
             <div class="ac-title">New Science Laboratory Equipped</div>
             <div class="ac-text">The school's science lab has been upgraded to enhance KCSE preparation in Biology, Chemistry and Physics&#8230;</div>
-            <button class="ac-link" onclick="openModal('sciencelab')">Continue Reading →</button>
+            <button class="rm-btn" onclick="openModal('easter')">Read More</button>
           </div>
         </article>
         <article class="article-card">
-          <div class="ac-img"><div class="ac-fallback" style="background:linear-gradient(135deg,#4a1a6b,#2d0a4a)">🎭</div></div>
+          <div class="fc-img"><img src="web-photos/music-club.jfif" alt="Regionals music festivals"></div>
           <div class="ac-body">
             <div class="ac-tag">Arts &amp; Culture</div>
-            <div class="ac-title">Drama Club Shines at County Festival</div>
-            <div class="ac-text">Our drama club brought home silver at the Makueni County Drama Festival with their Kiswahili play performance&#8230;</div>
-            <button class="ac-link" onclick="openModal('drama')">Continue Reading →</button>
+            <div class="ac-title">Music Club Shines at Eastern Region Festival</div>
+            <div class="ac-text">Our music club brought home silver at the Eastern Region Music Festival with their choir performance&#8230;</div>
+            <button class="rm-btn" onclick="openModal('easter')">Read More</button>
           </div>
         </article>
         <article class="article-card">
-          <div class="ac-img"><img src="web-photos/harambee.jpeg" alt="Prize giving ceremony"></div>
+          <div class="ac-img"><img src="web-photos/harambee.jpeg" alt="school harambee"></div>
           <div class="ac-body">
             <div class="ac-tag">Events</div>
-            <div class="ac-title">Prize Giving Day — Term 3, 2026</div>
-            <div class="ac-text">Parents and guardians are invited to the school's annual Prize Giving Day to celebrate academic performance of the 2025 class (The Phoenixes) and co-curricular excellence&#8230;</div>
-            <button class="ac-link" onclick="openModal('prize')">Continue Reading →</button>
+            <div class="ac-title">School Bus Fund Drive</div>
+            <div class="ac-text"> The school successfully held a Bus Harambee, bringing together parents, guardians, alumni, and friends in support of improved transport for our learners. We sincerely appreciate everyone who contributed to making the event a success.&#8230;</div>
+            <button class="rm-btn" onclick="openModal('easter')">Read More</button>
           </div>
         </article>
       </div>
@@ -686,53 +698,25 @@
           <path d="M 40 170 C 260 170, 260 60, 480 60 S 700 170, 880 40" fill="none" stroke="var(--navy)" stroke-width="3" stroke-dasharray="2 14" stroke-linecap="round" opacity=".55"/>
           <!-- waypoints -->
 <circle cx="230" cy="130" r="6" fill="var(--gold)"/>
-<text x="230" y="153"
-  font-family="Space Mono, monospace"
-  font-size="10"
-  fill="#5c6478"
-  text-anchor="middle">Term Openers</text>
+<text x="230" y="153"font-family="Space Mono, monospace"font-size="10"fill="#5c6478"text-anchor="middle">Term Openers</text>
 <circle cx="355" cy="82" r="6" fill="var(--gold)"/>
-<text x="355" y="108"
-  font-family="Space Mono, monospace"
-  font-size="10"
-  fill="#5c6478"
-  text-anchor="middle">Weekly RATS</text>
-          
+<text x="355" y="108"font-family="Space Mono, monospace"font-size="10"fill="#5c6478"text-anchor="middle">Weekly RATS</text>         
 <circle cx="480" cy="60" r="6" fill="var(--gold)"/>
-<text x="480" y="88"
-  font-family="Space Mono, monospace"
-  font-size="10"
-  fill="#5c6478"
-  text-anchor="middle">Mock Exams</text>
-          
+<text x="480" y="88"font-family="Space Mono, monospace"font-size="10"fill="#5c6478"text-anchor="middle">Mock Exams</text>         
 <circle cx="610" cy="75" r="6" fill="var(--gold)"/>
-<text x="610" y="102"
-  font-family="Space Mono, monospace"
-  font-size="9"
-  fill="#5c6478"
-  text-anchor="middle">Supervised Notes Reading</text>
-          
+<text x="610" y="102"font-family="Space Mono, monospace"font-size="9"fill="#5c6478"text-anchor="middle">Supervised Notes Reading</text>          
 <circle cx="700" cy="108" r="6" fill="var(--gold)"/>
-<text x="700" y="136"
-  font-family="Space Mono, monospace"
-  font-size="10"
-  fill="#5c6478"
-  text-anchor="middle">Revision</text>
-          <!-- start -->
-          <circle cx="40" cy="170" r="11" fill="var(--brick)"/>
-          <text x="98" y="190"
-  font-family="Nunito, sans-serif"
-  font-size="11"
-  font-weight="700"
-  fill="var(--ink)"
-  text-anchor="middle">2025 · The Phoenixes</text>
-          <!-- finish -->
-          <circle cx="880" cy="40" r="12" fill="var(--leaf)"/>
-          <text x="880" y="75" font-family="Space Mono, monospace" font-size="14" font-weight="700" fill="var(--leaf)" text-anchor="middle">7.2</text>
-          <text x="855" y="20" font-family="Nunito, sans-serif" font-size="13" font-weight="800" fill="var(--ink)" text-anchor="end">2026 · The Imperiums 🏁</text>
-        </svg>
-        <div class="track-legend"><span>MEAN GRADE 2025: 6.5</span><span>TARGET 2026: 7.2</span></div>
-      </div>
+<text x="700" y="136"font-family="Space Mono, monospace"font-size="10"fill="#5c6478"text-anchor="middle">Revision</text>
+      <!-- start -->
+ <circle cx="40" cy="170" r="11" fill="var(--brick)"/>
+ <text x="98" y="190"font-family="Nunito, sans-serif"font-size="11"font-weight="700"fill="var(--ink)"text-anchor="middle">2025 · The Phoenixes</text>
+     <!-- finish -->
+ <circle cx="880" cy="40" r="12" fill="var(--leaf)"/>
+ <text x="880" y="75" font-family="Space Mono, monospace" font-size="14" font-weight="700" fill="var(--leaf)" text-anchor="middle">7.2</text>
+  <text x="855" y="20" font-family="Nunito, sans-serif" font-size="13" font-weight="800" fill="var(--ink)" text-anchor="end">2026 · The Imperiums 🏁</text>
+    </svg>
+  <div class="track-legend"><span>MEAN GRADE 2025: 6.5</span><span>TARGET 2026: 7.2</span></div>
+     </div>
     </div>
   </section>
 
@@ -740,7 +724,7 @@
   <section class="principal" id="principal">
     <div class="wrap message-grid">
       <div class="message-image">
-        <img src="WEBSITE-PHOTOS/meeting.jpg" alt="Mr. Muange, Principal of St. Thomas Kavingoni School" loading="lazy">
+        <img src="WEBSITE-PHOTOS/meeting.jpg" alt=" Mr. Muange, Principal of St. Thomas Kavingoni School" loading="lazy">
       </div>
       <div class="message-copy">
         <div class="kicker">Leadership message</div>
@@ -943,43 +927,20 @@
         <p class="lead">For admissions, school information or general enquiries, please use the contact details below or send us a message.</p>
         <div class="contact-info">
 
-  <a href="tel:>+254 736 975 416" class="contact-item">
-    <span class="contact-icon">📞</span>
-    >+254 736 975 416
-  </a>
-
-  <a href="mailto:skavingoni@gmail.com" class="contact-item">
-    <span class="contact-icon">✉️</span>
-    skavingoni@gmail.com
-  </a>
-
-  <div class="contact-item static">
-    <span class="contact-icon">📍</span>
-    Kavingoni, Kathonzweni Subcounty, Makueni County, Kenya
-  </div>
+  <a href="tel:>+254 736 975 416" class="contact-item"><span class="contact-icon">📞</span>+254 736 975 416</a>
+  <a href="mailto:skavingoni@gmail.com" class="contact-item"><span class="contact-icon">✉️</span>skavingoni@gmail.com</a>
+  <div class="contact-item static"><span class="contact-icon">📍</span>Kavingoni, Kathonzweni Subcounty, Makueni County, Kenya</div>
 
   <div class="social-links" aria-label="Social media links">
-    <a href="https://wa.me/254736975416"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Chat with me on WhatsApp"
-       title="WhatsApp">
+    <a href="https://wa.me/254736975416"target="_blank"rel="noopener noreferrer"aria-label="Chat with me on WhatsApp"title="WhatsApp">
       <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <a href="PASTE-YOUR-TIKTOK-LINK-HERE"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Follow me on TikTok"
-       title="TikTok">
+    <a href="PASTE-YOUR-TIKTOK-LINK-HERE"target="_blank"rel="noopener noreferrer"aria-label="Follow me on TikTok"title="TikTok">
       <i class="fa-brands fa-tiktok"></i>
     </a>
 
-    <a href="PASTE-YOUR-FACEBOOK-LINK-HERE"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Follow me on Facebook"
-       title="Facebook">
+    <a href="PASTE-YOUR-FACEBOOK-LINK-HERE"target="_blank"rel="noopener noreferrer"aria-label="Follow me on Facebook"title="Facebook">
       <i class="fa-brands fa-facebook-f"></i>
     </a>
   </div>
