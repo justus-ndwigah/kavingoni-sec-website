@@ -103,6 +103,16 @@
   .btn-gold{background:var(--gold);color:var(--navy-deep)}
   .btn-outline{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.5)}
   .btn-navy{background:var(--navy);color:#fff}
+  #cf-btn {
+  display: block;
+  margin: 24px auto 0;
+  padding: 16px 42px;
+  min-width: 220px;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
   /* ---------- hero ---------- */
   .hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;isolation:isolate;background:var(--navy-deep)}
@@ -308,6 +318,15 @@
   input:focus,textarea:focus{border-color:var(--navy);box-shadow:0 0 0 4px rgba(10,31,68,.1)}
   .field{margin-bottom:15px}
   form.contact-form .btn{width:100%;background:var(--navy);color:#fff}
+  #contact-form textarea {
+  width: 100%;
+  min-height: 180px;
+  padding: 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: vertical;
+  box-sizing: border-box;
+}
 
   /* ---------- location ---------- */
   .location{background:var(--paper)}
@@ -914,7 +933,7 @@
        <form id="contact-form" action="https://formspree.io/f/xzdoepop" method="POST" onsubmit="handleFormspree(event)">
             <div class="fg"><label>Full Name</label><input type="text" name="name" placeholder="Your full name" required></div>
             <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com" required></div>
-            <div class="fg"><label>Message</label><textarea name="message" placeholder="Write your message here..." required></textarea></div>
+            <div class="fg"><label>Message</label><textarea id="message" name="message" placeholder="Write your message here..." rows="8" required></textarea></div>
             <button type="submit" class="sub-btn" id="cf-btn">Send Message ✉️</button>
             <div id="cf-ok" style="display:none;margin-top:14px;background:#e8f5e9;color:var(--green);padding:12px;border-radius:8px;text-align:center;font-weight:700">✅ Thank you! Your message has been sent to the school. We will get back to you soon.</div>
             <div id="cf-err" style="display:none;margin-top:14px;background:#fde8e8;color:#b22222;padding:12px;border-radius:8px;text-align:center;font-weight:700">❌ Failed to send. Please check your Formspree ID or try again.</div>
