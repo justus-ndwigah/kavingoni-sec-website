@@ -340,6 +340,10 @@
     .hero-slide:not(:first-child){display:none}
   }
 
+  #cf-btn.submitted {
+  background: #2e7d32;
+  color: #fff;
+}
   /* ---------- accessibility focus ---------- */
   a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 
@@ -911,16 +915,24 @@
         </div>
       </div>
 
-      <form class="contact-form" id="contact-form" action="https://formspree.io/f/xzdoepop" method="POST" onsubmit="handleFormspree(event)">
-        <div class="form-row">
-          <div class="field"><label for="name">Your Name</label><input id="name" name="name" type="text" placeholder="Enter your name" required></div>
-          <div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" placeholder="Enter your email" required></div>
-        </div>
-        <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="6" placeholder="How can we help you?" required></textarea></div>
-        <button class="btn" id="cf-btn" type="submit">Send Message ✉️</button>
-        <p id="cf-ok" style="display:none;margin-top:12px;color:var(--leaf);font-size:.88rem;font-weight:700;">Thank you — your message has been sent. We'll be in touch soon.</p>
-        <p id="cf-err" style="display:none;margin-top:12px;color:var(--brick);font-size:.88rem;font-weight:700;">Something went wrong. Please try again or call us directly.</p>
-      </form>
+      <form id="contact-form"
+  action="https://formspree.io/f/xzdoepop"
+  method="POST"
+  onsubmit="handleFormspree(event)">
+
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+
+  <button id="cf-btn" type="submit">Send Message ✉️</button>
+
+  <p id="cf-ok" role="status" aria-live="polite" style="display:none;">
+    Thank you! Your message has been submitted successfully.
+  </p>
+  <p id="cf-err" role="alert" style="display:none;">
+    Sorry, your message could not be sent. Please try again.
+  </p>
+</form>
     </div>
   </section>
 
@@ -987,7 +999,7 @@
   </div>
   <div class="wrap footer-bottom">
     <span>© 2026 St. Thomas Kavingoni Senior School. All Rights Reserved.</span>
-    <span>Designed &amp; Developed by <strong>ICT CLUB</strong></span>
+    <span>Designed &amp; Developed by <strong>Jaz Tech</strong></span>
   </div>
   <div class="flag-rule"><span class="fr-black"></span><span class="fr-red"></span><span class="fr-green"></span><span class="fr-white"></span></div>
 </footer>
@@ -1159,25 +1171,47 @@
 
   /* ---------- contact form via Formspree ---------- */
   async function handleFormspree(e) {
-    e.preventDefault();
-    const btn = document.getElementById('cf-btn');
-    const ok  = document.getElementById('cf-ok');
-    const err = document.getElementById('cf-err');
-    btn.textContent = 'Sending…'; btn.disabled = true;
-    ok.style.display = 'none'; err.style.display = 'none';
-    try {
-      const res = await fetch(e.target.action, {
-        method: 'POST',
-        body: new FormData(e.target),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) { ok.style.display = 'block'; e.target.reset(); }
-      else { err.style.display = 'block'; }
-    } catch (ex) {
+  e.preventDefault();
+
+  const form = e.target;
+  const btn = document.getElementById('cf-btn');
+  const ok = document.getElementById('cf-ok');
+  const err = document.getElementById('cf-err');
+  const defaultButtonText = 'Send Message ✉️';
+
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  ok.style.display = 'none';
+  err.style.display = 'none';
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+
+    if (res.ok) {
+      form.reset();
+      ok.style.display = 'block';
+      btn.textContent = 'Message Submitted ✓';
+      btn.classList.add('submitted');
+
+      setTimeout(() => {
+        btn.textContent = defaultButtonText;
+        btn.classList.remove('submitted');
+      }, 4000);
+    } else {
       err.style.display = 'block';
+      btn.textContent = 'Try Again';
     }
-    btn.textContent = 'Send Message ✉️'; btn.disabled = false;
+  } catch (error) {
+    err.style.display = 'block';
+    btn.textContent = 'Try Again';
   }
+
+  btn.disabled = false;
+}
 </script>
 </body>
 </html>
