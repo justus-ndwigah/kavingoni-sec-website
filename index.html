@@ -200,7 +200,7 @@
   .signature{margin-top:20px;color:var(--navy);font-weight:800}
   .signature span{display:block;color:var(--muted);font-weight:600;font-size:.85rem;margin-top:2px}
 
-  /* ---------- departments / teachers shared card look ---------- */
+  /* ---------- departments/teachers shared card look ---------- */
   .departments{background:var(--paper)}
   .department-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .department-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:.3s}
@@ -301,19 +301,51 @@
   .modal-box p{color:#3c4257;line-height:1.85;margin-bottom:12px}
 
   /* ---------- calendar ---------- */
-  .calendar-section{background:#fff}
-  .cal-card{max-width:620px;margin:0 auto;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:30px clamp(16px,4vw,34px);box-shadow:var(--shadow-sm)}
-  .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-  .cal-nav button{background:var(--navy);color:#fff;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;font-size:1rem}
-  .cal-nav button:hover{background:var(--navy-2)}
-  #cal-title{font-family:var(--display);font-size:1.25rem;font-weight:800;color:var(--navy)}
-  .cal-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:6px}
-  .cal-dow div{text-align:center;font-size:.7rem;font-weight:800;color:#8a90a0;padding:4px}
-  #cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
-  #cal-event-popup{display:none;margin-top:18px;background:#fff;border-left:4px solid var(--navy);padding:16px 18px;border-radius:10px;box-shadow:var(--shadow-sm)}
-  #cal-popup-title{font-weight:800;color:var(--navy);font-size:1rem;margin-bottom:4px}
-  #cal-popup-detail{color:var(--muted);font-size:.88rem;line-height:1.6}
-  #cal-popup-tag{margin-top:10px}
+ .smart-calendar-section {padding: 50px 20px;background: #f8fafc;}
+.calendar-layout {display: grid;grid-template-columns: minmax(0, 1.45fr) minmax(290px, 0.8fr);gap: 28px;max-width: 1150px;margin: auto;align-items: start;}
+.calendar-main,
+.upcoming-panel {background: #ffffff;border-radius: 16px;padding: 25px;box-shadow: 0 8px 25px rgba(10, 31, 68, 0.08);}
+.calendar-toolbar {display: flex;align-items: center;justify-content: space-between;gap: 15px;text-align: center;margin-bottom: 22px;}
+.calendar-toolbar h2,
+.upcoming-panel h2 {color: #0a1f44;margin: 0;}
+.calendar-toolbar h2 {font-size: 1.35rem;}
+.cal-nav {width: 40px;height: 40px;border: 0;border-radius: 50%;background: #e8f0fb;color: #0a1f44;font-size: 1.25rem;font-weight: 800;cursor: pointer;}
+.cal-nav:hover,
+.cal-today:hover {background: #0a1f44;color: #ffffff;}
+.cal-today {margin-top: 6px;border: 0;background: transparent;color: #0a1f44;font-weight: 700;cursor: pointer;}
+.calendar-weekdays,
+.calendar-grid {display: grid;grid-template-columns: repeat(7, minmax(0, 1fr));gap: 7px;}
+.calendar-weekdays {margin-bottom: 8px;text-align: center;color: #667085;font-size: 0.75rem;font-weight: 800;}
+.calendar-day {min-height: 46px;border: 0;border-radius: 9px;background: transparent;color: #344054;font-size: 0.9rem;font-weight: 600;}
+button.calendar-day {cursor: pointer;}
+.calendar-day.has-event {background: var(--event-color);color: #ffffff;font-weight: 800;}
+.calendar-day.is-today {outline: 2px solid #0a1f44;outline-offset: 1px;}
+.calendar-day.has-event:hover {transform: scale(1.08);}
+.event-dot {display: block;width: 5px;height: 5px;border-radius: 50%;background: #ffffff;margin: 3px auto 0;}
+.calendar-popup {border-left: 5px solid #0a1f44;background: #f8fafc;border-radius: 10px;margin-top: 22px;padding: 16px;}
+.popup-top {display: flex;align-items: center;justify-content: space-between;gap: 12px;}
+#cal-popup-close {border: 0;background: transparent;color: #667085;font-size: 1.4rem;cursor: pointer;}
+#cal-popup-title {color: #0a1f44;margin: 12px 0 7px;font-size: 1.1rem;}
+#cal-popup-detail {margin: 0;color: #475467;line-height: 1.6;}
+.upcoming-kicker {margin: 0 0 5px;color: #a83a1c;font-size: 0.78rem;font-weight: 800;text-transform: uppercase;letter-spacing: 0.08em;}
+#upcoming-events {display: grid;gap: 12px;margin-top: 18px;}
+.upcoming-event {width: 100%;text-align: left;background: #f8fafc;border: 1px solid #e4e7ec;border-left: 5px solid var(--event-color);border-radius: 10px;padding: 14px;color: #172033;cursor: pointer;}
+.upcoming-event:hover {transform: translateY(-2px);box-shadow: 0 6px 16px rgba(10, 31, 68, 0.12);}
+.upcoming-date,
+.upcoming-tag,
+.upcoming-event strong {display: block;}
+.upcoming-date,
+ .upcoming-tag {color: #667085;font-size: 0.78rem;}
+.upcoming-event strong {color: #0a1f44;margin: 5px 0;line-height: 1.35;}
+ .no-events {color: #667085;}
+ @media (max-width: 768px) {
+ .smart-calendar-section {padding: 35px 14px;}
+.calendar-layout {grid-template-columns: 1fr;}
+.calendar-main,
+ .upcoming-panel {padding: 18px;}
+.calendar-day {min-height: 40px;font-size: 0.8rem;}
+.calendar-weekdays {font-size: 0.67rem;}
+  }
 
   /* ---------- gallery ---------- */
   .gallery{background:var(--paper)}
@@ -850,7 +882,7 @@
 
       <div class="essay-card">
         <img src="web-photos/music-club.jfif" alt="Drama club performance at the county festival">
-         <h3>"maasai solo" — A solo item on the Maasai community</h3>
+         <h3>"Maasai solo" — A solo item on the Maasai community</h3>
         <p class="meta">By  Edward Sumailey, Form 3 — Winner, music festivals at regionals 2026</p>
         <p>When I look at the hills of Makueni from our school grounds at dawn, I think about every student who has walked these paths. Education, I have come to believe, is not just about passing examinations. It is about discovering who you are — your strengths, your voice, your place in the world.</p>
         <p>My teacher once told me: "The pen you hold today is more powerful than any tool your parents ever held." I carry those words with me into every examination room.</p>
@@ -860,29 +892,423 @@
   </section>
 
   <!-- CALENDAR -->
-  <section class="calendar-section" id="calendar">
+ 
+  <!-- NEWS & UPDATES -->
+  <section class="news-section" id="news">
     <div class="wrap">
       <div class="section-head">
-        <div class="kicker">Key dates</div>
-        <h2 class="section-title">School Calendar — 2026</h2>
-        <p>Tap a highlighted date for details. New events are added as the term unfolds.</p>
+        <div class="kicker">Latest from the school</div>
+        <h2 class="section-title">News &amp; Updates</h2>
+        <p>Announcements, achievements and stories from around the school.</p>
       </div>
-      <div class="cal-card">
-        <div class="cal-nav">
-          <button onclick="calPrev()" aria-label="Previous month">‹</button>
-          <div id="cal-title"></div>
-          <button onclick="calNext()" aria-label="Next month">›</button>
+
+  <div class="featured-grid">
+    <article class="featured-card">
+      <div class="fc-img"><div class="fc-fallback" style="background:linear-gradient(135deg,#0a1f44,#1a3a7a)"><span>📢</span><span>HOLIDAY NOTICE</span></div></div>
+      <div class="fc-body">
+        <div class="fc-tag">Announcement</div>
+        <div class="fc-title">Easter Holiday Break — Assignments Ongoing</div>
+        <div class="fc-meta">By Mr. Nzioki D.K · April 1, 2026</div>
+        <div class="fc-text">Parents are encouraged to oversee holiday assignments and personal revision ahead of the opener exam on Wednesday 29th. Happy Easter!</div>
+        <button class="rm-btn" onclick="openModal('easter')">Read More</button>
+      </div>
+    </article>
+    <article class="featured-card">
+      <div class="fc-img"><img src="web-photos/laun-national-games.png" alt="Peter Laun at the national games"></div>
+      <div class="fc-body">
+        <div class="fc-tag">Sports Achievement</div>
+        <div class="fc-title">Peter Laun Advances to Nationals in Kisumu!</div>
+        <div class="fc-meta">By Mr. Musila O.M · April 6, 2026</div>
+        <div class="fc-text">Peter Laun, Form 4B, is representing our school at the national games in Kisumu, competing in triple jump and high jump. Go Laun!</div>
+        <button class="rm-btn" onclick="openModal('laun')">Read More</button>
+      </div>
+    </article>
+    <article class="featured-card">
+      <div class="fc-img"><img src="web-photos/kcse-analysis.png" alt="KCSE 2025 results analysis"></div>
+      <div class="fc-body">
+        <div class="fc-tag">Academics</div>
+        <div class="fc-title">KCSE 2025: School Posts Mean Grade of 6.5</div>
+        <div class="fc-meta">By The Editorial Team · February 2026</div>
+        <div class="fc-text">St Thomas Kavingoni achieved a school mean of 6.5 in KCSE 2025, with several students scoring B+ and above. Target: 7.2 in 2026.</div>
+        <button class="rm-btn" onclick="openModal('kcse')">Read More</button>
+      </div>
+    </article>
+  </div>
+
+  <div class="article-grid">
+    <article class="article-card">
+      <div class="ac-img"><img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.50.jpeg" alt="Science laboratory"></div>
+      <div class="ac-body">
+        <div class="ac-tag">Sciences</div>
+        <div class="ac-title">New Science Laboratory Equipped</div>
+        <div class="ac-text">The school's science lab has been upgraded to enhance KCSE preparation in Biology, Chemistry and Physics&#8230;</div>
+        <button class="rm-btn" onclick="openModal('easter')">Read More</button>
+      </div>
+    </article>
+    <article class="article-card">
+      <div class="ac-img"><div class="ac-fallback" style="background:linear-gradient(135deg,#4a1a6b,#2d0a4a)">🎭</div></div>
+      <div class="ac-body">
+        <div class="ac-tag">Arts &amp; Culture</div>
+        <div class="ac-title">Drama Club Shines at County Festival</div>
+        <div class="ac-text">Our drama club brought home silver at the Makueni County Drama Festival with their Kiswahili play performance&#8230;</div>
+        <button class="rm-btn" onclick="openModal('easter')">Read More</button>
+      </div>
+    </article>
+    <article class="article-card">
+      <div class="ac-img"><img src="web-photos/harambee.jpeg" alt="Prize giving ceremony"></div>
+      <div class="ac-body">
+        <div class="ac-tag">Events</div>
+        <div class="ac-title">Prize Giving Day — Term 3, 2026</div>
+        <div class="ac-text">Parents and guardians are invited to the school's annual Prize Giving Day to celebrate academic performance of the 2025 class (The Phoenixes) and co-curricular excellence&#8230;</div>
+        <button class="rm-btn" onclick="openModal('easter')">Read More</button>
+      </div>
+    </article>
+  </div>
+</div>
+  </section>                   how can i make these sections to be bigger when the screen resolution changes to a smartphone and one to fill the width of the screen not three grids squeezing in one small screen and redusing the text and photos
+…
+
+Show more
+2:24 AM
+Add this at the bottom of your CSS. On screens 768px wide or smaller, it changes both news areas to one full-width card per row and keeps the text/images readable.
+
+/* Mobile news layout */
+@media (max-width: 768px) {
+  .news-section .wrap {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .featured-grid,
+  .article-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .featured-card,
+  .article-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .fc-img,
+  .ac-img {
+    height: 230px;
+  }
+
+  .fc-img img,
+  .ac-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fc-body,
+  .ac-body {
+    padding: 22px;
+  }
+
+  .fc-title {
+    font-size: 1.45rem;
+    line-height: 1.3;
+  }
+
+  .ac-title {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .fc-text,
+  .ac-text {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+Also make sure this line is inside the <head> section of your HTML; it enables proper mobile sizing:
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+The key line is grid-template-columns: 1fr;—it makes one news item fill each row instead of squeezing all three into the phone screen.
+
+2:24 AM
+Parents and guardians are invited to the school's annual Prize Giving Day to celebrate the academic performance of the 2025 class (The Phoenixes) and co-curricular excellence......................replace this with a statement where we held a school bus harambee and it was a success
+
+2:50 AM
+Replace it with:
+
+<div class="ac-text">
+  The school successfully held a Bus Harambee, bringing together parents, guardians, alumni and friends in support of improved transport for our learners. We sincerely appreciate everyone who contributed to making the event a success.
+</div>
+2:51 AM
+  const calEvents = {
+
+'2026-05-06': { title: 'Form 3 Academic Day', detail: 'Mandatory — all parents of Form 3 students must attend in full. 9:00 AM at the assembly grounds.', tag: 'Parents Must Attend', color: '#a83a1c' },
+'2026-05-09': { title: 'Launch of The Imperiums (Form 4)', detail: 'Grand class launch for Form 4 — The Imperiums. Distinguished guests invited. Smart/formal dress. 10:00 AM.', tag: 'Special Event', color: '#c8960c' },
+'2026-05-10': { title: 'Annual Sports Day', detail: 'Inter-house sports day: athletics, team games and relay races. Parents welcome.', tag: 'Sports', color: '#1a6b3a' },
+'2026-05-20': { title: 'Prize Giving Day — Term 1', detail: 'Celebrating top performers. Parents and guests cordially invited. 10:00 AM.', tag: 'Ceremony', color: '#c8960c' },
+'2026-06-05': { title: 'Form 4 Mock Examinations', detail: 'First KCSE mock in full KNEC format. Duration: two weeks.', tag: 'Academics', color: '#0a1f44' },
+'2026-06-15': { title: 'Makueni County Drama Festival', detail: 'Our drama club performs in Wote — targeting gold!', tag: 'Arts', color: '#4a1a6b' },
+'2026-06-24': { title: 'Mid-Term Break Begins', detail: 'One-week holiday. Parents: please send fares early. Return date in the circular.', tag: 'Holiday', color: '#1a6b3a' },
+'2026-07-03': { title: 'Phoenixes Prize Giving Day', detail: 'Honouring The Phoenixes (Form 4, 2025 — mean 6.5). All parents and guests invited.', tag: 'Ceremony', color: '#c8960c' },
+'2026-07-24': { title: 'School Bus Harambee', detail: 'The biggest event of the year. All parents are asked to attend and contribute.', tag: 'All Parents', color: '#a83a1c' },
+'2026-08-01': { title: 'Term 2 Opening Day', detail: 'All students report back to school with all requirements.', tag: 'School', color: '#0a1f44' },
+ '2026-08-26': { title: 'Term 3 Opener Examination', detail: 'All students sit the Term 3 opener. Papers are being marked; results coming soon.', tag: 'Academics', color: '#0a1f44' },
+ '2026-10-16': { title: 'KCSE Reharsal', detail: 'All Candidates start their exam preparations. Parents to ensure that their children are fully equipped with the necessary materials', tag: 'Academics', color: '#0a1f44' },
+'2026-10-29': { title: 'KCSE Begins', detail: 'Computer studies Candidates start their exam with 451/1.We wish them nothing but the best', tag: 'Academics', color: '#0a1f44' },
+  };
+  let calYear = 2026, calMonth = 4;
+  const calMonthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  function renderCal() {
+    const title = document.getElementById('cal-title');
+    const grid = document.getElementById('cal-grid');
+    if (!title || !grid) return;
+    title.textContent = calMonthNames[calMonth] + ' ' + calYear;
+    grid.innerHTML = '';
+    const firstDay = new Date(calYear, calMonth, 1).getDay();
+    const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+    for (let i = 0; i < firstDay; i++) {
+      const blank = document.createElement('div');
+      grid.appendChild(blank);
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const key = ${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')};
+      const ev = calEvents[key];
+      const cell = document.createElement('div');
+      const today = new Date();
+      const isToday = today.getFullYear()===calYear && today.getMonth()===calMonth && today.getDate()===d;
+      cell.style.cssText = text-align:center;padding:7px 2px;border-radius:8px;font-size:.82rem;font-weight:${ev?'800':'500'};cursor:${ev?'pointer':'default'};background:${ev ? ev.color : isToday ? '#e8f0fb' : 'transparent'};color:${ev ? '#fff' : isToday ? '#0a1f44' : '#444'};border:${isToday && !ev ? '2px solid #0a1f44' : '2px solid transparent'};transition:transform .15s;position:relative;
+      cell.textContent = d;
+      if (ev) {
+        cell.title = ev.title;
+        cell.addEventListener('click', () => showCalEvent(key));
+        cell.addEventListener('mouseenter', () => cell.style.transform = 'scale(1.15)');
+        cell.addEventListener('mouseleave', () => cell.style.transform = 'scale(1)');
+        const dot = document.createElement('div');
+        dot.style.cssText = 'width:5px;height:5px;background:#fff;border-radius:50%;margin:2px auto 0;opacity:.8';
+        cell.appendChild(dot);
+      }
+      grid.appendChild(cell);
+    }
+  }
+
+  function showCalEvent(key) {
+    const ev = calEvents[key]; if (!ev) return;
+    const popup = document.getElementById('cal-event-popup');
+    document.getElementById('cal-popup-title').textContent = ev.title;
+    document.getElementById('cal-popup-detail').textContent = ev.detail;
+    document.getElementById('cal-popup-tag').innerHTML = <span style="background:${ev.color};color:#fff;padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:800">${ev.tag}</span>;
+    popup.style.display = 'block';
+    popup.style.borderLeftColor = ev.color;
+  }
+
+  function calPrev() { calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderCal(); document.getElementById('cal-event-popup').style.display='none'; }
+  function calNext() { calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderCal(); document.getElementById('cal-event-popup').style.display='none'; }
+
+  window.addEventListener('load', renderCal);........................i want you to help me edit this smart calender to be always on the active current month and all the upcoming events alonside it
+
+…
+
+Show more
+6:46 PM
+Make these three changes. The calendar will open on the visitor’s current month, highlight today, and show every upcoming event beside it.
+
+1. Replace this line:
+
+let calYear = 2026, calMonth = 4;
+With:
+
+const now = new Date();
+let calYear = now.getFullYear();
+let calMonth = now.getMonth();
+2. Add this HTML beside your existing calendar grid
+
+Wrap your current calendar content and this new section inside .calendar-layout:
+
+<div class="calendar-layout">
+
+  <div class="calendar-panel">
+    <!-- Keep your existing calendar title, controls, grid and popup here -->
+  </div>
+
+  <aside class="upcoming-panel">
+    <h3>Upcoming Events</h3>
+    <div id="upcoming-events"></div>
+  </aside>
+
+</div>
+3. Add this JavaScript below renderCal()
+
+function renderUpcomingEvents() {
+  const upcomingBox = document.getElementById('upcoming-events');
+  if (!upcomingBox) return;
+
+  const today = new Date();
+  const todayKey =
+    `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+
+  const upcomingEvents = Object.entries(calEvents)
+    .filter(([date]) => date >= todayKey)
+    .sort(([dateA], [dateB]) => dateA.localeCompare(dateB));
+
+  upcomingBox.innerHTML = '';
+
+  if (upcomingEvents.length === 0) {
+    upcomingBox.innerHTML = '<p class="no-events">No upcoming events at the moment.</p>';
+    return;
+  }
+
+  upcomingEvents.forEach(([date, event]) => {
+    const eventDate = new Date(`${date}T00:00:00`).toLocaleDateString('en-KE', {
+      weekday: 'short',
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    });
+
+    const item = document.createElement('button');
+    item.className = 'upcoming-event';
+    item.style.borderLeftColor = event.color;
+
+    item.innerHTML = `
+      <span class="upcoming-date">${eventDate}</span>
+      <strong>${event.title}</strong>
+      <span>${event.tag}</span>
+    `;
+
+    item.addEventListener('click', () => {
+      calYear = Number(date.slice(0, 4));
+      calMonth = Number(date.slice(5, 7)) - 1;
+      renderCal();
+      showCalEvent(date);
+    });
+
+    upcomingBox.appendChild(item);
+  });
+}
+Then update the final line in renderCal() by adding this beneath the calendar loop:
+
+renderUpcomingEvents();
+Finally, add this CSS:
+
+.calendar-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.8fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.upcoming-panel {
+  background: #f7f8fa;
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.upcoming-panel h3 {
+  margin: 0 0 16px;
+  color: #0a1f44;
+}
+
+#upcoming-events {
+  display: grid;
+  gap: 12px;
+}
+
+.upcoming-event {
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: 1px solid #e3e7ed;
+  border-left: 5px solid;
+  border-radius: 9px;
+  padding: 12px;
+  cursor: pointer;
+  color: #172033;
+}
+
+.upcoming-event:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(10, 31, 68, 0.12);
+}
+
+.upcoming-event span,
+.upcoming-event strong {
+  display: block;
+}
+
+.upcoming-date {
+  font-size: 0.78rem;
+  color: #667085;
+  margin-bottom: 4px;
+}
+
+.upcoming-event strong {
+  color: #0a1f44;
+  margin-bottom: 4px;
+}
+
+.upcoming-event span:last-child {
+  font-size: 0.8rem;
+  color: #667085;
+}
+
+@media (max-width: 768px) {
+  .calendar-layout {
+    grid-template-columns: 1fr;
+  }
+}
+Now, clicking an upcoming event will automatically open the month containing that event and show its full details.
+
+6:46 PM
+provide a full clean code instead of this so that i can replace it directly
+
+6:48 PM
+Replace your existing calendar HTML, calendar CSS, and JavaScript with this complete block. It opens on the current month automatically and displays all upcoming events alongside the calendar.
+
+<section class="smart-calendar-section" id="calendar">
+  <div class="calendar-layout">
+
+    <div class="calendar-main">
+      <div class="calendar-toolbar">
+        <button type="button" class="cal-nav" id="cal-prev" aria-label="Previous month">←</button>
+
+        <div>
+          <h2 id="cal-title">Calendar</h2>
+          <button type="button" class="cal-today" id="cal-today">Today</button>
         </div>
-        <div class="cal-dow"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
-        <div id="cal-grid"></div>
-        <div id="cal-event-popup">
-          <div id="cal-popup-title"></div>
-          <div id="cal-popup-detail"></div>
-          <div id="cal-popup-tag"></div>
+
+        <button type="button" class="cal-nav" id="cal-next" aria-label="Next month">→</button>
+      </div>
+
+      <div class="calendar-weekdays">
+        <span>Sun</span>
+        <span>Mon</span>
+        <span>Tue</span>
+        <span>Wed</span>
+        <span>Thu</span>
+        <span>Fri</span>
+        <span>Sat</span>
+      </div>
+
+      <div class="calendar-grid" id="cal-grid"></div>
+
+      <div class="calendar-popup" id="cal-event-popup" hidden>
+        <div class="popup-top">
+          <span id="cal-popup-tag"></span>
+          <button type="button" id="cal-popup-close" aria-label="Close event details">×</button>
         </div>
+        <h3 id="cal-popup-title"></h3>
+        <p id="cal-popup-detail"></p>
       </div>
     </div>
-  </section>
+
+    <aside class="upcoming-panel">
+      <p class="upcoming-kicker">School calendar</p>
+      <h2>Upcoming Events</h2>
+      <div id="upcoming-events"></div>
+    </aside>
+
+  </div>
+</section>
 
   <!-- GALLERY -->
   <section class="gallery" id="gallery">
@@ -1103,67 +1529,288 @@
   setInterval(() => goSlide(), 5000);
 
   /* ---------- events calendar ---------- */
-  const calEvents = {
-   
-    '2026-05-06': { title: 'Form 3 Academic Day', detail: 'Mandatory — all parents of Form 3 students must attend in full. 9:00 AM at the assembly grounds.', tag: 'Parents Must Attend', color: '#a83a1c' },
-    '2026-05-09': { title: 'Launch of The Imperiums (Form 4)', detail: 'Grand class launch for Form 4 — The Imperiums. Distinguished guests invited. Smart/formal dress. 10:00 AM.', tag: 'Special Event', color: '#c8960c' },
-    '2026-05-10': { title: 'Annual Sports Day', detail: 'Inter-house sports day: athletics, team games and relay races. Parents welcome.', tag: 'Sports', color: '#1a6b3a' },
-    '2026-05-20': { title: 'Prize Giving Day — Term 1', detail: 'Celebrating top performers. Parents and guests cordially invited. 10:00 AM.', tag: 'Ceremony', color: '#c8960c' },
-    '2026-06-05': { title: 'Form 4 Mock Examinations', detail: 'First KCSE mock in full KNEC format. Duration: two weeks.', tag: 'Academics', color: '#0a1f44' },
-    '2026-06-15': { title: 'Makueni County Drama Festival', detail: 'Our drama club performs in Wote — targeting gold!', tag: 'Arts', color: '#4a1a6b' },
-    '2026-06-24': { title: 'Mid-Term Break Begins', detail: 'One-week holiday. Parents: please send fares early. Return date in the circular.', tag: 'Holiday', color: '#1a6b3a' },
-    '2026-07-03': { title: 'Phoenixes Prize Giving Day', detail: 'Honouring The Phoenixes (Form 4, 2025 — mean 6.5). All parents and guests invited.', tag: 'Ceremony', color: '#c8960c' },
-    '2026-07-24': { title: 'School Bus Harambee', detail: 'The biggest event of the year. All parents are asked to attend and contribute.', tag: 'All Parents', color: '#a83a1c' },
-    '2026-08-01': { title: 'Term 2 Opening Day', detail: 'All students report back to school with all requirements.', tag: 'School', color: '#0a1f44' },
-     '2026-08-26': { title: 'Term 3 Opener Examination', detail: 'All students sit the Term 3 opener. Papers are being marked; results coming soon.', tag: 'Academics', color: '#0a1f44' },
-     '2026-10-16': { title: 'KCSE Reharsal', detail: 'All Candidates start their exam preparations. Parents to ensure that their children are fully equipped with the necessary materials', tag: 'Academics', color: '#0a1f44' },
-    '2026-10-29': { title: 'KCSE Begins', detail: 'Computer studies Candidates start their exam with 451/1.We wish them nothing but the best', tag: 'Academics', color: '#0a1f44' },
-    
+ const calEvents = {
+    '2026-05-06': {
+      title: 'Form 3 Academic Day',
+      detail: 'Mandatory — all parents of Form 3 students must attend in full. 9:00 AM at the assembly grounds.',
+      tag: 'Parents Must Attend',
+      color: '#a83a1c'
+    },
+    '2026-05-09': {
+      title: 'Launch of The Imperiums (Form 4)',
+      detail: 'Grand class launch for Form 4 — The Imperiums. Distinguished guests invited. Smart/formal dress. 10:00 AM.',
+      tag: 'Special Event',
+      color: '#c8960c'
+    },
+    '2026-05-10': {
+      title: 'Annual Sports Day',
+      detail: 'Inter-house sports day: athletics, team games and relay races. Parents welcome.',
+      tag: 'Sports',
+      color: '#1a6b3a'
+    },
+    '2026-05-20': {
+      title: 'Prize Giving Day — Term 1',
+      detail: 'Celebrating top performers. Parents and guests cordially invited. 10:00 AM.',
+      tag: 'Ceremony',
+      color: '#c8960c'
+    },
+    '2026-06-05': {
+      title: 'Form 4 Mock Examinations',
+      detail: 'First KCSE mock in full KNEC format. Duration: two weeks.',
+      tag: 'Academics',
+      color: '#0a1f44'
+    },
+    '2026-06-15': {
+      title: 'Makueni County Drama Festival',
+      detail: 'Our drama club performs in Wote — targeting gold!',
+      tag: 'Arts',
+      color: '#4a1a6b'
+    },
+    '2026-06-24': {
+      title: 'Mid-Term Break Begins',
+      detail: 'One-week holiday. Parents: please send fares early. Return date in the circular.',
+      tag: 'Holiday',
+      color: '#1a6b3a'
+    },
+    '2026-07-03': {
+      title: 'Phoenixes Prize Giving Day',
+      detail: 'Honouring The Phoenixes (Form 4, 2025 — mean 6.5). All parents and guests invited.',
+      tag: 'Ceremony',
+      color: '#c8960c'
+    },
+    '2026-07-24': {
+      title: 'School Bus Harambee',
+      detail: 'The school bus Harambee was a great success. We thank all parents, guardians, alumni and friends who contributed.',
+      tag: 'School Event',
+      color: '#a83a1c'
+    },
+    '2026-08-01': {
+      title: 'Term 2 Opening Day',
+      detail: 'All students report back to school with all requirements.',
+      tag: 'School',
+      color: '#0a1f44'
+    },
+    '2026-08-26': {
+      title: 'Term 3 Opener Examination',
+      detail: 'All students sit the Term 3 opener. Papers are being marked; results coming soon.',
+      tag: 'Academics',
+      color: '#0a1f44'
+    },
+    '2026-10-16': {
+      title: 'KCSE Rehearsal',
+      detail: 'All candidates begin exam preparations. Parents should ensure their children have all necessary materials.',
+      tag: 'Academics',
+      color: '#0a1f44'
+    },
+    '2026-10-29': {
+      title: 'KCSE Begins',
+      detail: 'Computer Studies candidates begin with paper 451/1. We wish them all the best.',
+      tag: 'Academics',
+      color: '#0a1f44'
+    }
   };
-  let calYear = 2026, calMonth = 4;
-  const calMonthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-  function renderCal() {
-    const title = document.getElementById('cal-title');
-    const grid = document.getElementById('cal-grid');
-    if (!title || !grid) return;
-    title.textContent = calMonthNames[calMonth] + ' ' + calYear;
-    grid.innerHTML = '';
-    const firstDay = new Date(calYear, calMonth, 1).getDay();
-    const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-    for (let i = 0; i < firstDay; i++) {
-      const blank = document.createElement('div');
-      grid.appendChild(blank);
-    }
-    for (let d = 1; d <= daysInMonth; d++) {
-      const key = `${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-      const ev = calEvents[key];
-      const cell = document.createElement('div');
-      const today = new Date();
-      const isToday = today.getFullYear()===calYear && today.getMonth()===calMonth && today.getDate()===d;
-      cell.style.cssText = `text-align:center;padding:7px 2px;border-radius:8px;font-size:.82rem;font-weight:${ev?'800':'500'};cursor:${ev?'pointer':'default'};background:${ev ? ev.color : isToday ? '#e8f0fb' : 'transparent'};color:${ev ? '#fff' : isToday ? '#0a1f44' : '#444'};border:${isToday && !ev ? '2px solid #0a1f44' : '2px solid transparent'};transition:transform .15s;position:relative`;
-      cell.textContent = d;
-      if (ev) {
-        cell.title = ev.title;
-        cell.addEventListener('click', () => showCalEvent(key));
-        cell.addEventListener('mouseenter', () => cell.style.transform = 'scale(1.15)');
-        cell.addEventListener('mouseleave', () => cell.style.transform = 'scale(1)');
-        const dot = document.createElement('div');
-        dot.style.cssText = 'width:5px;height:5px;background:#fff;border-radius:50%;margin:2px auto 0;opacity:.8';
-        cell.appendChild(dot);
-      }
-      grid.appendChild(cell);
-    }
+  let calYear;
+  let calMonth;
+
+  const calMonthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+
+  function getTodayKey() {
+    const today = new Date();
+
+    return `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+  }
+
+  function formatEventDate(date) {
+    return new Date(`${date}T00:00:00`).toLocaleDateString('en-KE', {
+      weekday: 'short',
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    });
   }
 
   function showCalEvent(key) {
-    const ev = calEvents[key]; if (!ev) return;
+    const event = calEvents[key];
     const popup = document.getElementById('cal-event-popup');
-    document.getElementById('cal-popup-title').textContent = ev.title;
-    document.getElementById('cal-popup-detail').textContent = ev.detail;
-    document.getElementById('cal-popup-tag').innerHTML = `<span style="background:${ev.color};color:#fff;padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:800">${ev.tag}</span>`;
-    popup.style.display = 'block';
-    popup.style.borderLeftColor = ev.color;
+
+    if (!event || !popup) return;
+
+    document.getElementById('cal-popup-title').textContent = event.title;
+    document.getElementById('cal-popup-detail').textContent = event.detail;
+
+    const tag = document.getElementById('cal-popup-tag');
+    tag.textContent = event.tag;
+    tag.style.cssText = `
+      background: ${event.color};
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 800;
+    `;
+
+    popup.style.borderLeftColor = event.color;
+    popup.hidden = false;
+  }
+
+  function renderUpcomingEvents() {
+    const eventBox = document.getElementById('upcoming-events');
+    const todayKey = getTodayKey();
+
+    const upcomingEvents = Object.entries(calEvents)
+      .filter(([date]) => date >= todayKey)
+      .sort(([firstDate], [secondDate]) => firstDate.localeCompare(secondDate));
+
+    eventBox.innerHTML = '';
+
+    if (upcomingEvents.length === 0) {
+      eventBox.innerHTML = '<p class="no-events">No upcoming events at the moment.</p>';
+      return;
+    }
+
+    upcomingEvents.forEach(([date, event]) => {
+      const button = document.createElement('button');
+
+      button.type = 'button';
+      button.className = 'upcoming-event';
+      button.style.setProperty('--event-color', event.color);
+
+      const dateText = document.createElement('span');
+      dateText.className = 'upcoming-date';
+      dateText.textContent = formatEventDate(date);
+
+      const title = document.createElement('strong');
+      title.textContent = event.title;
+
+      const tag = document.createElement('span');
+      tag.className = 'upcoming-tag';
+      tag.textContent = event.tag;
+
+      button.append(dateText, title, tag);
+
+      button.addEventListener('click', () => {
+        calYear = Number(date.slice(0, 4));
+        calMonth = Number(date.slice(5, 7)) - 1;
+        renderCalendar();
+        showCalEvent(date);
+      });
+
+      eventBox.appendChild(button);
+    });
+  }
+
+  function renderCalendar() {
+    const title = document.getElementById('cal-title');
+    const grid = document.getElementById('cal-grid');
+    const today = new Date();
+
+    title.textContent = `${calMonthNames[calMonth]} ${calYear}`;
+    grid.innerHTML = '';
+
+    const firstDay = new Date(calYear, calMonth, 1).getDay();
+    const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+
+    for (let blankDay = 0; blankDay < firstDay; blankDay++) {
+      const blank = document.createElement('div');
+      blank.className = 'calendar-day';
+      grid.appendChild(blank);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dateKey =
+        `${calYear}-${String(calMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+      const event = calEvents[dateKey];
+      const isToday =
+        today.getFullYear() === calYear &&
+        today.getMonth() === calMonth &&
+        today.getDate() === day;
+
+      const cell = document.createElement('button');
+      cell.type = 'button';
+      cell.className = 'calendar-day';
+      cell.textContent = day;
+
+      if (isToday) {
+        cell.classList.add('is-today');
+      }
+
+      if (event) {
+        cell.classList.add('has-event');
+        cell.style.setProperty('--event-color', event.color);
+        cell.title = event.title;
+        cell.setAttribute('aria-label', `${dateKey}: ${event.title}`);
+
+        const dot = document.createElement('span');
+        dot.className = 'event-dot';
+        cell.appendChild(dot);
+
+        cell.addEventListener('click', () => showCalEvent(dateKey));
+      } else {
+        cell.disabled = true;
+      }
+
+      grid.appendChild(cell);
+    }
+
+    renderUpcomingEvents();
+  }
+
+  function goToToday() {
+    const today = new Date();
+    calYear = today.getFullYear();
+    calMonth = today.getMonth();
+    document.getElementById('cal-event-popup').hidden = true;
+    renderCalendar();
+  }
+
+  function initialiseCalendar() {
+    const today = new Date();
+
+    calYear = today.getFullYear();
+    calMonth = today.getMonth();
+
+    document.getElementById('cal-prev').addEventListener('click', () => {
+      calMonth--;
+
+      if (calMonth < 0) {
+        calMonth = 11;
+        calYear--;
+      }
+
+      document.getElementById('cal-event-popup').hidden = true;
+      renderCalendar();
+    });
+
+    document.getElementById('cal-next').addEventListener('click', () => {
+      calMonth++;
+
+      if (calMonth > 11) {
+        calMonth = 0;
+        calYear++;
+      }
+
+      document.getElementById('cal-event-popup').hidden = true;
+      renderCalendar();
+    });
+
+    document.getElementById('cal-today').addEventListener('click', goToToday);
+
+    document.getElementById('cal-popup-close').addEventListener('click', () => {
+      document.getElementById('cal-event-popup').hidden = true;
+    });
+
+    renderCalendar();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialiseCalendar);
+  } else {
+    initialiseCalendar();
   }
 
   function calPrev() { calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderCal(); document.getElementById('cal-event-popup').style.display='none'; }
