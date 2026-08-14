@@ -632,77 +632,110 @@ button.calendar-day {cursor: pointer;}
 
   <!-- NEWS & UPDATES -->
   <section class="news-section" id="news">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="kicker"><h2>Latest from the school</h2></div>
-        <h2 class="section-title">News &amp; Updates</h2>
-        <p>Announcements, achievements and stories from around the school.</p>
-      </div>
-
-      <div class="featured-grid">
-        <article class="featured-card">
-         <div class="fc-img"><img src="WEBSITE-PHOTOS/dean.jpg" alt="Peter Laun at the national games"></div>
-          <div class="fc-body">
-            <div class="fc-tag">Announcement</div>
-            <div class="fc-title">Easter Holiday Break — Assignments Ongoing</div>
-            <div class="fc-meta">By Mr. Nzioki D.K · April 1, 2026</div>
-            <div class="fc-text">Parents are encouraged to oversee holiday assignments and personal revision ahead of the opener exam on Wednesday 29th. Happy Easter!</div>
-            <button class="rm-btn" onclick="openModal('easter')">Read More</button>
-          </div>
-        </article>
-        <article class="featured-card">
-          <div class="fc-img"><img src="WEBSITE-PHOTOS/laun-kisumu.jpg" alt="Peter Laun at the national games"></div>
-          <div class="fc-body">
-            <div class="fc-tag">Sports Achievement</div>
-            <div class="fc-title">Peter Laun to Nationals in Kisumu!</div>
-            <div class="fc-meta">By Mr. Musila O.M · April 6, 2026</div>
-            <div class="fc-text">Peter Laun, Form 4B, is representing our school at the national games in Kisumu, competing in triple jump and high jump. Go Laun!</div>
-            <button class="rm-btn" onclick="openModal('laun')">Read More</button>
-          </div>
-        </article>
-        <article class="featured-card">
-          <div class="fc-img"><img src="web-photos/kcse-analysis.png" alt="KCSE 2025 results analysis"></div>
-          <div class="fc-body">
-            <div class="fc-tag">Academics</div>
-            <div class="fc-title">KCSE 2025: School Posts Mean Grade of 6.5</div>
-            <div class="fc-meta">By The Editorial Team · February 2026</div>
-            <div class="fc-text">St Thomas Kavingoni achieved a school mean of 6.5 in KCSE 2025, with several students scoring B+ and above. Target: 7.2 in 2026.</div>
-            <button class="rm-btn" onclick="openModal('kcse')">Read More</button>
-          </div>
-        </article>
-      </div>
-
-      <div class="article-grid">
-        <article class="article-card">
-          <div class="ac-img"><img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.50.jpeg" alt="Science laboratory"></div>
-          <div class="ac-body">
-            <div class="ac-tag">Sciences</div>
-            <div class="ac-title">New Science Laboratory Equipped</div>
-            <div class="ac-text">The school's science lab has been upgraded to enhance KCSE preparation in Biology, Chemistry and Physics&#8230;</div>
-            <button class="rm-btn" onclick="openModal('sciencelab')">Read More</button>
-          </div>
-        </article>
-        <article class="article-card">
-          <div class="fc-img"><img src="web-photos/music-club.jfif" alt="Regionals music festivals"></div>
-          <div class="ac-body">
-            <div class="ac-tag">Arts &amp; Culture</div>
-            <div class="ac-title">Music Club Shines at Eastern Region Festival</div>
-            <div class="ac-text">Our music club brought home silver at the Eastern Region Music Festival with their choir performance&#8230;</div>
-            <button class="rm-btn" onclick="openModal('music')">Read More</button>
-          </div>
-        </article>
-        <article class="article-card">
-          <div class="ac-img"><img src="web-photos/harambee.jpeg" alt="school harambee"></div>
-          <div class="ac-body">
-            <div class="ac-tag">Events</div>
-            <div class="ac-title">School Bus Fund Drive</div>
-            <div class="ac-text"> The school successfully held a Bus Harambee, bringing together parents, guardians, alumni, and friends in support of improved transport for our learners. We sincerely appreciate everyone who contributed to making the event a success.&#8230;</div>
-            <button class="rm-btn" onclick="openModal('harambee')">Read More</button>
-          </div>
-        </article>
-      </div>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Latest from the school</p>
+      <h2 class="section-title">News &amp; Updates</h2>
+      <p>Announcements, achievements and stories from around the school.</p>
     </div>
-  </section>
+
+    <!-- One grid only -->
+    <div class="article-grid">
+
+      <article class="article-card">
+       <div class="ac-img">
+          <img src="web-photos/laun-national-games.png" alt="Peter Laun at the national games">
+        </div>
+        <div class="ac-body">
+          <div class="ac-tag">Announcement</div>
+          <div class="ac-title">August Holiday Break</div>
+          <div class="ac-meta">By Mr. Nzioki D.K &middot; August 1, 2026</div>
+          <div class="ac-text">Students should complete holiday assignments and revise for the Term 3 opener examination.</div>
+          <button type="button" class="rm-btn" data-article="holiday">Read More</button>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="ac-img">
+          <img src="web-photos/laun-national-games.png" alt="Peter Laun at the national games">
+        </div>
+        <div class="ac-body">
+          <div class="ac-tag">Sports Achievement</div>
+          <div class="ac-title">Peter Laun Advances to Nationals in Kisumu!</div>
+          <div class="ac-meta">By Mr. Musila O.M &middot; April 6, 2026</div>
+          <div class="ac-text">Peter Laun is representing the school in triple jump and high jump at the national games.</div>
+          <button type="button" class="rm-btn" data-article="laun">Read More</button>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="ac-img">
+          <img src="web-photos/kcse-analysis.png" alt="KCSE 2025 results analysis">
+        </div>
+        <div class="ac-body">
+          <div class="ac-tag">Academics</div>
+          <div class="ac-title">KCSE 2025: School Posts Mean Grade of 6.5</div>
+          <div class="ac-meta">By The Editorial Team &middot; February 2026</div>
+          <div class="ac-text">The school achieved a mean grade of 6.5 in the 2025 KCSE examinations.</div>
+          <button type="button" class="rm-btn" data-article="kcse">Read More</button>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="ac-img">
+          <img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.50.jpeg" alt="Science laboratory">
+        </div>
+        <div class="ac-body">
+          <div class="ac-tag">Sciences</div>
+          <div class="ac-title">New Science Laboratory Equipped</div>
+          <div class="ac-meta">By Editorial Team &middot; March 2026</div>
+          <div class="ac-text">The school laboratory has been upgraded to support practical learning in the sciences.</div>
+          <button type="button" class="rm-btn" data-article="sciencelab">Read More</button>
+        </div>
+      </article>
+
+      <article class="article-card">
+       <div class="ac-img">
+          <img src="web-photos/laun-national-games.png" alt="Peter Laun at the national games">
+        </div>
+        <div class="ac-body">
+          <div class="ac-tag">Music &amp; Culture</div>
+          <div class="ac-title">Music Team Shines at Eastern Regional Festival</div>
+          <div class="ac-meta">By Music Club &middot; July 2026</div>
+          <div class="ac-text">Our music team performed excellently at the Eastern Regional Music Festival in Makueni.</div>
+          <button type="button" class="rm-btn" data-article="music">Read More</button>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="ac-img">
+          <img src="web-photos/harambee.jpeg" alt="School Bus Harambee">
+        </div>
+        <div class="ac-body">
+          <div class="ac-tag">School Development</div>
+          <div class="ac-title">School Bus Harambee a Success</div>
+          <div class="ac-meta">By School Administration &middot; July 2026</div>
+          <div class="ac-text">The school community came together in support of safer and more reliable student transport.</div>
+          <button type="button" class="rm-btn" data-article="harambee">Read More</button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Read More popup -->
+<div class="article-modal" id="article-modal" aria-hidden="true">
+  <div class="article-modal-overlay" data-close-modal></div>
+
+  <article class="article-modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button type="button" class="modal-close" data-close-modal aria-label="Close article">&times;</button>
+    <p class="modal-author" id="modal-author"></p>
+    <h2 id="modal-title"></h2>
+    <div id="modal-content"></div>
+  </article>
+</div>
+ </section>
 
   <!-- ACADEMICS + SIGNATURE TRAJECTORY -->
   <section class="academics" id="academics">
@@ -1513,14 +1546,107 @@ button.calendar-day {cursor: pointer;}
 
   /* ---------- news article modal ---------- */
   const articles = {
-    easter: { title: 'August Holiday Break', author: 'By Mr. Nzioki D.K · August 1, 2026', content: '<p>St Thomas Kavingoni Senior School wishes all students and parents a blessed August holiday. Holiday assignments are compulsory and form part of continuous assessment.</p><p>Students are expected to complete all holiday assignments and engage in personal revision ahead of the <strong>Term 3 Opener Examination on Wednesday, August 26th, 2026</strong>.</p><p>Parents are strongly encouraged to create a conducive study environment at home. Happy holidays!</p>' },
-    laun: { title: 'Peter Laun to National Games in Kisumu!', author: 'By Mr. Musila O.M · April 6, 2026', content: '<p>We are immensely proud that <strong>Peter Laun of Form 4B</strong> has qualified to represent St Thomas Kavingoni Senior School at the <strong>National Schools Games in Kisumu</strong>!</p><p>Peter competes in the <strong>Triple Jump</strong> and <strong>High Jump</strong>. He qualified after a stellar performance at the Makueni County Games, placing 1st in Triple Jump and 2nd in High Jump.</p><p>Peter combines sporting excellence with strong academic performance. The entire school community is behind him. <strong>Go go, Laun!!!</strong></p>' },
-    kcse: { title: 'KCSE 2025: School Posts Mean Grade of 6.5', author: 'By The Editorial Team · February 2026', content: '<p>St Thomas Kavingoni Senior School achieved a <strong>school mean grade of 6.5</strong> in the 2025 KCSE examinations, reflecting the hard work of students and teachers alike.</p><p>Several candidates scored B+ and above, with the school\'s top student achieving an impressive A-. The school performed particularly well in Biology, Kiswahili, and History &amp; Government.</p><p>Principal Mr. Nicholas Muange said: "This result is a foundation — not a ceiling. We will build on it and achieve 7.2 in 2026."</p>' },
-    sciencelab: { title: 'New Science Laboratory Equipped', author: 'By Editorial Team · March 2026', content: '<p>The school\'s science laboratory has received a significant upgrade, with new equipment for Biology, Chemistry, and Physics practicals. The upgrade was made possible through a joint effort by the school board, the PTA, and a donation from alumni.</p><p>New equipment includes microscopes, titration apparatus, and specimen collections that align with the current KCSE syllabus. Students can now complete all required KNEC practicals without leaving school.</p><p>"This is a game-changer for our KCSE candidates," said the Head of Sciences.</p>' },
-    music: { title: 'Music Club Shines at Eastern Region Mucic Festival', author: 'By Music Club · july 2026', content: '<p>St Thomas Kavingoni\'s music club earned a <strong>gold Medal</strong> at the Eastern region Music Festival and qualified for the Nationals at Kibabii University.</p><p>Our school music team performed excellently at the Eastern Regional Music Festivals held in Makueni. Through discipline, teamwork and committed preparation, our learners represented the school with confidence. They showcased their talent before fellow participants, adjudicators and guests.</p><p>We warmly congratulate the entire music team and their trainers for this commendable achievement. We also appreciate the parents, school management and all stakeholders whose encouragement and support made this successful participation possible. We look forward to even greater performances in future festivals.</p>' },
-    harambee: { title: ' — Term 1, 2026', author: 'By School Administration · July 2026', content: '<p>Our School Bus Harambee was a success, bringing together parents, guardians, alumni, staff, friends and well-wishers in support of safer and more reliable transport for our learners. We sincerely appreciate every person who attended, contributed, organised and encouraged this important initiative. Your generosity demonstrates the strong spirit of partnership within our school community.</p><p>While the funds raised were not enough to meet the full cost of the bus, they have taken us a significant step closer to the goal. The school management is pursuing additional support to meet the remaining amount, and we are pleased to announce that the school bus is expected to arrive in the Third Term. Thank you to all stakeholders for believing in this vision and helping us build a better future for our learners.</p>' },
-    essay: { title: '"Inkíshú" — The Pride of Our Community', author: 'By Abraham Saitoti, Form 3 — Winner, Maasai solo, Eastern Region music festivals 2026', content: '<p>Cattle are our wealth, our pride and our living treasure. They feed our children and make our homes better.With milk in the morning and strength through the day, They guide our community in a meaningful way.</p><p>Goats and sheep bring hope when times are hard, They are carefully loved, protected and guarded.Our livestock unite us, young and old alike. They teach us responsibility, courage and pride.</p><p>We honour the animals that sustain our land, A blessing entrusted to every Maasai hand.Through care and unity, our future will grow—For livestock is the heart of the community we know.</p>' }
+    holiday: {
+      title: 'August Holiday Break',
+      author: 'By Mr. Nzioki D.K · August 1, 2026',
+      content: `
+        <p>St Thomas Kavingoni Senior School wishes all students and parents a blessed August holiday. Holiday assignments are compulsory and form part of continuous assessment.</p>
+        <p>Students are expected to complete all holiday assignments and engage in personal revision ahead of the <strong>Term 3 Opener Examination on Wednesday, August 26, 2026.</strong></p>
+        <p>Parents are encouraged to create a conducive study environment at home. Happy holidays!</p>
+      `
+    },
+
+    laun: {
+      title: 'Peter Laun Advances to National Games in Kisumu!',
+      author: 'By Mr. Musila O.M · April 6, 2026',
+      content: `
+        <p>We are immensely proud that <strong>Peter Laun of Form 4B</strong> has qualified to represent St Thomas Kavingoni Senior School at the National Schools Games in Kisumu.</p>
+        <p>Peter competes in the <strong>Triple Jump</strong> and <strong>High Jump</strong>, having performed excellently at the Makueni County Games.</p>
+        <p>The entire school community is behind him. Go, Laun!</p>
+      `
+    },
+
+    kcse: {
+      title: 'KCSE 2025: School Posts Mean Grade of 6.5',
+      author: 'By The Editorial Team · February 2026',
+      content: `
+        <p>St Thomas Kavingoni Senior School achieved a <strong>school mean grade of 6.5</strong> in the 2025 KCSE examinations, reflecting the hard work of students and teachers.</p>
+        <p>Several candidates scored B+ and above, with strong performance in Biology, Kiswahili, and History &amp; Government.</p>
+        <p>The school is determined to build on this achievement and reach an even higher target in 2026.</p>
+      `
+    },
+
+    sciencelab: {
+      title: 'New Science Laboratory Equipped',
+      author: 'By Editorial Team · March 2026',
+      content: `
+        <p>The school's science laboratory has received an important upgrade, with new equipment for Biology, Chemistry and Physics practicals.</p>
+        <p>The upgrade will help learners complete required practical work and prepare more effectively for KCSE examinations.</p>
+        <p>We appreciate the school board, parents, alumni and all supporters who contributed to this development.</p>
+      `
+    },
+
+    music: {
+      title: 'Music Team Shines at Eastern Regional Music Festival',
+      author: 'By Music Club · July 2026',
+      content: `
+        <p>Our school music team performed excellently at the Eastern Regional Music Festivals held in Makueni. Through discipline, teamwork and committed preparation, our learners represented the school with confidence.</p>
+        <p>We congratulate the entire music team and their trainers for this commendable achievement.</p>
+        <p>We also thank parents, school management and all stakeholders whose support made this successful participation possible.</p>
+      `
+    },
+
+    harambee: {
+      title: 'School Bus Harambee a Success',
+      author: 'By School Administration · July 2026',
+      content: `
+        <p>Our School Bus Harambee was a success, bringing together parents, guardians, alumni, staff, friends and well-wishers in support of safer and more reliable transport for our learners.</p>
+        <p>Although the funds raised were not enough to meet the full cost of the bus, they have taken us a significant step closer to the goal. The school is pursuing additional support to meet the remaining amount.</p>
+        <p>We are pleased to announce that the school bus is expected to arrive in Third Term. Thank you to all stakeholders for believing in this vision.</p>
+      `
+    }
   };
+
+  const modal = document.getElementById('article-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalAuthor = document.getElementById('modal-author');
+  const modalContent = document.getElementById('modal-content');
+
+  function openArticle(articleId) {
+    const article = articles[articleId];
+
+    if (!article) return;
+
+    modalTitle.textContent = article.title;
+    modalAuthor.textContent = article.author;
+    modalContent.innerHTML = article.content;
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeArticle() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-article]').forEach((button) => {
+    button.addEventListener('click', () => {
+      openArticle(button.dataset.article);
+    });
+  });
+
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', closeArticle);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeArticle();
+    }
+  });
 
   function openModal(id) {
     const a = articles[id]; if (!a) return;
