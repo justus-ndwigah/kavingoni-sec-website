@@ -255,7 +255,6 @@
   .ac-text{color:var(--muted);font-size:.85rem;margin-bottom:12px}
   .ac-link{background:none;border:0;color:var(--navy);font-weight:800;font-size:.83rem;cursor:pointer;padding:0}
   .ac-link:hover{color:var(--brick)}
-
   .rm-btn{display:inline-block;background:var(--navy);color:#fff;padding:9px 19px;border-radius:20px;font-size:.8rem;font-weight:700;border:none;cursor:pointer;transition:background .25s}
   .rm-btn:hover{background:var(--gold);color:var(--navy-deep)}
  /* Mobile news layout */
@@ -276,6 +275,18 @@
   .fc-text,
   .ac-text {font-size: 1rem;line-height: 1.65;}
 }
+ .news-section .article-grid {display: grid;grid-template-columns: repeat(3, minmax(0, 1fr));gap: 24px;}
+.article-modal {display: none;position: fixed;inset: 0;z-index: 1000;align-items: center;justify-content: center;padding: 20px;}
+ .article-modal.is-open {display: flex;}
+.article-modal-overlay {position: absolute;inset: 0;background: rgba(6, 20, 45, 0.75);}
+.article-modal-content {position: relative;z-index: 1;width: min(650px, 100%);max-height: 85vh;overflow-y: auto;background: #ffffff;border-radius: 16px;padding: 32px;color: #172033;}
+.article-modal-content h2 {color: #0a1f44;margin: 8px 35px 20px 0;}
+.article-modal-content p {line-height: 1.7;}
+ .modal-author {color: #667085;font-weight: 700;margin: 0;}
+.modal-close {position: absolute;top: 16px;right: 18px;border: 0;background: transparent;color: #0a1f44;font-size: 2rem;cursor: pointer;}
+ @media (max-width: 768px) {
+ .news-section .article-grid {grid-template-columns: 1fr;gap: 20px;}
+.article-modal-content {padding: 24px 20px;}}
 
   /* ---------- arts & culture ---------- */
   .arts-section{background:var(--paper)}
