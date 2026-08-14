@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Learning pathways, academic departments and teaching staff at St. Thomas Kavingoni Senior School.">
+<meta name="theme-color" content="#0a1f44">
+<title>Academics | St. Thomas Kavingoni Senior School</title>
+<link rel="icon" type="image/png" href="web-photos/school-logo.png">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Nunito:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body id="top">
+
+<div class="flag-rule"><span class="fr-black"></span><span class="fr-red"></span><span class="fr-green"></span><span class="fr-white"></span></div>
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html#home">
+      <img src="images/school-logo.png" alt="St. Thomas Kavingoni School">
+      <span class="brand-text">
+        <strong>ST. THOMAS KAVINGONI SENIOR SCHOOL</strong>
+        <small>P.O. Box 73&#8211;90302, Makueni</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+    <nav class="nav-menu" aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+
+        <li class="has-dropdown">
+          <a href="about.html">About Us <span class="caret">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="about.html#compass">Vision, Mission &amp; Values</a></li>
+            <li><a href="about.html#about">Welcome</a></li>
+            <li><a href="about.html#history">Our Story</a></li>
+            <li><a href="about.html#principal">Principal's Message</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown active">
+          <a href="academics.html">Academics <span class="caret">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="academics.html#academics">Learning Pathways</a></li>
+            <li><a href="academics.html#departments">Departments</a></li>
+            <li><a href="academics.html#teachers">Our Teachers</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown">
+          <a href="school-life.html">School Life <span class="caret">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="school-life.html#student-life">Clubs &amp; Activities</a></li>
+            <li><a href="school-life.html#arts">Arts &amp; Culture</a></li>
+            <li><a href="school-life.html#news">News</a></li>
+            <li><a href="school-life.html#calendar">Events Calendar</a></li>
+            <li><a href="school-life.html#gallery">Gallery</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown">
+          <a href="contact.html">Contact <span class="caret">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="contact.html#contact">Contact Us</a></li>
+            <li><a href="contact.html#location">Find Us</a></li>
+          </ul>
+        </li>
+
+        <li><a class="nav-cta" href="contact.html#contact">Get in Touch</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="academics-hero">
+    <div class="hero-slides">
+      <div class="hero-slide active"><img src="WEBSITE-PHOTOS/science-dept.jpg" alt="Science department"></div>
+      <div class="hero-slide"><img src="WEBSITE-PHOTOS/maths-dept.jpg" alt="Mathematics department"></div>
+      <div class="hero-slide"><img src="web-photos/computer-lab.jpeg" alt="Computer laboratory"></div>
+      <div class="hero-slide"><img src="web-photos/kcse-analysis.png" alt="KCSE 2025 results analysis"></div>
+    </div>
+    <div class="wrap">
+      <div class="hero-content">
+        <span class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"></path><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"></path></svg>
+          KCSE Mean Grade 6.5 · Target 7.2
+        </span>
+        <h1>Education for the <em>Whole Learner</em></h1>
+        <p>Competency-based and 8-4-4 pathways, dedicated departments and committed teachers preparing every learner for what comes next.</p>
+        <div class="hero-actions page-hero-cta">
+          <a href="academics.html#teachers" class="btn btn-gold">Meet Our Teachers</a>
+          <a href="academics.html#departments" class="btn btn-outline">See Departments</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-dots">
+      <span class="hdot active" onclick="goSlide(0)"></span>
+      <span class="hdot" onclick="goSlide(1)"></span>
+      <span class="hdot" onclick="goSlide(2)"></span>
+      <span class="hdot" onclick="goSlide(3)"></span>
+    </div>
+  </section>
+  <section class="academics" id="academics">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker"><h2>Learning pathways</h2></div>
+        <h2 class="section-title">Education for the Whole Learner</h2>
+        <p>Our programmes develop knowledge, competencies, creativity and the confidence to face future opportunities.</p>
+      </div>
+      <div class="academic-grid">
+        <article class="info-card"><span class="tag">CBC</span><h3>Competency-Based Curriculum</h3><p>The Competency-Based Curriculum develops the whole learner by building knowledge, practical abilities and positive values. It promotes creativity, communication, collaboration, critical thinking, problem-solving and digital literacy, preparing learners to confidently face future opportunities.</p></article>
+        <article class="info-card"><span class="tag">8-4-4</span><h3>National Curriculum</h3><p>The 8-4-4 curriculum continues to support strong academic achievement and excellent KCSE performance. Through committed teaching, regular assessment, guidance and disciplined study, learners are equipped for successful transition to universities and other higher-learning opportunities, with a 50%(+) university transition rate for our candidates.</p></article>
+        <article class="info-card"><span class="tag">2026 TARGET</span><h3>KCSE Mean Grade 7.2</h3><p><strong>The Imperiums</strong>, our 2026 candidate class, are determined to carry the school flag high by achieving a KCSE mean grade of <strong>7.2</strong> With hard work, focused revision, teamwork, mentorship and support from teachers and parents, they are preparing to reach this important target.</p></article>
+      </div>
+
+      <div class="track-card">
+        <div class="track-head">
+          <div>
+            <h3>The Road to 7.2</h3>
+            <p>Every class runs its own lane toward the finish. Here's the season that takes The Imperiums from the starting block to results day.</p>
+          </div>
+        </div>
+        <svg class="track-svg" viewBox="0 0 920 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" Timeline chart showing the school's academic mean grade trajectory from 6.5 in 2025 to a target of 7.2 in 2026">
+          <path d="M 40 170 C 260 170, 260 60, 480 60 S 700 170, 880 40" fill="none" stroke="#e6e5e0" stroke-width="34" stroke-linecap="round"/>
+          <path d="M 40 170 C 260 170, 260 60, 480 60 S 700 170, 880 40" fill="none" stroke="var(--navy)" stroke-width="3" stroke-dasharray="2 14" stroke-linecap="round" opacity=".55"/>
+          <!-- waypoints -->
+<circle cx="230" cy="130" r="6" fill="var(--gold)"/>
+<text x="230" y="153"font-family="Space Mono, monospace"font-size="10"fill="#5c6478"text-anchor="middle">Term Openers</text>
+<circle cx="355" cy="82" r="6" fill="var(--gold)"/>
+<text x="355" y="108"font-family="Space Mono, monospace"font-size="10"fill="#5c6478"text-anchor="middle">Weekly RATS</text>         
+<circle cx="480" cy="60" r="6" fill="var(--gold)"/>
+<text x="480" y="88"font-family="Space Mono, monospace"font-size="10"fill="#5c6478"text-anchor="middle">Mock Exams</text>         
+<circle cx="610" cy="75" r="6" fill="var(--gold)"/>
+<text x="610" y="102"font-family="Space Mono, monospace"font-size="9"fill="#5c6478"text-anchor="middle">Supervised Notes Reading</text>          
+<circle cx="700" cy="108" r="6" fill="var(--gold)"/>
+<text x="700" y="136"font-family="Space Mono, monospace"font-size="10"fill="#5c6478"text-anchor="middle">Revision</text>
+      <!-- start -->
+ <circle cx="40" cy="170" r="11" fill="var(--brick)"/>
+ <text x="98" y="190"font-family="Nunito, sans-serif"font-size="11"font-weight="700"fill="var(--ink)"text-anchor="middle">2025 · The Phoenixes</text>
+     <!-- finish -->
+ <circle cx="880" cy="40" r="12" fill="var(--leaf)"/>
+ <text x="880" y="75" font-family="Space Mono, monospace" font-size="14" font-weight="700" fill="var(--leaf)" text-anchor="middle">7.2</text>
+  <text x="855" y="20" font-family="Nunito, sans-serif" font-size="13" font-weight="800" fill="var(--ink)" text-anchor="end">2026 · The Imperiums 🏁</text>
+    </svg>
+  <div class="track-legend"><span>MEAN GRADE 2025: 6.5</span><span>TARGET 2026: 7.2</span></div>
+     </div>
+    </div>
+  </section>
+  <section class="departments" id="departments">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker"><h2>Academic excellence</h2></div>
+        <h2 class="section-title">Academic Departments</h2>
+        <p>Dedicated departments work together to give learners a broad and practical educational experience.</p>
+      </div>
+      <div class="department-grid">
+        <article class="department-card"><img src="WEBSITE-PHOTOS/science-dept.jpg" alt=" Science Department" loading="lazy"><div class="content"><h3>Science Department</h3><p>The Science Department inspires curiosity, innovation, and practical problem-solving through Biology, Chemistry, and Physics offered by the school. Laboratory work, experiments, observation, research, safe use of resources, and continuous assessment help learners connect scientific knowledge to real-life situations.</p><p><h3>HOD</h3></p><p><h3>Mr. Cosmas Kiio</h3></p></div></article>
+        <article class="department-card"><img src="WEBSITE-PHOTOS/maths-dept.jpg" alt=" Mathematics Department" loading="lazy"><div class="content"><h3>Mathematics Department</h3><p>The Mathematics Department develops logical thinking, accuracy, and problem-solving skills through Mathematics and, where offered, Essential or Core Mathematics. Clear teaching, regular practice, practical problem solving, continuous assessment, and feedback help learners build confidence and apply numerical skills in everyday life.</p><p><h3>HOD</h3></p><p><h3>Mr. Bonface Mwangangi</h3></p></div></article>
+        <article class="department-card"><img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.49 (1).jpeg" alt=" Languages Department" loading="lazy"><div class="content"><h3>Languages Department</h3><p>The Languages Department strengthens communication, literacy, creativity, and cultural appreciation through English, and Kiswahili. Through reading, writing, speaking activities, debates, interactive lessons, and regular assessment, learners become confident and effective communicators.</p><p><h3>HOD</h3></p><p><h3>Mr. Peter Nashon</h3></p></div></article>
+        <article class="department-card"><img src="WEBSITE-PHOTOS/principal-addressing-staff.jpg" alt=" Humanities department" loading="lazy"><div class="content"><h3>Humanities Department</h3><p>The Humanities Department helps learners understand society, culture, leadership, and their role in the world through subjects such as Social Studies, History and Government, Geography, and Religious Education. Discussions, research, projects, fieldwork, and current-affairs learning develop informed, responsible, and critical-thinking learners.</p><p><h3>HOD</h3></p><p><h3>Mr. Michael Musoi</h3></p></div></article>
+        <article class="department-card"><img src="web-photos/computer-lab.jpeg" alt="Technical and Applied department" loading="lazy"><div class="content"><h3>Technical & Applied Department</h3><p>The Technical and Applied Department empowers learners with practical, creative, and future-ready skills through ICT, Computer Studies, Agriculture,and Music. Our strong ICT programme promotes digital literacy, coding, innovation, and responsible use of technology, while hands-on learning, projects, and continuous assessment help learners apply their skills confidently to real-life challenges.</p><p><h3>HOD</h3></p><p><h3>Mr. Joseph Mwaniki</h3></p></div></article>
+        <article class="department-card"><img src="web-photos/laun-national-games.png" alt="Games department" loading="lazy"><div class="content"><h3>Games Department</h3><p>We nurture teamwork, discipline, and talent through engaging sporting activities that support learners’ physical and social development. We achieve this through regular training, inclusive participation, qualified coaching, teamwork, and fair competition.</p><p><h3>HOD</h3></p><p><h3>Mr. Onesmus Musila</h3></p></div></article>
+        <article class="department-card"><img src="WEBSITE-PHOTOS/exams-dept.jpg" alt=" Examinations Department" loading="lazy"><div class="content"><h3>Examinations Department</h3><p>We promote academic excellence through fair, well-coordinated assessments that help learners measure progress and achieve their best. We achieve this through timely examinations, clear marking criteria, accurate record-keeping, and constructive feedback.</p><p><h3>HOD</h3></p><p><h3>Mr. Daniel Nzioki</h3></p></div></article>
+        <article class="department-card"><img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.49 (1).jpeg" alt=" Boarding Department" loading="lazy"><div class="content"><h3>Boarding Department</h3><p>We provide a safe, comfortable, and supportive home environment that promotes learners’ wellbeing, discipline, and independence. We achieve this through proper supervision, clear routines, hygiene standards, nutritious meals, pastoral care, and open communication with parents.</p><p><h3>HOD</h3></p><p><h3>Mr.Edward Mulili</h3></p></div></article>
+        <article class="department-card"><img src="WEBSITE-PHOTOS/principal-addressing-staff.jpg" alt=" Guidance and Counselling Department" loading="lazy"><div class="content"><h3>Guidance & Councelling Department</h3><p>We provide caring support and guidance that helps learners build confidence, make positive choices, and thrive both personally and academically. We achieve this through confidential counselling, mentorship, life-skills sessions, parent collaboration, and early identification of learner needs.</p><p><h3>HOD</h3></p><p><h3>Madam Ruth Mwewa</h3></p></div></article>
+      </div>
+    </div>
+  </section>
+  <section class="teachers" id="teachers">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker"><h2>Our team</h2></div>
+        <h2 class="section-title">Meet Our Teachers</h2>
+        <p>Committed educators who guide, mentor, and inspire learners to pursue excellence.</p>
+      </div>
+      <div class="teacher-grid">
+        <article class="person-card"><img src="WEBSITE-PHOTOS/princie.jpg" alt="Mr. Muange, Principal" loading="lazy"><div class="person-info"><h3>Mr. Muange</h3><p>Mathematics &amp; Geography</p><p>Principal</p></div></article>
+        <article class="person-card"><img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.49 (3).jpeg" alt="Mr. Mainga Abednego, Deputy Principal" loading="lazy"><div class="person-info"><h3>Mr. Mainga Abednego</h3><p>Biology &amp; Chemistry</p><p>Deputy Principal</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/senior (1).jpg" alt="Mr. Kithuka, Senior Teacher" loading="lazy"><div class="person-info"><h3>Mr. Kithuka</h3><p>History &amp; CRE</p><p>Senior Teacher</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/nzioki-kisumu.jpg" alt="Mr. Nzioki, DOS" loading="lazy"><div class="person-info"><h3>Mr. Nzioki</h3><p>Chemistry &amp; Physics</p><p>DOS</p></div></article>
+        <article class="person-card"><img src="web-photos/camara-contract-extention.png" alt="Md. Mwewa, English teacher" loading="lazy"><div class="person-info"><h3>Md. Mwewa</h3><p>English &amp; Literature</p><p>HOD G&C</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/nashon.jpg" alt="Mr. Nashon, English teacher" loading="lazy"><div class="person-info"><h3>Mr. Nashon</h3><p>English &amp; Literature</p><p>HOD Languages</p></div></article>
+        <article class="person-card"><img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.49 (2).jpeg" alt="Mr. kiio,biology" loading="lazy"><div class="person-info"><h3>Mr. Kiio</h3><p>Mathematics &amp; Biology</p><p>HOD Sciences</p></div></article>
+        <article class="person-card"><img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.48 (1).jpeg" alt="Mr. Mwaniki, Science teacher" loading="lazy"><div class="person-info"><h3>Mr. Mwaniki</h3><p>Biology &amp; Agriculture</p><p>HOD Technicals</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/principal-addressing-staff.jpg" alt="Mr. Mwangangi, Mathematics" loading="lazy"><div class="person-info"><h3>Mr. Mwangangi</h3><p>Mathematics &amp; Biology</p><p>HOD Mathematics</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/musila.jpg" alt="Mr. Musila, games" loading="lazy"><div class="person-info"><h3>Mr. Musila</h3><p>Kiswahili &amp; Geography</p><p>HOD Games</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/MULILI.jpg" alt="Mr. Mulili, Boarding Master" loading="lazy"><div class="person-info"><h3>Mr. Mulili</h3><p>Physics &amp; Chemistry</p><p>HOD Boarding</p></div></article>
+        <article class="person-card"><img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.49.jpeg" alt="Md. Ruth, CRE teacher" loading="lazy"><div class="person-info"><h3>Md. Ruth</h3><p>CRE &amp; Kiswahili</p><p>Asst. Boarding</p></div></article>
+        <article class="person-card"><img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.49 (1).jpeg" alt="Mr. Musau, Geography" loading="lazy"><div class="person-info"><h3>Mr. Musau</h3><p>Geography &amp; Business</p><p>Asst. Games</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/katumo-musila.jpg" alt="Md. Katumo, English teacher" loading="lazy"><div class="person-info"><h3>Md. Katumo</h3><p>English &amp; Literature</p></div></article>
+        <article class="person-card"><img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.49 (1).jpeg" alt="Md. Wambua, Kiswahili teacher" loading="lazy"><div class="person-info"><h3>Md. Wambua</h3><p>Kiswahili &amp; Geography</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/principal-addressing-staff.jpg" alt="Mr. Muli, History teacher" loading="lazy"><div class="person-info"><h3>Mr. Muli</h3><p>History &amp; Kiswahili</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/principal-addressing-staff.jpg" alt="Md. Ruth, CRE teacher" loading="lazy"><div class="person-info"><h3>Md. Ruth</h3><p>CRE &amp; Kiswahili</p><p>Asst. Boarding</p></div></article>
+        <article class="person-card"><img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.48 (1).jpeg" alt="Md. Miriam, Agriculture teacher" loading="lazy"><div class="person-info"><h3>Md. Miriam</h3><p>Agriculture &amp; Biology</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/njeru.png" alt="Mr. Njeru, ICT teacher" loading="lazy"><div class="person-info"><h3>Mr. Njeru</h3><p>Computer Studies &amp; Mathematics</p><p>ICT</p></div></article>
+        <article class="person-card"><img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.48 (2).jpeg" alt="Mr. Musoi, Music teacher" loading="lazy"><div class="person-info"><h3>Mr. Musoi</h3><p>History &amp; Kiswahili</p><p>Music &amp; Dance</p></div></article>
+        <article class="person-card"><img src="web-photos/joseph.jpeg" alt="Mr. Mwongela, Business teacher" loading="lazy"><div class="person-info"><h3>Mr. Mwongela</h3><p>Mathematics &amp; Business</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/ndaisi.jpg" alt="Mr. Ndaisi, English" loading="lazy"><div class="person-info"><h3>Mr. Ndaisi</h3><p>English &amp; Literature</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/principal-addressing-staff.jpg" alt="Md. mike, Mathematics" loading="lazy"><div class="person-info"><h3>Md. Mike</h3><p>Mathematics &amp; Business</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/principal-addressing-staff.jpg" alt="Mr. Mutunga, chemistry " loading="lazy"><div class="person-info"><h3>Mr. Mutunga</h3><p>Mathematics &amp; Chemistry</p></div></article>
+        <article class="person-card"><img src="WEBSITE-PHOTOS/ngunga.jpg" alt="Mr. Ngunga, Mathematics" loading="lazy"><div class="person-info"><h3>Mr. Ngunga</h3><p>Mathematics &amp; Physics</p></div></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <h4>St. Thomas Kavingoni Senior School</h4>
+      <p>Providing quality education through academic excellence, discipline, innovation and strong moral values.</p>
+      <p style="margin-top:12px;color:var(--gold-light);font-weight:800;">EDUCATION FOR A BETTER LIFE</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="about.html#about">About Us</a></li>
+        <li><a href="school-life.html#news">News</a></li>
+        <li><a href="academics.html#academics">Academics</a></li>
+        <li><a href="academics.html#teachers">Teachers</a></li>
+        <li><a href="contact.html#contact">Admissions</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Phone: +254 736 975 416</p>
+      <p>Email: skavingoni@gmail.com</p>
+      <p>Kavingoni, Kathonzweni Subcounty, Makueni County, Kenya</p>
+    </div>
+    <div>
+      <h4>KCSE Target 2026</h4>
+      <p>Mean 2025: <strong style="color:var(--gold-light)">6.5</strong></p>
+      <p>Target 2026: <strong style="color:var(--gold-light)">7.2</strong></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 St. Thomas Kavingoni Senior School. All Rights Reserved.</span>
+    <span>Designed &amp; Developed by <strong>Jaz Tech</strong></span>
+  </div>
+  <div class="flag-rule"><span class="fr-black"></span><span class="fr-red"></span><span class="fr-green"></span><span class="fr-white"></span></div>
+</footer>
+
+<a class="back-top" href="#top" aria-label="Back to top">↑</a>
+<script src="assets/script.js"></script>
+</body>
+</html>
