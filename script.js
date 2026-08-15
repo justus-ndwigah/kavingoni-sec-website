@@ -405,16 +405,17 @@
       content: `
         <p>Our School Bus Harambee was a success, bringing together parents, guardians, alumni, staff, friends and well-wishers in support of safer and more reliable transport for our learners.</p>
         <p>Although the funds raised were not enough to meet the full cost of the bus, they have taken us a significant step closer to the goal. The school is pursuing additional support to meet the remaining amount.</p>
-        <p>We are pleased to announce that the school bus is expected to arrive in Third Term. Thank you to all stakeholders for believing in this vision.</p>
+        <p>We are pleased to announce that the school bus is expected to arrive in the 3rd Term. Thank you to all stakeholders for believing in this vision.</p>
       `
     },
 
     essay: {
-      title: '"Maasai Solo" — A Solo Item on the Maasai Community',
-      author: 'By Edward Sumailey, Form 3 · Winner, Music Festivals at Regionals 2026',
+      title: '"Inkíshú" — The Pride of Our Community',
+      author: 'By Edward Katitia, Form 3 · Winner, Music Festivals at Regionals 2026',
       content: `
-        <p>When I look at the hills of Makueni from our school grounds at dawn, I think about every student who has walked these paths. Education, I have come to believe, is not just about passing examinations. It is about discovering who you are — your strengths, your voice, your place in the world.</p>
-        <p>My teacher once told me: "The pen you hold today is more powerful than any tool your parents ever held." I carry those words with me into every examination room.</p>
+        <p>Cattle are our wealth, our pride and our living treasure. They feed our children and make our homes better. With milk in the morning and strength through the day, they guide our community in a meaningful way.</p>
+        <p>Goats and sheep bring hope when times are hard. They are carefully loved, protected, and guarded. Our livestock unite us, young and old alike. They teach us responsibility, courage and pride.</p>
+        <p>We honour the animals that sustain our land, A blessing entrusted to every Maasai hand. Through care and unity, our future will grow—For livestock is the heart of the community we know.</p>
       `
     }
   };
