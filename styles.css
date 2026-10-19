@@ -221,8 +221,8 @@
   .featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:44px}
   .featured-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:.3s}
   .featured-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-  .fc-img{height:auto;min-height:140px;position:relative;overflow:hidden;background:#eef1f6}
-  .fc-img img{display:block;width:100%;height:auto;max-height:460px;object-fit:cover;object-position:center top}
+  .fc-img{aspect-ratio:4/3;height:auto;position:relative;overflow:hidden;background:#eef1f6}
+  .fc-img img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 20%}
   .fc-img .fc-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
   .fc-fallback span:first-child{font-size:2.3rem}
   .fc-fallback span:last-child{color:rgba(255,255,255,.75);font-size:.7rem;margin-top:6px;letter-spacing:.1em;font-weight:700}
@@ -235,8 +235,8 @@
   .article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .article-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:.3s}
   .article-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-  .ac-img{height:auto;min-height:140px;position:relative;overflow:hidden;background:#eef1f6}
-  .ac-img img{display:block;width:100%;height:auto;max-height:460px;object-fit:cover;object-position:center top}
+  .ac-img{aspect-ratio:4/3;height:auto;position:relative;overflow:hidden;background:#eef1f6}
+  .ac-img img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 20%}
   .ac-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem}
   .ac-body{padding:20px}
   .ac-tag{font-family:var(--mono);font-size:.66rem;color:var(--leaf);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:7px}
@@ -254,9 +254,9 @@
   .featured-card,
   .article-card {width: 100%;min-width: 0;}
   .fc-img,
-  .ac-img {height: auto;}
+  .ac-img {height: auto;aspect-ratio: 4 / 3;}
   .fc-img img,
-  .ac-img img {display: block;width: 100%;height: auto;max-height: 460px;object-fit: cover;object-position: center top;}
+  .ac-img img {display: block;width: 100%;height: 100%;object-fit: cover;object-position: center 20%;}
   .fc-body,
   .ac-body {padding: 22px;}
   .fc-title {font-size: 1.45rem;line-height: 1.3;}
