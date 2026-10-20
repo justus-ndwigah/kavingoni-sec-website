@@ -356,6 +356,21 @@ button.calendar-day {cursor: pointer;}
   .gallery-card img{width:100%;height:200px;object-fit:cover;transition:.45s}
   .gallery-card:hover img{transform:scale(1.06)}
   .gallery-card figcaption{padding:13px 15px;font-weight:800;font-size:.85rem;color:var(--navy)}
+  .gallery-card img{cursor:zoom-in}
+
+  /* ---------- gallery lightbox ---------- */
+  .lightbox{position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;padding:56px 64px;background:rgba(6,17,39,.92)}
+  .lightbox.open{display:flex}
+  .lb-figure{margin:0;display:flex;flex-direction:column;align-items:center;max-width:100%;max-height:100%}
+  .lb-img{display:block;max-width:100%;max-height:calc(100vh - 160px);width:auto;height:auto;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5);background:#fff}
+  .lb-caption{margin-top:14px;color:#fff;font-weight:700;font-size:1rem;text-align:center}
+  .lb-close,.lb-nav{position:absolute;border:0;background:rgba(255,255,255,.14);color:#fff;cursor:pointer;line-height:1;border-radius:50%;transition:background .2s}
+  .lb-close:hover,.lb-nav:hover{background:var(--gold);color:var(--navy-deep)}
+  .lb-close{top:16px;right:18px;width:44px;height:44px;font-size:1.9rem}
+  .lb-nav{top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:2rem;padding-bottom:4px}
+  .lb-prev{left:14px}
+  .lb-next{right:14px}
+  @media(max-width:640px){.lightbox{padding:64px 12px 40px}.lb-nav{top:auto;bottom:12px;transform:none}.lb-prev{left:calc(50% - 56px)}.lb-next{right:calc(50% - 56px)}.lb-img{max-height:calc(100vh - 190px)}}
 
   /* ---------- contact ---------- */
   .contact-section{background:#fff}
