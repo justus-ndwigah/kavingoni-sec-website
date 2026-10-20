@@ -291,6 +291,20 @@
   .essay-card h3{color:var(--navy);font-size:1.15rem;margin-bottom:6px}
   .essay-card .meta{color:var(--muted);font-size:.8rem;margin-bottom:14px}
   .essay-card p{color:var(--muted);font-size:.92rem;margin-bottom:12px}
+  .arts-feature > *{min-width:0}
+  .arts-feature h3,.arts-feature p,.essay-card h3,.essay-card p{overflow-wrap:break-word}
+  @media(max-width:860px){
+    .arts-feature{grid-template-columns:1fr;gap:20px;padding:20px}
+    .arts-feature img,.essay-card img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center 20%}
+    .arts-feature h3{font-size:1.15rem}
+    .essay-card{padding:20px}
+  }
+  @media(max-width:600px){
+    .arts-feature{padding:16px;gap:16px;margin-bottom:22px}
+    .arts-feature .a-next{padding:10px 12px;font-size:.82rem}
+    .arts-feature p,.essay-card p{font-size:.9rem}
+    .essay-card{padding:16px}
+  }
 
   /* ---------- modal ---------- */
   .modal-ov{display:none;position:fixed;inset:0;background:rgba(6,17,39,.72);z-index:2000;align-items:center;justify-content:center;padding:20px}
