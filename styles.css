@@ -191,13 +191,28 @@
 
   /* ---------- departments/teachers shared card look ---------- */
   .departments{background:var(--paper)}
-  .department-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .department-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:.3s}
-  .department-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-  .department-card img{width:100%;height:190px;object-fit:cover}
-  .department-card .content{padding:22px}
-  .department-card h3{color:var(--navy);margin-bottom:8px;font-family:var(--body);font-weight:800;font-size:1.02rem}
-  .department-card p{color:var(--muted);font-size:.9rem}
+  /* departments: alternating image / text rows */
+  .departments{overflow:hidden}
+  .department-grid{display:flex;flex-direction:column;gap:84px;--dept-accent:var(--brick)}
+  .department-card{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;background:none;border:0;border-radius:0;box-shadow:none;overflow:visible}
+  .department-card:nth-child(even) img{order:2}
+  .department-card:nth-child(even) .content{order:1}
+  .department-card img{position:relative;z-index:1;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center 20%;border-radius:12px;box-shadow:var(--shadow-sm)}
+  .department-card .content{position:relative;z-index:1;padding:0}
+  .department-card h3{color:var(--dept-accent);margin-bottom:16px;font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,3.2vw,2.7rem);line-height:1.15}
+  .department-card p{color:var(--muted);font-size:1rem;line-height:1.85}
+  .department-card p + *{margin-top:20px}
+  .department-card .dept-tag{display:block;margin-bottom:10px;font-family:var(--body);font-size:.82rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+  /* optional ghost word: add data-watermark="Science" to a department card */
+  .department-card[data-watermark]::before{content:attr(data-watermark);position:absolute;top:-.32em;left:calc(50% + 28px);z-index:0;font-family:var(--display);font-weight:800;font-size:clamp(4rem,11vw,8.5rem);line-height:1;white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px rgba(10,31,68,.08);pointer-events:none}
+  .department-card[data-watermark]:nth-child(even)::before{left:0}
+  @media(max-width:860px){
+    .department-grid{gap:56px}
+    .department-card{grid-template-columns:1fr;gap:22px}
+    .department-card:nth-child(even) img,.department-card:nth-child(even) .content{order:0}
+    .department-card[data-watermark]::before{display:none}
+    .department-card h3{font-size:clamp(1.5rem,6vw,2rem)}
+  }
 
   .teachers{background:#fff}
   .teacher-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
