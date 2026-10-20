@@ -218,10 +218,10 @@
   }
 
   .teachers{background:#fff}
-  .teacher-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .teacher-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;--teacher-photo-ratio:4/5}
   .person-card{text-align:center;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:.3s}
   .person-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-  .person-card img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top;background:#eef1f6}
+  .person-card img{display:block;width:100%;height:auto;aspect-ratio:var(--teacher-photo-ratio);object-fit:cover;object-position:center top;background:#eef1f6}
   .person-info{padding:16px}
   .person-info h3{font-size:.98rem;font-family:var(--body);font-weight:800}
   .person-info p{color:var(--muted);font-size:.84rem}
