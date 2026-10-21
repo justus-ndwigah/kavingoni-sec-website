@@ -86,19 +86,3 @@
     else if (e.key === 'ArrowRight') show(current + 1);
   });
 })();
-
-
-/* Hero slideshow: fill the space behind each full photo with a blurred copy of it */
-(function () {
-  function apply() {
-    document.querySelectorAll('.hero-slide').forEach(function (slide) {
-      var img = slide.querySelector('img');
-      if (!img) return;
-      var src = img.currentSrc || img.src;
-      if (src) slide.style.setProperty('--slide-bg', 'url("' + src + '")');
-    });
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply);
-  else apply();
-  window.addEventListener('load', apply);
-})();
