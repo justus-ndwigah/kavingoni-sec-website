@@ -234,13 +234,21 @@
 
   /* ---------- student life ---------- */
   .student-life{background:var(--paper)}
-  .activity-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
-  .activity-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);padding:0;transition:.3s}
-  .activity-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-  .activity-card img{order:-1;display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;object-position:center 20%;background:#eef1f6;margin:0}
-  .activity-card > :not(img){padding-left:22px;padding-right:22px}
-  .activity-card h3{margin:0 0 8px;padding-top:20px;font-family:var(--body);font-size:1rem;font-weight:800;color:var(--navy)}
-  .activity-card p{margin:0;padding-bottom:22px;color:var(--muted);font-size:.87rem}
+  /* activities: alternating image / text rows (same look as departments) */
+  .activity-grid{display:flex;flex-direction:column;gap:72px;--activity-accent:var(--brick)}
+  .activity-card{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto auto 1fr;column-gap:56px;align-items:start;background:none;border:0;border-radius:0;box-shadow:none;overflow:visible;padding:0}
+  .activity-card img{grid-column:1;grid-row:1 / -1;display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center 20%;border-radius:12px;box-shadow:var(--shadow-sm);background:#eef1f6;margin:0}
+  .activity-card h3{grid-column:2;grid-row:2;align-self:end;margin:0 0 16px;font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,3.2vw,2.7rem);line-height:1.15;color:var(--activity-accent)}
+  .activity-card p{grid-column:2;grid-row:3;align-self:start;margin:0;color:var(--muted);font-size:1rem;line-height:1.85}
+  .activity-card:nth-child(even) img{grid-column:2}
+  .activity-card:nth-child(even) h3,.activity-card:nth-child(even) p{grid-column:1}
+  .activity-card h3,.activity-card p{overflow-wrap:break-word;min-width:0}
+  @media(max-width:860px){
+    .activity-grid{gap:52px}
+    .activity-card{display:flex;flex-direction:column}
+    .activity-card img{order:-1}
+    .activity-card h3{margin:22px 0 12px;font-size:clamp(1.5rem,6vw,2rem)}
+  }
 
   /* ---------- news & updates ---------- */
   .news-section{background:#fff}
