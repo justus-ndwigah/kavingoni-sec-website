@@ -1,4 +1,4 @@
-  /* ---------- mobile nav + dropdowns ---------- */
+/* ---------- mobile nav + dropdowns ---------- */
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
   const backTop = document.querySelector('.back-top');
@@ -139,26 +139,26 @@
       detail: 'Computer Studies candidates begin with paper 451/1. We wish them all the best.',
       tag: 'Academics',
       color: '#0a1f44'
-    }
-    '2026-11-2': {
+    },
+    '2026-11-02': {
       title: 'KCSE Ends',
       detail: 'KCSE comes to an end with the Physics Paper 3 (Practical). The last group leaves the school by 1.00 p.m',
       tag: 'Academics',
       color: '#0a1f44'
-    }
-'2026-11-24': {
+    },
+    '2026-11-24': {
       title: 'Computer packages and AI training',
       detail: 'All KCSE leavers and members of the community are invited. The programme runs for only 4 weeks.',
       tag: 'Academics',
       color: '#0a1f44'
     },
-'2027-01-05': {
+    '2027-01-05': {
       title: 'Term 1 2027 Opening',
       detail: 'All students are expected to be in school by 2:00 p.m. Failure to do so: they should be accompanied by a parent/Guardian',
       tag: 'Academics',
       color: '#0a1f44'
     },
-'2026-08-26': {
+    '2027-01-06': {
       title: 'Term 1, 2027 Opener Examination',
       detail: 'All students sit the Term 1, 2027 opener examinations. Students are encouraged to revise during the December holiday.',
       tag: 'Academics',
