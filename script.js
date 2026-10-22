@@ -82,7 +82,7 @@
     },
     '2026-05-20': {
       title: 'Prize Giving Day — Term 1',
-      detail: 'Celebrating top performers. Parents and guests cordially invited. 10:00 AM.',
+      detail: 'Celebrating top performers. Parents and guests are cordially invited. 10:00 AM.',
       tag: 'Ceremony',
       color: '#c8960c'
     },
@@ -106,13 +106,13 @@
     },
     '2026-07-03': {
       title: 'Phoenixes Prize Giving Day',
-      detail: 'Honouring The Phoenixes (Form 4, 2025 — mean 6.5). All parents and guests invited.',
+      detail: 'Honouring the Phoenixes (Form 4, 2025 — mean 6.5). All parents and guests invited.',
       tag: 'Ceremony',
       color: '#c8960c'
     },
     '2026-07-24': {
       title: 'School Bus Harambee',
-      detail: 'The school bus Harambee was a great success. We thank all parents, guardians, alumni and friends who contributed.',
+      detail: 'The school bus Harambee was a great success. We thank all parents, guardians, alumni, and friends who contributed.',
       tag: 'School Event',
       color: '#a83a1c'
     },
@@ -140,6 +140,30 @@
       tag: 'Academics',
       color: '#0a1f44'
     }
+    '2026-11-2': {
+      title: 'KCSE Ends',
+      detail: 'KCSE comes to an end with the Physics Paper 3 (Practical). The last group leaves the school by 1.00 p.m',
+      tag: 'Academics',
+      color: '#0a1f44'
+    }
+'2026-11-24': {
+      title: 'Computer packages and AI training',
+      detail: 'All KCSE leavers and members of the community are invited. The programme runs for only 4 weeks.',
+      tag: 'Academics',
+      color: '#0a1f44'
+    },
+'2027-01-05': {
+      title: 'Term 1 2027 Opening',
+      detail: 'All students are expected to be in school by 2:00 p.m. Failure to do so: they should be accompanied by a parent/Guardian',
+      tag: 'Academics',
+      color: '#0a1f44'
+    },
+'2026-08-26': {
+      title: 'Term 1, 2027 Opener Examination',
+      detail: 'All students sit the Term 1, 2027 opener examinations. Students are encouraged to revise during the December holiday.',
+      tag: 'Academics',
+      color: '#0a1f44'
+    },
   };
 
   let calYear;
@@ -353,9 +377,9 @@
       title: 'August Holiday Break',
       author: 'By Mr. Nzioki D.K · August 1, 2026',
       content: `
-        <p>St Thomas Kavingoni Senior School wishes all students and parents a blessed August holiday. Holiday assignments are compulsory and form part of continuous assessment.</p>
-        <p>Students are expected to complete all holiday assignments and engage in personal revision ahead of the <strong>Term 3 Opener Examination on Wednesday, August 26, 2026.</strong></p>
-        <p>Parents are encouraged to create a conducive study environment at home. Happy holidays!</p>
+        <p>St Thomas Kavingoni Senior School wishes all students and parents a blessed December holiday. Holiday assignments are compulsory and form part of continuous assessment.</p>
+        <p>Students are expected to complete all holiday assignments and engage in personal revision ahead of the <strong>Term 1 Opener Examination on Wednesday, January 6, 2027.</strong></p>
+        <p>Parents are encouraged to create a conducive study environment at home. Merry Christmas and a prosperous New Year 2027!</p>
       `
     },
 
@@ -393,7 +417,7 @@
       title: 'Music Team Shines at Eastern Regional Music Festival',
       author: 'By Music Club · July 2026',
       content: `
-        <p>Our school music team performed excellently at the Eastern Regional Music Festivals held in Makueni. Through discipline, teamwork and committed preparation, our learners represented the school with confidence.</p>
+        <p>Our school music team performed excellently at the National Music Festival held at Kibabii University. Through discipline, teamwork, and committed preparation, our learners represented the school with confidence.</p>
         <p>We congratulate the entire music team and their trainers for this commendable achievement.</p>
         <p>We also thank parents, school management and all stakeholders whose support made this successful participation possible.</p>
       `
@@ -403,7 +427,7 @@
       title: 'School Bus Harambee a Success',
       author: 'By School Administration · July 2026',
       content: `
-        <p>Our School Bus Harambee was a success, bringing together parents, guardians, alumni, staff, friends and well-wishers in support of safer and more reliable transport for our learners.</p>
+        <p>Our School Bus Harambee was a success, bringing together parents, guardians, alumni, staff, friends, and well-wishers in support of safer and more reliable transport for our learners.</p>
         <p>Although the funds raised were not enough to meet the full cost of the bus, they have taken us a significant step closer to the goal. The school is pursuing additional support to meet the remaining amount.</p>
         <p>We are pleased to announce that the school bus is expected to arrive in the 3rd Term. Thank you to all stakeholders for believing in this vision.</p>
       `
@@ -411,10 +435,10 @@
 
     essay: {
       title: '"Inkíshú" — The Pride of Our Community',
-      author: 'By Edward Katitia, Form 3 · Winner, Music Festivals at Regionals 2026',
+      author: 'By Abraham Saitoti, Form 3 · pos 4/15, National Festivals at Regionals 2026',
       content: `
         <p>Cattle are our wealth, our pride and our living treasure. They feed our children and make our homes better. With milk in the morning and strength through the day, they guide our community in a meaningful way.</p>
-        <p>Goats and sheep bring hope when times are hard. They are carefully loved, protected, and guarded. Our livestock unite us, young and old alike. They teach us responsibility, courage and pride.</p>
+        <p>Goats and sheep bring hope when times are hard. They are carefully loved, protected, and guarded. Our livestock unite us, young and old alike. They teach us responsibility, courage, and pride.</p>
         <p>We honour the animals that sustain our land, A blessing entrusted to every Maasai hand. Through care and unity, our future will grow—For livestock is the heart of the community we know.</p>
       `
     }
