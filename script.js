@@ -374,7 +374,7 @@
   /* ---------- news article modal ---------- */
   const articles = {
     holiday: {
-      title: 'August Holiday Break',
+      title: 'December Holiday Break',
       author: 'By Mr. Nzioki D.K · August 1, 2026',
       content: `
         <p>St Thomas Kavingoni Senior School wishes all students and parents a blessed December holiday. Holiday assignments are compulsory and form part of continuous assessment.</p>
