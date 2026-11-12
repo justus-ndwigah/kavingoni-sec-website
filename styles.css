@@ -65,8 +65,9 @@
     .nav-links a{padding-inline:9px}
   }
   @media (max-width:860px){
-    .menu-toggle{display:block}
-    /* Keep the menu button beside the brand instead of creating a blank row. */
+    .nav-row{flex-wrap:nowrap}
+    .menu-toggle{display:block;padding:10px 0 10px 12px;line-height:1}
+    /* Keep the button in the header's top-right corner on mobile. */
     nav.nav-menu{flex:0 0 auto;width:auto;justify-content:flex-end;order:initial}
     .nav-links{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;align-items:stretch;padding:10px 4% 16px;background:#fff;border-bottom:1px solid var(--border);box-shadow:var(--shadow)}
     .nav-links.open{display:flex}
