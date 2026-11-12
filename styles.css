@@ -107,7 +107,7 @@
 }
 
   /* ---------- hero ---------- */
-  .hero{position:relative;min-height:clamp(460px,46vw,680px);display:flex;align-items:center;overflow:hidden;isolation:isolate;background:var(--navy-deep)}
+  .hero{position:relative;min-height:clamp(420px,calc(100svh - 96px),620px);display:flex;align-items:center;overflow:hidden;isolation:isolate;background:var(--navy-deep)}
   .hero-slides{position:absolute;inset:0;z-index:-2}
   .hero-slide{position:absolute;inset:0;opacity:0;overflow:hidden;background:var(--navy-deep);transition:opacity 1.4s ease}
   .hero-slide.active{opacity:1}
@@ -492,7 +492,7 @@ button.calendar-day {cursor: pointer;}
     section{padding:64px 0}
     .brand-text strong{font-size:.86rem}
     .brand-text small{font-size:.64rem}
-    .hero{min-height:60vh}
+    .hero{min-height:48svh}
     .hero-content{padding:72px 0 58px}
     .hero-actions .btn{width:100%}
     .stats-grid{grid-template-columns:repeat(2,1fr)}
