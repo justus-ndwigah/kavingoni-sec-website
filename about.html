@@ -3,70 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Our vision, mission, values, story, and leadership at St. Thomas Kavingoni Senior School, Makueni County, Kenya.">
-<meta name="theme-color" content="#0a1f44">
 <title>About Us | St. Thomas Kavingoni Senior School</title>
-<link rel="icon" type="image/png" href="web-photos/school-logo.png">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Nunito:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta name="description" content="Our vision, mission, values and story: from 32 students in 1983 to a four-stream Catholic-sponsored senior school in Makueni County, Kenya.">
+<meta name="theme-color" content="#0a1f44">
+<link rel="canonical" href="https://justus-ndwigah.github.io/kavingoni-sec-website/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="St. Thomas Kavingoni Senior School">
+<meta property="og:title" content="About Us | St. Thomas Kavingoni Senior School">
+<meta property="og:description" content="Our vision, mission, values and story: from 32 students in 1983 to a four-stream Catholic-sponsored senior school in Makueni County, Kenya.">
+<meta property="og:url" content="https://justus-ndwigah.github.io/kavingoni-sec-website/about.html">
+<meta property="og:image" content="https://justus-ndwigah.github.io/kavingoni-sec-website/img/kk-103-1600.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Us | St. Thomas Kavingoni Senior School">
+<meta name="twitter:description" content="Our vision, mission, values and story: from 32 students in 1983 to a four-stream Catholic-sponsored senior school in Makueni County, Kenya.">
+<meta name="twitter:image" content="https://justus-ndwigah.github.io/kavingoni-sec-website/img/kk-103-1600.webp">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" as="image" href="img/kk-103-960.webp" imagesrcset="img/kk-103-480.webp 480w, img/kk-103-960.webp 960w, img/kk-103-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Nunito:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap">
 <link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
 </head>
 <body id="top">
 
-<div class="flag-rule"><span class="fr-black"></span><span class="fr-red"></span><span class="fr-green"></span><span class="fr-white"></span></div>
+<div class="flag-rule" aria-hidden="true"><span class="fr-black"></span><span class="fr-red"></span><span class="fr-green"></span><span class="fr-white"></span></div>
 <header class="site-header">
   <div class="wrap nav-row">
-    <a class="brand" href="index.html#home">
-      <img src="images/school-logo.png" alt="St. Thomas Kavingoni School">
+    <a class="brand" href="index.html" aria-label="St. Thomas Kavingoni Senior School home">
+      <img src="img/school-logo-128.webp" srcset="img/school-logo-128.webp 1x, img/school-logo-256.webp 2x" width="64" height="64" alt="St. Thomas Kavingoni Senior School crest" decoding="async">
       <span class="brand-text">
-        <strong>ST. THOMAS KAVINGONI SENIOR SCHOOL</strong>
-        <small>P.O. Box 73&#8211;90302, Makueni</small>
+        <strong>St. Thomas Kavingoni Senior School</strong>
+        <small>P.O. Box 73&#8211;90302, Makueni &middot; Since 1983</small>
       </span>
     </a>
 
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
 
     <nav class="nav-menu" aria-label="Main navigation">
-      <ul class="nav-links">
-        <li><a href="index.html#home">Home</a></li>
-
+      <ul class="nav-links" id="main-nav">
+        <li><a href="index.html">Home</a></li>
         <li class="has-dropdown active">
-          <a href="about.html">About Us <span class="caret">▾</span></a>
+          <a href="about.html" aria-current="page">About Us <span class="caret" aria-hidden="true">&#9662;</span></a>
           <ul class="dropdown-menu">
             <li><a href="about.html#compass">Vision, Mission &amp; Values</a></li>
             <li><a href="about.html#about">Welcome</a></li>
             <li><a href="about.html#history">Our Story</a></li>
+            <li><a href="index.html#principal">Principal&#8217;s Message</a></li>
           </ul>
         </li>
-
         <li class="has-dropdown">
-          <a href="academics.html">Academics <span class="caret">▾</span></a>
+          <a href="academics.html">Academics <span class="caret" aria-hidden="true">&#9662;</span></a>
           <ul class="dropdown-menu">
             <li><a href="academics.html#academics">Learning Pathways</a></li>
             <li><a href="academics.html#departments">Departments</a></li>
             <li><a href="academics.html#teachers">Our Teachers</a></li>
           </ul>
         </li>
-
         <li class="has-dropdown">
-          <a href="school-life.html">School Life <span class="caret">▾</span></a>
+          <a href="school-life.html">School Life <span class="caret" aria-hidden="true">&#9662;</span></a>
           <ul class="dropdown-menu">
+            <li><a href="school-life.html#news">News &amp; Updates</a></li>
+            <li><a href="school-life.html#calendar">Events Calendar</a></li>
             <li><a href="school-life.html#student-life">Clubs &amp; Activities</a></li>
             <li><a href="school-life.html#arts">Arts &amp; Culture</a></li>
-            <li><a href="school-life.html#news">News</a></li>
-            <li><a href="school-life.html#calendar">Events Calendar</a></li>
             <li><a href="school-life.html#gallery">Gallery</a></li>
           </ul>
         </li>
-
         <li class="has-dropdown">
-          <a href="contact.html">Contact <span class="caret">▾</span></a>
+          <a href="contact.html">Contact <span class="caret" aria-hidden="true">&#9662;</span></a>
           <ul class="dropdown-menu">
             <li><a href="contact.html#contact">Contact Us</a></li>
             <li><a href="contact.html#location">Find Us</a></li>
           </ul>
         </li>
-
         <li><a class="nav-cta" href="contact.html#contact">Get in Touch</a></li>
       </ul>
     </nav>
@@ -77,10 +90,10 @@
   <!-- HERO -->
   <section class="hero" id="about-hero">
     <div class="hero-slides">
-      <div class="hero-slide active"><img src="PHOTOS/kamixer kavingoni_103.JPG" alt="students council"fetchpriority="high"loading="eager"decoding="async"></div>
-      <div class="hero-slide"><img src="WEBSITE-PHOTOS/principal-addressing-staff.jpg" alt="Principal addressing staff"loading="lazy"decoding="async"></div>
-      <div class="hero-slide"><img src="PHOTOS/MWIKALI BURAILA PHOTOS_222.JPG" alt="School compaund"loading="lazy"decoding="async"></div>
-      <div class="hero-slide"><img src="PHOTOS/kamixer kavingoni_542.JPG" alt="Girls in class"loading="lazy"decoding="async"></div>
+      <div class="hero-slide active"><img src="img/kk-103-960.webp" srcset="img/kk-103-480.webp 480w, img/kk-103-960.webp 960w, img/kk-103-1600.webp 1600w" sizes="100vw" width="1600" height="1067" alt="Students&amp;#8217; council" fetchpriority="high" decoding="async"></div>
+      <div class="hero-slide"><img data-src="img/principal-addressing-staff-960.webp" data-srcset="img/principal-addressing-staff-480.webp 480w, img/principal-addressing-staff-960.webp 960w, img/principal-addressing-staff-1600.webp 1600w" sizes="100vw" width="1600" height="1200" alt="Principal addressing staff" decoding="async"></div>
+      <div class="hero-slide"><img data-src="img/mb-222-960.webp" data-srcset="img/mb-222-480.webp 480w, img/mb-222-960.webp 960w, img/mb-222-1600.webp 1600w" sizes="100vw" width="1600" height="1067" alt="School compound" decoding="async"></div>
+      <div class="hero-slide"><img data-src="img/kk-542-960.webp" data-srcset="img/kk-542-480.webp 480w, img/kk-542-960.webp 960w, img/kk-542-1600.webp 1600w" sizes="100vw" width="1600" height="1067" alt="Girls in class" decoding="async"></div>
     </div>
     <div class="wrap">
       <div class="hero-content">
@@ -95,24 +108,24 @@
         </div>
       </div>
     </div>
-    <div class="hero-dots">
-      <span class="hdot active" onclick="goSlide(0)"></span>
-      <span class="hdot" onclick="goSlide(1)"></span>
-      <span class="hdot" onclick="goSlide(2)"></span>
-      <span class="hdot" onclick="goSlide(3)"></span>
+    <div class="hero-dots" role="group" aria-label="Choose hero photo">
+      <button type="button" class="hdot active" data-slide="0" aria-label="Show photo 1"></button>
+      <button type="button" class="hdot" data-slide="1" aria-label="Show photo 2"></button>
+      <button type="button" class="hdot" data-slide="2" aria-label="Show photo 3"></button>
+      <button type="button" class="hdot" data-slide="3" aria-label="Show photo 4"></button>
     </div>
   </section>
   <section class="compass on-navy" id="compass">
     <div class="wrap">
       <div class="section-head">
-        <div class="kicker"><h2>What guides us</h2></div>
+        <p class="kicker">What guides us</p>
         <h2 class="section-title">Vision, Mission &amp; Values</h2>
         <p>Five statements. One direction.</p>
       </div>
       <div class="compass-grid">
         <div class="compass-card c-motto"><div class="c-label">Motto</div><div class="c-body">Education for a Better Life</div></div>
-        <div class="compass-card c-vision"><div class="c-label">Vision</div><div class="c-body">To produce highly  disciplined and responsible Citizens to meet world challenges.</div></div>
-        <div class="compass-card c-mission"><div class="c-label">Mission</div><div class="c-body">Commited to Instill Discipline and Knowledge</div></div>
+        <div class="compass-card c-vision"><div class="c-label">Vision</div><div class="c-body">To produce highly disciplined and responsible Citizens to meet world challenges.</div></div>
+        <div class="compass-card c-mission"><div class="c-label">Mission</div><div class="c-body">Committed to Instilling Discipline and Knowledge</div></div>
         <div class="compass-card c-values"><div class="c-label">Core Values</div><div class="c-body"><ul><li>Integrity</li><li>Honesty</li><li>Respect</li><li>Courtesy</li><li>Teamwork</li><li>Consistency</li><li>Commitment</li></ul></div></div>
         <div class="compass-card c-slogan"><div class="c-label">Slogan</div><div class="c-body">"Talk Less&#8230; Do More"</div></div>
       </div>
@@ -121,36 +134,37 @@
   <section class="welcome" id="about">
     <div class="wrap welcome-grid">
       <div class="welcome-image">
-        <img src="PHOTOS/MWIKALI BURAILA PHOTOS_23.JPG" alt="Main compound of St. Thomas Kavingoni School" loading="lazy"decoding="async">
+        <img src="img/mb-23-960.webp" srcset="img/mb-23-480.webp 480w, img/mb-23-960.webp 960w, img/mb-23-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 560px" width="1600" height="1067" alt="Main compound of St. Thomas Kavingoni School" loading="lazy" decoding="async">
       </div>
       <div class="welcome-copy">
-        <div class="kicker"><h3>Who we are</h3></div>
+        <p class="kicker">Who we are</p>
         <h2>Welcome to St. Thomas Kavingoni Senior School</h2>
         <p>We provide quality education in a safe, supportive, and inspiring environment where every learner is encouraged to discover their abilities and reach their full potential.</p>
         <p>Our approach combines strong academics with leadership, technology, sport, creativity, spiritual growth and community responsibility because a well-rounded learner is a better-prepared learner.</p>
       </div>
     </div>
   </section>
- 
+
 <section class="history-section" id="history">
     <div class="wrap">
       <div class="section-head">
-        <div class="kicker"><h2>Our journey</h2></div>
-        <h2 class="section-title">A JOURNEY OF FAITH, GROWTH AND EXCELLENCE</h2>
+        <p class="kicker">Our journey</p>
+        <h2 class="section-title">A Journey of Faith, Growth and Excellence</h2>
       </div>
-      <div class="history-wrap">       
+      <div class="history-wrap">
 <p>St. Thomas Kavingoni Secondary School is a public, mixed secondary school located in Kathonzweni Sub-County, Makueni County. Established in 1983 by the Catholic Church as a mixed Harambee secondary school, the institution began with a humble enrolment of just 32 students and was initially known as Dr. Ugo Mazzone Secondary School. Since its establishment, the school has continued to benefit from the sponsorship of the Catholic Church, whose values and commitment to holistic education remain central to its identity and development.</p>
 <p>Over the years, the school has steadily expanded its facilities and learning opportunities to meet the needs of its growing student population. In 1999, it introduced full boarding for Form Three and Form Four learners. The boarding facilities were subsequently expanded, allowing the majority of learners, including those in lower classes, to benefit from a structured environment that promotes academic focus, discipline and personal development.</p>
 <p>The school has also recorded encouraging academic progress, consistently maintaining a mean score above 6.00 since 2021. This achievement reflects the dedication of its teaching staff, commitment of learners and continued support from parents and other stakeholders. Enrolment grew significantly from 2022, reaching 751 students in 2024 when the school operated four classes. In recognition of this growth and expanding capacity, the institution was registered as a four-stream school in 2024. Currently, the school has an enrolment of approximately 605 students.</p>
 <p>The year 2026 marked another important milestone with the admission of the school's first cohort of 141 Grade 10 learners under the Competency-Based Education (CBE) framework. The school offers all three Senior School pathways, demonstrating its commitment to nurturing diverse talents, abilities and career aspirations. In the same year, the institution embarked on an ambitious initiative to acquire its first-ever school bus. Driven by the collective commitment of the Board of Management, parents, alumni, staff and the wider community, this initiative aims to enhance educational exposure, facilitate academic trips and support participation in sports and other co-curricular activities.</p>
-<p>From its humble beginnings of 32 students in 1983 to its present identity as a growing institution embracing modern educational reforms, St. Thomas Kavingoni Secondary School has demonstrated remarkable resilience, steady progress and ambition. Today, the school remains firmly committed to its founding ideals of faith, service and holistic education while pursuing greater heights in academic excellence, discipline, talent development and character formation. Its story is one of humble beginnings, collective sacrifice, sustained growth and an unwavering belief in the transformative power of education.</p> <p>Guided by our motto, <strong>"Education For A Better Life,"</strong> we continue to nurture learners who can positively impact their communities, Kenya and the world.</p>
+<p>From its humble beginnings of 32 students in 1983 to its present identity as a growing institution embracing modern educational reforms, St. Thomas Kavingoni Secondary School has demonstrated remarkable resilience, steady progress and ambition. Today, the school remains firmly committed to its founding ideals of faith, service and holistic education while pursuing greater heights in academic excellence, discipline, talent development and character formation. Its story is one of humble beginnings, collective sacrifice, sustained growth and an unwavering belief in the transformative power of education.</p>
+<p>Guided by our motto, <strong>"Education For A Better Life,"</strong> we continue to nurture learners who can positively impact their communities, Kenya and the world.</p>
       </div>
     </div>
   </section>
   <section class="difference">
     <div class="wrap">
       <div class="section-head">
-        <div class="kicker"><h2>Our foundation</h2></div>
+        <p class="kicker">Our foundation</p>
         <h2 class="section-title">What Makes Us Different</h2>
         <p>We build a learning environment where knowledge is strengthened by character, creativity, and practical skill.</p>
       </div>
@@ -174,47 +188,48 @@
       </div>
     </div>
   </section>
- 
+
 </main>
 
 <footer>
   <div class="wrap footer-grid">
     <div>
       <h4>St. Thomas Kavingoni Senior School</h4>
-      <p>Providing quality education through academic excellence, discipline, innovation, and strong moral values.</p>
-      <p style="margin-top:12px;color:var(--gold-light);font-weight:800;">EDUCATION FOR A BETTER LIFE</p>
+      <p>Providing quality education through academic excellence, discipline, innovation and strong moral values.</p>
+      <p class="footer-motto">Education for a Better Life</p>
     </div>
     <div>
       <h4>Quick Links</h4>
       <ul class="footer-links">
-        <li><a href="index.html#home">Home</a></li>
-        <li><a href="about.html#about">About Us</a></li>
-        <li><a href="school-life.html#news">News</a></li>
-        <li><a href="academics.html#academics">Academics</a></li>
-        <li><a href="academics.html#teachers">Teachers</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="academics.html#teachers">Our Teachers</a></li>
+        <li><a href="school-life.html#news">News &amp; Updates</a></li>
         <li><a href="contact.html#contact">Admissions</a></li>
       </ul>
     </div>
     <div>
       <h4>Contact</h4>
-      <p>Phone: +254 736 975 416</p>
-      <p>Email: skavingoni@gmail.com</p>
-      <p>Kavingoni, Kathonzweni Subcounty, Makueni County, Kenya</p>
+      <ul class="footer-links">
+        <li><a href="tel:+254736975416">+254 736 975 416</a></li>
+        <li><a href="mailto:skavingoni@gmail.com">skavingoni@gmail.com</a></li>
+        <li>Kavingoni, Kathonzweni Sub-County, Makueni County, Kenya</li>
+      </ul>
     </div>
     <div>
-      <h4>KCSE Target 2026</h4>
-      <p>Mean 2025: <strong style="color:var(--gold-light)">6.5</strong></p>
-      <p>Target 2026: <strong style="color:var(--gold-light)">7.2</strong></p>
+      <h4>KCSE Performance</h4>
+      <p>Mean grade 2025: <strong class="footer-hl">6.5</strong></p>
+      <p>Target 2026: <strong class="footer-hl">7.2</strong></p>
     </div>
   </div>
   <div class="wrap footer-bottom">
-    <span>© 2026 St. Thomas Kavingoni Senior School. All Rights Reserved.</span>
-    <span>Designed &amp; Developed by <strong>Jazque Technologies</strong></span>
+    <span>&copy; 2026 St. Thomas Kavingoni Senior School. All rights reserved.</span>
+    <span>Designed &amp; developed by <strong>Jazque Technologies</strong></span>
   </div>
-  <div class="flag-rule"><span class="fr-black"></span><span class="fr-red"></span><span class="fr-green"></span><span class="fr-white"></span></div>
+  <div class="flag-rule" aria-hidden="true"><span class="fr-black"></span><span class="fr-red"></span><span class="fr-green"></span><span class="fr-white"></span></div>
 </footer>
 
-<a class="back-top" href="#top" aria-label="Back to top">↑</a>
-<script src="script.js"></script>
+<a class="back-top" href="#top" aria-label="Back to top">&#8593;</a>
 </body>
 </html>

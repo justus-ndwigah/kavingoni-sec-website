@@ -5,8 +5,18 @@
 
   menuToggle.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('open');
+    menuToggle.classList.toggle('is-open', isOpen);
     menuToggle.setAttribute('aria-expanded', isOpen);
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
   });
+
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    menuToggle.classList.remove('is-open');
+    document.querySelectorAll('.has-dropdown').forEach(item => item.classList.remove('open'));
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open navigation');
+  }
 
   document.querySelectorAll('.nav-links > li > a').forEach(link => {
     link.addEventListener('click', event => {
@@ -17,48 +27,81 @@
         parent.classList.toggle('open');
         return;
       }
-      navLinks.classList.remove('open');
-      document.querySelectorAll('.has-dropdown').forEach(item => item.classList.remove('open'));
-      menuToggle.setAttribute('aria-expanded', 'false');
+      closeMenu();
     });
   });
 
   document.querySelectorAll('.dropdown-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      document.querySelectorAll('.has-dropdown').forEach(item => item.classList.remove('open'));
-      menuToggle.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', closeMenu);
   });
 
+  const siteHeader = document.querySelector('.site-header');
   window.addEventListener('scroll', () => {
     backTop.classList.toggle('show', window.scrollY > 500);
-  });
+    if (siteHeader) siteHeader.classList.toggle('is-scrolled', window.scrollY > 10);
+  }, { passive: true });
 
   /* ---------- scroll-spy active nav link ---------- */
   const sections = document.querySelectorAll('main section[id]');
-  const spyLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+  const spyLinks = document.querySelectorAll('.dropdown-menu a');
   const spy = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        spyLinks.forEach(link => { const href = link.getAttribute('href') || ''; link.classList.toggle('active', href.endsWith('#' + entry.target.id)); });
+        spyLinks.forEach(link => { const href = link.getAttribute('href') || ''; const here = href.split('#')[0] === (location.pathname.split('/').pop() || 'index.html'); link.classList.toggle('active', here && href.endsWith('#' + entry.target.id)); });
       }
     });
   }, { rootMargin: '-35% 0px -55% 0px' });
   sections.forEach(section => spy.observe(section));
 
-  /* ---------- hero slideshow ---------- */
+  /* ---------- hero slideshow ----------
+     Only the first photo loads with the page. The others load quietly
+     after the page has finished, and a slide is only shown once its
+     photo is ready, so visitors never see a blank or half-loaded slide. */
+  const heroSlides = Array.from(document.querySelectorAll('.hero-slide'));
+  const heroDots = Array.from(document.querySelectorAll('.hdot'));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let heroIdx = 0;
-  function goSlide(n) {
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.hdot');
-    slides[heroIdx].classList.remove('active');
-    dots[heroIdx].classList.remove('active');
-    heroIdx = (n !== undefined) ? n : (heroIdx + 1) % slides.length;
-    slides[heroIdx].classList.add('active');
-    dots[heroIdx].classList.add('active');
+  let heroTimer = null;
+
+  function slideImg(i) { return heroSlides[i] && heroSlides[i].querySelector('img'); }
+  function slideReady(i) { const img = slideImg(i); return img && img.complete && img.naturalWidth > 0 && !img.dataset.src; }
+  function loadSlide(i) {
+    const img = slideImg(i);
+    if (!img || !img.dataset.src) return;
+    if (img.dataset.srcset) img.srcset = img.dataset.srcset;
+    img.src = img.dataset.src;
+    delete img.dataset.src; delete img.dataset.srcset;
   }
-  setInterval(() => goSlide(), 5000);
+
+  function goSlide(n) {
+    if (!heroSlides.length) return;
+    const next = (n !== undefined) ? n : (heroIdx + 1) % heroSlides.length;
+    if (next === heroIdx) return;
+    loadSlide(next);
+    const img = slideImg(next);
+    const show = () => {
+      heroSlides[heroIdx].classList.remove('active');
+      if (heroDots[heroIdx]) heroDots[heroIdx].classList.remove('active');
+      heroIdx = next;
+      heroSlides[heroIdx].classList.add('active');
+      if (heroDots[heroIdx]) heroDots[heroIdx].classList.add('active');
+    };
+    if (slideReady(next) || !img) show();
+    else if (n !== undefined) img.addEventListener('load', show, { once: true });   /* clicked: show as soon as it arrives */
+  }
+  window.goSlide = goSlide;
+
+  function startHero() {
+    if (reduceMotion || heroSlides.length < 2) return;
+    clearInterval(heroTimer);
+    heroTimer = setInterval(() => { if (!document.hidden) goSlide(); }, 6000);
+  }
+  heroDots.forEach((dot, i) => dot.addEventListener('click', () => { goSlide(i); startHero(); }));
+  window.addEventListener('load', () => {
+    /* load the remaining hero photos one after another, after everything else */
+    heroSlides.forEach((_, i) => { if (i) setTimeout(() => loadSlide(i), 300 * i); });
+    startHero();
+  });
 
   /* ---------- events calendar ---------- */
  const calEvents = {
@@ -452,7 +495,7 @@
   function openArticle(articleId) {
     const article = articles[articleId];
 
-    if (!article) return;
+    if (!article || !modal) return;
 
     modalTitle.textContent = article.title;
     modalAuthor.textContent = article.author;
@@ -464,6 +507,7 @@
   }
 
   function closeArticle() {
+    if (!modal || !modal.classList.contains('is-open')) return;
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
@@ -486,23 +530,26 @@
   });
 
   /* ---------- contact form via Formspree ---------- */
- async function handleFormspree(e) {
-    e.preventDefault();
-    const btn = document.getElementById('cf-btn');
-    const ok  = document.getElementById('cf-ok');
-    const err = document.getElementById('cf-err');
-    btn.textContent = 'Sending…'; btn.disabled = true;
-    ok.style.display = 'none'; err.style.display = 'none';
-    try {
-      const res = await fetch(e.target.action, {
-        method: 'POST',
-        body: new FormData(e.target),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) { ok.style.display = 'block'; e.target.reset(); }
-      else { err.style.display = 'block'; }
-    } catch (ex) {
-      err.style.display = 'block';
-    }
-    btn.textContent = 'Send Message ✉️'; btn.disabled = false;
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('cf-btn');
+      const ok = document.getElementById('cf-ok');
+      const err = document.getElementById('cf-err');
+      btn.textContent = 'Sending…'; btn.disabled = true;
+      ok.hidden = true; err.hidden = true;
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) { ok.hidden = false; contactForm.reset(); }
+        else { err.hidden = false; }
+      } catch (ex) {
+        err.hidden = false;
+      }
+      btn.textContent = 'Send Message'; btn.disabled = false;
+    });
   }

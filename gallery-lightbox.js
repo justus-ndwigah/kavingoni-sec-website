@@ -45,7 +45,11 @@
   function show(i) {
     current = (i + list.length) % list.length;
     var img = list[current];
-    bigImg.src = img.currentSrc || img.src;
+    bigImg.src = img.dataset.full || img.currentSrc || img.src;   /* sharp, full-size copy */
+    [current - 1, current + 1].forEach(function (n) {             /* get neighbours ready for swiping */
+      var nb = list[(n + list.length) % list.length];
+      if (nb && nb.dataset.full) { var pre = new Image(); pre.src = nb.dataset.full; }
+    });
     bigImg.alt = img.alt || '';
     var card = img.closest('.gallery-card');
     var cap = card && card.querySelector('figcaption');

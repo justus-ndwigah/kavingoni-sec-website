@@ -3,71 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Clubs, co-curricular activities, arts and culture, news, events calendar and photo gallery at St. Thomas Kavingoni Senior School.">
-<meta name="theme-color" content="#0a1f44">
 <title>School Life | St. Thomas Kavingoni Senior School</title>
-<link rel="icon" type="image/png" href="web-photos/school-logo.png">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Nunito:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta name="description" content="Clubs, sports, arts and culture, the latest news, events calendar and photo gallery at St. Thomas Kavingoni Senior School.">
+<meta name="theme-color" content="#0a1f44">
+<link rel="canonical" href="https://justus-ndwigah.github.io/kavingoni-sec-website/school-life.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="St. Thomas Kavingoni Senior School">
+<meta property="og:title" content="School Life | St. Thomas Kavingoni Senior School">
+<meta property="og:description" content="Clubs, sports, arts and culture, the latest news, events calendar and photo gallery at St. Thomas Kavingoni Senior School.">
+<meta property="og:url" content="https://justus-ndwigah.github.io/kavingoni-sec-website/school-life.html">
+<meta property="og:image" content="https://justus-ndwigah.github.io/kavingoni-sec-website/img/scouts-1600.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="School Life | St. Thomas Kavingoni Senior School">
+<meta name="twitter:description" content="Clubs, sports, arts and culture, the latest news, events calendar and photo gallery at St. Thomas Kavingoni Senior School.">
+<meta name="twitter:image" content="https://justus-ndwigah.github.io/kavingoni-sec-website/img/scouts-1600.webp">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" as="image" href="img/scouts-960.webp" imagesrcset="img/scouts-480.webp 480w, img/scouts-960.webp 960w, img/scouts-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Nunito:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap">
 <link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+<script src="gallery-lightbox.js" defer></script>
 </head>
 <body id="top">
 
-<div class="flag-rule"><span class="fr-black"></span><span class="fr-red"></span><span class="fr-green"></span><span class="fr-white"></span></div>
+<div class="flag-rule" aria-hidden="true"><span class="fr-black"></span><span class="fr-red"></span><span class="fr-green"></span><span class="fr-white"></span></div>
 <header class="site-header">
   <div class="wrap nav-row">
-    <a class="brand" href="index.html#home">
-      <img src="images/school-logo.png" alt="St. Thomas Kavingoni School">
+    <a class="brand" href="index.html" aria-label="St. Thomas Kavingoni Senior School home">
+      <img src="img/school-logo-128.webp" srcset="img/school-logo-128.webp 1x, img/school-logo-256.webp 2x" width="64" height="64" alt="St. Thomas Kavingoni Senior School crest" decoding="async">
       <span class="brand-text">
-        <strong>ST. THOMAS KAVINGONI SENIOR SCHOOL</strong>
-        <small>P.O. Box 73&#8211;90302, Makueni</small>
+        <strong>St. Thomas Kavingoni Senior School</strong>
+        <small>P.O. Box 73&#8211;90302, Makueni &middot; Since 1983</small>
       </span>
     </a>
 
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
 
     <nav class="nav-menu" aria-label="Main navigation">
-      <ul class="nav-links">
-        <li><a href="index.html#home">Home</a></li>
-
+      <ul class="nav-links" id="main-nav">
+        <li><a href="index.html">Home</a></li>
         <li class="has-dropdown">
-          <a href="about.html">About Us <span class="caret">▾</span></a>
+          <a href="about.html">About Us <span class="caret" aria-hidden="true">&#9662;</span></a>
           <ul class="dropdown-menu">
             <li><a href="about.html#compass">Vision, Mission &amp; Values</a></li>
             <li><a href="about.html#about">Welcome</a></li>
             <li><a href="about.html#history">Our Story</a></li>
-            <li><a href="about.html#principal">Principal's Message</a></li>
+            <li><a href="index.html#principal">Principal&#8217;s Message</a></li>
           </ul>
         </li>
-
         <li class="has-dropdown">
-          <a href="academics.html">Academics <span class="caret">▾</span></a>
+          <a href="academics.html">Academics <span class="caret" aria-hidden="true">&#9662;</span></a>
           <ul class="dropdown-menu">
             <li><a href="academics.html#academics">Learning Pathways</a></li>
             <li><a href="academics.html#departments">Departments</a></li>
             <li><a href="academics.html#teachers">Our Teachers</a></li>
           </ul>
         </li>
-
         <li class="has-dropdown active">
-          <a href="school-life.html">School Life <span class="caret">▾</span></a>
+          <a href="school-life.html" aria-current="page">School Life <span class="caret" aria-hidden="true">&#9662;</span></a>
           <ul class="dropdown-menu">
-            <li><a href="school-life.html#news">News</a></li>
+            <li><a href="school-life.html#news">News &amp; Updates</a></li>
             <li><a href="school-life.html#calendar">Events Calendar</a></li>
             <li><a href="school-life.html#student-life">Clubs &amp; Activities</a></li>
             <li><a href="school-life.html#arts">Arts &amp; Culture</a></li>
             <li><a href="school-life.html#gallery">Gallery</a></li>
           </ul>
         </li>
-
         <li class="has-dropdown">
-          <a href="contact.html">Contact <span class="caret">▾</span></a>
+          <a href="contact.html">Contact <span class="caret" aria-hidden="true">&#9662;</span></a>
           <ul class="dropdown-menu">
             <li><a href="contact.html#contact">Contact Us</a></li>
             <li><a href="contact.html#location">Find Us</a></li>
           </ul>
         </li>
-
         <li><a class="nav-cta" href="contact.html#contact">Get in Touch</a></li>
       </ul>
     </nav>
@@ -78,12 +91,10 @@
   <!-- HERO -->
   <section class="hero" id="school-life-hero">
     <div class="hero-slides">
-     <div class="hero-slides">
-    <div class="hero-slide active"><img src="WEBSITE-PHOTOS/scouts.jpg"alt="Scouts club"fetchpriority="high"loading="eager"decoding="async"></div>
-    <div class="hero-slide"><img src="PHOTOS/kamixer kavingoni_261.JPG"alt="Boys football"loading="lazy"decoding="async"></div>
-    <div class="hero-slide"> <img src="PHOTOS/kamixer kavingoni_348.JPG"alt="Girls in games"loading="lazy"decoding="async"></div>
-    <div class="hero-slide"><img src="PHOTOS/kamixer kavingoni_161.JPG"alt="Liturgical servers" loading="lazy" decoding="async"></div>
-</div>
+    <div class="hero-slide active"><img src="img/scouts-960.webp" srcset="img/scouts-480.webp 480w, img/scouts-960.webp 960w, img/scouts-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Scouts club" fetchpriority="high" decoding="async"></div>
+    <div class="hero-slide"><img data-src="img/kk-261-960.webp" data-srcset="img/kk-261-480.webp 480w, img/kk-261-960.webp 960w, img/kk-261-1600.webp 1600w" sizes="100vw" width="1600" height="1067" alt="Boys football" decoding="async"></div>
+    <div class="hero-slide"> <img data-src="img/kk-348-960.webp" data-srcset="img/kk-348-480.webp 480w, img/kk-348-960.webp 960w, img/kk-348-1600.webp 1600w" sizes="100vw" width="1600" height="1067" alt="Girls in games" decoding="async"></div>
+    <div class="hero-slide"><img data-src="img/kk-161-960.webp" data-srcset="img/kk-161-480.webp 480w, img/kk-161-960.webp 960w, img/kk-161-1600.webp 1600w" sizes="100vw" width="1600" height="1067" alt="Liturgical servers" decoding="async"></div>
     </div>
     <div class="wrap">
       <div class="hero-content">
@@ -92,18 +103,18 @@
           Beyond the Classroom
         </span>
         <h1>Life at <em>Kavingoni</em></h1>
-        <p>Clubs, sports, arts and culture, the latest school news, and everything happening around the School this term.</p>
+        <p>Clubs, sports, arts and culture, the latest school news, and everything happening around the school this term.</p>
         <div class="hero-actions page-hero-cta">
           <a href="school-life.html#news" class="btn btn-gold">Latest News</a>
           <a href="school-life.html#gallery" class="btn btn-outline">View Gallery</a>
         </div>
       </div>
     </div>
-    <div class="hero-dots">
-      <span class="hdot active" onclick="goSlide(0)"></span>
-      <span class="hdot" onclick="goSlide(1)"></span>  
-       <span class="hdot" onclick="goSlide(2)"></span>
-     <span class="hdot" onclick="goSlide(3)"></span>   
+    <div class="hero-dots" role="group" aria-label="Choose hero photo">
+      <button type="button" class="hdot active" data-slide="0" aria-label="Show photo 1"></button>
+      <button type="button" class="hdot" data-slide="1" aria-label="Show photo 2"></button>
+      <button type="button" class="hdot" data-slide="2" aria-label="Show photo 3"></button>
+      <button type="button" class="hdot" data-slide="3" aria-label="Show photo 4"></button>
     </div>
   </section>
    <section class="news-section" id="news">
@@ -114,12 +125,11 @@
       <p>Announcements, achievements and stories from around the school.</p>
     </div>
 
-    <!-- One grid only -->
-    <div class="article-grid">
+        <div class="article-grid">
 
       <article class="article-card">
        <div class="ac-img">
-          <img src="PHOTOS/MWIKALI BURAILA PHOTOS_108.JPG" alt="Holiday Break">
+          <img src="img/mb-108-960.webp" srcset="img/mb-108-480.webp 480w, img/mb-108-960.webp 960w, img/mb-108-1600.webp 1600w" sizes="(max-width: 768px) 92vw, 380px" width="1600" height="1067" alt="Holiday Break" loading="lazy" decoding="async">
         </div>
         <div class="ac-body">
           <div class="ac-tag">Announcement</div>
@@ -129,10 +139,10 @@
           <button type="button" class="rm-btn" data-article="holiday">Read More</button>
         </div>
       </article>
-     
+
  <article class="article-card">
        <div class="ac-img">
-          <img src="PHOTOS/kamixer kavingoni_90.JPG" alt="music shines at regionals">
+          <img src="img/kk-90-960.webp" srcset="img/kk-90-480.webp 480w, img/kk-90-960.webp 960w, img/kk-90-1600.webp 1600w" sizes="(max-width: 768px) 92vw, 380px" width="1600" height="1067" alt="music shines at regionals" loading="lazy" decoding="async">
         </div>
         <div class="ac-body">
           <div class="ac-tag">Music &amp; Culture</div>
@@ -145,7 +155,7 @@
 
      <article class="article-card">
         <div class="ac-img">
-          <img src="web-photos/harambee.jpeg" alt="School Bus Harambee">
+          <img src="img/harambee-960.webp" srcset="img/harambee-480.webp 480w, img/harambee-960.webp 960w" sizes="(max-width: 768px) 92vw, 380px" width="960" height="540" alt="School Bus Harambee" loading="lazy" decoding="async">
         </div>
         <div class="ac-body">
           <div class="ac-tag">School Development</div>
@@ -155,10 +165,10 @@
           <button type="button" class="rm-btn" data-article="harambee">Read More</button>
         </div>
       </article>
-     
+
       <article class="article-card">
         <div class="ac-img">
-          <img src="PHOTOS/kamixer kavingoni_504.JPG" alt="Peter Laun at the national games">
+          <img src="img/kk-504-960.webp" srcset="img/kk-504-480.webp 480w, img/kk-504-960.webp 960w, img/kk-504-1600.webp 1600w" sizes="(max-width: 768px) 92vw, 380px" width="1600" height="2400" alt="Peter Laun at the national games" loading="lazy" decoding="async">
         </div>
         <div class="ac-body">
           <div class="ac-tag">Sports Achievement</div>
@@ -168,23 +178,23 @@
           <button type="button" class="rm-btn" data-article="laun">Read More</button>
         </div>
       </article>
-     
+
       <article class="article-card">
         <div class="ac-img">
-          <img src="PHOTOS/kamixer kavingoni_387.JPG" alt="Science laboratory">
+          <img src="img/kk-387-960.webp" srcset="img/kk-387-480.webp 480w, img/kk-387-960.webp 960w, img/kk-387-1600.webp 1600w" sizes="(max-width: 768px) 92vw, 380px" width="1600" height="1067" alt="Science laboratory" loading="lazy" decoding="async">
         </div>
         <div class="ac-body">
           <div class="ac-tag">Sciences</div>
-          <div class="ac-title">New Facility</div>
+          <div class="ac-title">New Science Laboratory Equipped</div>
           <div class="ac-meta">By Editorial Team &middot; March 2026</div>
           <div class="ac-text">The school laboratory has been upgraded to support practical learning in the sciences.</div>
           <button type="button" class="rm-btn" data-article="sciencelab">Read More</button>
         </div>
       </article>
-     
+
      <article class="article-card">
         <div class="ac-img">
-          <img src="web-photos/kcse-analysis.png" alt="KCSE 2025 results analysis">
+          <img src="img/kcse-analysis-480.webp" srcset="img/kcse-analysis-480.webp 480w" sizes="(max-width: 768px) 92vw, 380px" width="480" height="346" alt="KCSE 2025 results analysis" loading="lazy" decoding="async">
         </div>
         <div class="ac-body">
           <div class="ac-tag">Academics</div>
@@ -199,6 +209,11 @@
   </div>
 </section>
 <section class="smart-calendar-section" id="calendar">
+  <div class="section-head">
+    <p class="kicker">What&#8217;s coming up</p>
+    <h2 class="section-title">Events Calendar</h2>
+    <p>Tap a highlighted date or an upcoming event to see the details.</p>
+  </div>
   <div class="calendar-layout">
 
     <div class="calendar-main">
@@ -238,41 +253,41 @@
   <section class="student-life" id="student-life">
     <div class="wrap">
       <div class="section-head">
-        <div class="kicker"><h2>Beyond the classroom</h2></div>
+        <p class="kicker">Beyond the classroom</p>
         <h2 class="section-title">Student Life &amp; Co-Curricular Activities</h2>
         <p>Learning continues through teamwork, creativity, competition, service and discovery.</p>
       </div>
       <div class="activity-grid">
-        <article class="activity-card"><h3>Football</h3><img src="PHOTOS/kamixer kavingoni_256.JPG" alt="football" loading="lazy"><p>Football builds teamwork, discipline, fitness and a strong competitive spirit. Learners take part in training sessions, friendly matches and tournaments while developing ball control, passing, tactical awareness, leadership and respect for teammates, opponents and officials.</p></article>
-        <article class="activity-card"><h3>Volleyball</h3><img src="PHOTOS/kamixer kavingoni_269.JPG" alt="volleybal" loading="lazy"><p>Volleyball develops coordination, agility, communication and teamwork. Through drills, practice games and competitions, learners build skills in serving, passing, setting, attacking and defending while learning to make quick decisions and support one another.</p></article>
-        <article class="activity-card"><h3>Basketball</h3><img src="PHOTOS/kamixer kavingoni_328.JPG" alt="basketball" loading="lazy"><p>Basketball promotes confidence, endurance, leadership and resilience. Learners participate in training and matches that strengthen dribbling, shooting, passing, defending, teamwork and strategic thinking in a fast-paced sporting environment.</p></article>
-       <article class="activity-card"><h3>Debate Club</h3><img src="PHOTOS/kamixer kavingoni_81.JPG" alt="Debate Club" loading="lazy"><p>Debate Club builds confidence, critical thinking and public speaking skills. Learners research topics, prepare arguments and participate in structured debates. They learn how to present ideas clearly, listen to opposing views and respond logically. Debate also improves communication skills, teamwork and awareness of current affairs and social issues.</p></article>
-        <article class="activity-card"><h3>Music &amp; Choir</h3><img src="PHOTOS/kamixer kavingoni_90.JPG" alt="Music" loading="lazy"><p>Music and Choir celebrate talent, culture and self-expression through singing, instruments and performance. Learners practise vocal techniques, harmonies, traditional and contemporary songs, rhythm and stage presentation while preparing for school events and competitions.</p></article>
-        <article class="activity-card"><h3>ICT/Code Club</h3><img src="WEBSITE-PHOTOS/ict-club.jpg" alt="ICT" loading="lazy"><p>ICT Club introduces learners to computers, coding, robotics and digital innovation. Activities may include typing, graphic design, programming, online safety, digital research and practical technology projects that prepare learners for a digital future.</p></article>
-        <article class="activity-card"><h3>Environmental Club</h3><img src="PHOTOS/kamixer kavingoni_72.JPG" alt="environmental club" loading="lazy"><p>Environmental Club promotes responsibility for the natural world through tree planting, recycling, clean-up activities and conservation awareness. Learners take part in projects that encourage sustainable habits, teamwork and active care for their school and community environment.</p></article>
-        <article class="activity-card"><h3>Science Club</h3><img src="PHOTOS/kamixer kavingoni_114.JPG" alt="Science Club" loading="lazy"><p>Science Club encourages curiosity, experimentation and innovation. Learners engage in simple experiments, science projects, exhibitions and research activities in biology, chemistry and physics. They also participate in science fairs and competitions. The club helps learners develop analytical thinking, problem-solving skills and a deeper understanding of scientific concepts in real-life applications.</p></article>
-        <article class="activity-card"><h3>Scouts</h3><img src="PHOTOS/kamixer kavingoni_157.JPG" alt="scouts" loading="lazy"><p>This club focuses on leadership, discipline, survival skills and community service. Learners participate in camping, hiking, first-aid training, drills, and community projects. They learn responsibility, teamwork, self-reliance and respect for others. Scouts and Girl Guides also promote patriotism, moral values and personal development.</p></article>
-        <article class="activity-card"><h3>St John's Ambulance</h3><img src="PHOTOS/kamixer kavingoni_126.JPG" alt="St John's" loading="lazy"><p>This club trains learners in basic first aid, emergency response and health awareness. Activities include learning how to handle injuries, CPR basics, hygiene education and community health outreach. Learners develop compassion, responsibility and readiness to help others in emergencies.</p></article>
-        <article class="activity-card"><h3>Journalism Club</h3><img src="PHOTOS/kamixer kavingoni_50.JPG" alt="Journalism" loading="lazy"><p>Journalism Club develops writing, reporting and communication skills. Learners produce school magazines, newsletters, photography and video content. They also learn interviewing, editing and storytelling techniques. The club builds creativity, confidence and awareness of current events within and outside the school.</p></article>
-        <article class="activity-card"><h3>Agriculture Club</h3><img src="PHOTOS/kamixer kavingoni_94.JPG" alt="Young Farmers Club" loading="lazy"><p>Young Farmers Club is common in many Kenyan schools due to the importance of farming. Learners engage in crop production, animal husbandry, greenhouse farming and school garden projects. They learn practical farming skills, sustainability and food production techniques. The club promotes self-reliance, responsibility and appreciation of agriculture as a career.</p></article>
-        <article class="activity-card"><h3>Mathematics Club</h3><img src="PHOTOS/kamixer kavingoni_122.JPG" alt="Mathematics Club" loading="lazy"><p>Mathematics Club enhances learners’ problem-solving, logical reasoning and analytical skills. Learners engage in mathematical puzzles, competitions, quizzes and Olympiad-style challenges. They explore topics such as algebra, geometry, statistics and number theory in deeper and more practical ways. The club builds confidence in handling complex problems and encourages creativity in mathematical thinking.</p></article>
-        <article class="activity-card"><h3>Christian Union (C.U.)</h3><img src="PHOTOS/kamixer kavingoni_168.JPG" alt="Christian Union (C.U.)" loading="lazy"><p>Christian Union provides a platform for spiritual growth, moral guidance and fellowship among learners. Activities include Bible study, prayer meetings, worship sessions, choir ministry and guest speaker sessions. The club promotes Christian values such as integrity, love, discipline and service to others. It also encourages learners to develop strong moral character and positive behavior in school and society.</p></article>
-        <article class="activity-card"><h3>Young Christian Students (YCS)</h3><img src="PHOTOS/kamixer kavingoni_176.JPG" alt="Young Christian Students (YCS)" loading="lazy"><p>Young Christian Students (YCS) is a faith-based club that nurtures spiritual development, leadership and social responsibility among learners. Members participate in Bible reflection, group discussions, community service and peer support activities. The club emphasizes living out Christian values in daily life, promoting justice, peace and solidarity. It also helps learners grow in faith while actively contributing to the well-being of the school and wider community.</p></article>
-       <article class="activity-card"><h3>Muslim Community</h3><img src="PHOTOS/kamixer kavingoni_181.JPG" alt="Muslim Community" loading="lazy"><p>St Thomas Kavingoni Senior School warmly values its Muslim community for its contribution to unity, moral guidance, and the promotion of peaceful coexistence. Their support strengthens our school community, nurtures mutual respect, and enriches our learners' social and spiritual development. We celebrate our diversity and remain united in our shared commitment to education and excellence.</p></article>
-        <article class="activity-card"><h3>Peace Club</h3><img src="PHOTOS/kamixer kavingoni_58.JPG" alt="amani" loading="lazy"><p>The Peace (Amani) Club is a co-curricular student organization dedicated to promoting harmony, unity, and non-violent conflict resolution within the school and local community. Through peer mediation, active dialogue, leadership training, and engaging activities like strategy games and peace campaigns, the club equips learners with crucial skills in emotional intelligence, critical thinking, and problem-solving. By encouraging mutual respect and civic responsibility, the Peace Club helps cultivate a safe, inclusive, and disciplined environment where students grow into compassionate, responsible leaders.</p></article>
+        <article class="activity-card"><h3>Football</h3><img src="img/kk-256-960.webp" srcset="img/kk-256-480.webp 480w, img/kk-256-960.webp 960w, img/kk-256-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="football" loading="lazy" decoding="async"><p>Football builds teamwork, discipline, fitness and a strong competitive spirit. Learners take part in training sessions, friendly matches and tournaments while developing ball control, passing, tactical awareness, leadership and respect for teammates, opponents and officials.</p></article>
+        <article class="activity-card"><h3>Volleyball</h3><img src="img/kk-269-960.webp" srcset="img/kk-269-480.webp 480w, img/kk-269-960.webp 960w, img/kk-269-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="Volleyball" loading="lazy" decoding="async"><p>Volleyball develops coordination, agility, communication and teamwork. Through drills, practice games and competitions, learners build skills in serving, passing, setting, attacking and defending while learning to make quick decisions and support one another.</p></article>
+        <article class="activity-card"><h3>Basketball</h3><img src="img/kk-328-960.webp" srcset="img/kk-328-480.webp 480w, img/kk-328-960.webp 960w, img/kk-328-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="basketball" loading="lazy" decoding="async"><p>Basketball promotes confidence, endurance, leadership and resilience. Learners participate in training and matches that strengthen dribbling, shooting, passing, defending, teamwork and strategic thinking in a fast-paced sporting environment.</p></article>
+       <article class="activity-card"><h3>Debate Club</h3><img src="img/kk-81-960.webp" srcset="img/kk-81-480.webp 480w, img/kk-81-960.webp 960w, img/kk-81-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="Debate Club" loading="lazy" decoding="async"><p>Debate Club builds confidence, critical thinking and public speaking skills. Learners research topics, prepare arguments and participate in structured debates. They learn how to present ideas clearly, listen to opposing views and respond logically. Debate also improves communication skills, teamwork and awareness of current affairs and social issues.</p></article>
+        <article class="activity-card"><h3>Music &amp; Choir</h3><img src="img/kk-90-960.webp" srcset="img/kk-90-480.webp 480w, img/kk-90-960.webp 960w, img/kk-90-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="Music" loading="lazy" decoding="async"><p>Music and Choir celebrate talent, culture and self-expression through singing, instruments and performance. Learners practise vocal techniques, harmonies, traditional and contemporary songs, rhythm and stage presentation while preparing for school events and competitions.</p></article>
+        <article class="activity-card"><h3>ICT/Code Club</h3><img src="img/ict-club-960.webp" srcset="img/ict-club-480.webp 480w, img/ict-club-960.webp 960w, img/ict-club-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1200" alt="ICT" loading="lazy" decoding="async"><p>ICT Club introduces learners to computers, coding, robotics and digital innovation. Activities may include typing, graphic design, programming, online safety, digital research and practical technology projects that prepare learners for a digital future.</p></article>
+        <article class="activity-card"><h3>Environmental Club</h3><img src="img/kk-72-960.webp" srcset="img/kk-72-480.webp 480w, img/kk-72-960.webp 960w, img/kk-72-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="environmental club" loading="lazy" decoding="async"><p>Environmental Club promotes responsibility for the natural world through tree planting, recycling, clean-up activities and conservation awareness. Learners take part in projects that encourage sustainable habits, teamwork and active care for their school and community environment.</p></article>
+        <article class="activity-card"><h3>Science Club</h3><img src="img/kk-114-960.webp" srcset="img/kk-114-480.webp 480w, img/kk-114-960.webp 960w, img/kk-114-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="Science Club" loading="lazy" decoding="async"><p>Science Club encourages curiosity, experimentation and innovation. Learners engage in simple experiments, science projects, exhibitions and research activities in biology, chemistry and physics. They also participate in science fairs and competitions. The club helps learners develop analytical thinking, problem-solving skills and a deeper understanding of scientific concepts in real-life applications.</p></article>
+        <article class="activity-card"><h3>Scouts</h3><img src="img/kk-157-960.webp" srcset="img/kk-157-480.webp 480w, img/kk-157-960.webp 960w, img/kk-157-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="scouts" loading="lazy" decoding="async"><p>This club focuses on leadership, discipline, survival skills and community service. Learners participate in camping, hiking, first-aid training, drills, and community projects. They learn responsibility, teamwork, self-reliance and respect for others. Scouts and Girl Guides also promote patriotism, moral values and personal development.</p></article>
+        <article class="activity-card"><h3>St John's Ambulance</h3><img src="img/kk-126-960.webp" srcset="img/kk-126-480.webp 480w, img/kk-126-960.webp 960w, img/kk-126-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="St John&#x27;s" loading="lazy" decoding="async"><p>This club trains learners in basic first aid, emergency response and health awareness. Activities include learning how to handle injuries, CPR basics, hygiene education and community health outreach. Learners develop compassion, responsibility and readiness to help others in emergencies.</p></article>
+        <article class="activity-card"><h3>Journalism Club</h3><img src="img/kk-50-960.webp" srcset="img/kk-50-480.webp 480w, img/kk-50-960.webp 960w, img/kk-50-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="Journalism" loading="lazy" decoding="async"><p>Journalism Club develops writing, reporting and communication skills. Learners produce school magazines, newsletters, photography and video content. They also learn interviewing, editing and storytelling techniques. The club builds creativity, confidence and awareness of current events within and outside the school.</p></article>
+        <article class="activity-card"><h3>Agriculture Club</h3><img src="img/kk-94-960.webp" srcset="img/kk-94-480.webp 480w, img/kk-94-960.webp 960w, img/kk-94-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="Young Farmers Club" loading="lazy" decoding="async"><p>Young Farmers Club is common in many Kenyan schools due to the importance of farming. Learners engage in crop production, animal husbandry, greenhouse farming and school garden projects. They learn practical farming skills, sustainability and food production techniques. The club promotes self-reliance, responsibility and appreciation of agriculture as a career.</p></article>
+        <article class="activity-card"><h3>Mathematics Club</h3><img src="img/kk-122-960.webp" srcset="img/kk-122-480.webp 480w, img/kk-122-960.webp 960w, img/kk-122-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="Mathematics Club" loading="lazy" decoding="async"><p>Mathematics Club enhances learners’ problem-solving, logical reasoning and analytical skills. Learners engage in mathematical puzzles, competitions, quizzes and Olympiad-style challenges. They explore topics such as algebra, geometry, statistics and number theory in deeper and more practical ways. The club builds confidence in handling complex problems and encourages creativity in mathematical thinking.</p></article>
+        <article class="activity-card"><h3>Christian Union (C.U.)</h3><img src="img/kk-168-960.webp" srcset="img/kk-168-480.webp 480w, img/kk-168-960.webp 960w, img/kk-168-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="Christian Union (C.U.)" loading="lazy" decoding="async"><p>Christian Union provides a platform for spiritual growth, moral guidance and fellowship among learners. Activities include Bible study, prayer meetings, worship sessions, choir ministry and guest speaker sessions. The club promotes Christian values such as integrity, love, discipline and service to others. It also encourages learners to develop strong moral character and positive behavior in school and society.</p></article>
+        <article class="activity-card"><h3>Young Christian Students (YCS)</h3><img src="img/kk-176-960.webp" srcset="img/kk-176-480.webp 480w, img/kk-176-960.webp 960w, img/kk-176-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="Young Christian Students (YCS)" loading="lazy" decoding="async"><p>Young Christian Students (YCS) is a faith-based club that nurtures spiritual development, leadership and social responsibility among learners. Members participate in Bible reflection, group discussions, community service and peer support activities. The club emphasizes living out Christian values in daily life, promoting justice, peace and solidarity. It also helps learners grow in faith while actively contributing to the well-being of the school and wider community.</p></article>
+       <article class="activity-card"><h3>Muslim Community</h3><img src="img/kk-181-960.webp" srcset="img/kk-181-480.webp 480w, img/kk-181-960.webp 960w, img/kk-181-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="Muslim Community" loading="lazy" decoding="async"><p>St Thomas Kavingoni Senior School warmly values its Muslim community for its contribution to unity, moral guidance, and the promotion of peaceful coexistence. Their support strengthens our school community, nurtures mutual respect, and enriches our learners' social and spiritual development. We celebrate our diversity and remain united in our shared commitment to education and excellence.</p></article>
+        <article class="activity-card"><h3>Peace Club</h3><img src="img/kk-58-960.webp" srcset="img/kk-58-480.webp 480w, img/kk-58-960.webp 960w, img/kk-58-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 570px" width="1600" height="1067" alt="Peace (Amani) Club" loading="lazy" decoding="async"><p>The Peace (Amani) Club is a co-curricular student organization dedicated to promoting harmony, unity, and non-violent conflict resolution within the school and local community. Through peer mediation, active dialogue, leadership training, and engaging activities like strategy games and peace campaigns, the club equips learners with crucial skills in emotional intelligence, critical thinking, and problem-solving. By encouraging mutual respect and civic responsibility, the Peace Club helps cultivate a safe, inclusive, and disciplined environment where students grow into compassionate, responsible leaders.</p></article>
       </div>
     </div>
   </section>
   <section class="arts-section" id="arts">
     <div class="wrap">
       <div class="section-head">
-        <div class="kicker"><h2>Creativity &amp; heritage</h2></div>
+        <p class="kicker">Creativity &amp; heritage</p>
         <h2 class="section-title">Arts &amp; Culture</h2>
         <p>Celebrating creativity, talent and Kenyan heritage.</p>
       </div>
 
       <div class="arts-feature">
-        <img src="PHOTOS/kamixer kavingoni_90.JPG" alt="music club performance regional festivals">
+        <img src="img/kk-90-960.webp" srcset="img/kk-90-480.webp 480w, img/kk-90-960.webp 960w, img/kk-90-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 500px" width="1600" height="1067" alt="music club performance regional festivals" loading="lazy" decoding="async">
         <div>
           <div class="a-tag">Choir</div>
           <h3>National Music Festival pos 4/18 🥈</h3>
@@ -280,22 +295,22 @@
           <p>The choir, <em>"Walking in Jerusalem"</em>, explored themes of education and ambition, resonating deeply with audiences.</p>
         </div>
       </div>
-     
+
  <div class="arts-feature">
-        <img src="PHOTOS/kamixer kavingoni_90.JPG" alt="music club performance regional festivals">
+        <img src="img/kk-90-960.webp" srcset="img/kk-90-480.webp 480w, img/kk-90-960.webp 960w, img/kk-90-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 500px" width="1600" height="1067" alt="music club performance regional festivals" loading="lazy" decoding="async">
         <div>
           <div class="a-tag">Music</div>
           <h3>Eastern Region Music Festival pos 5/18 🥈</h3>
           <p>Our music club delivered a captivating choir performance at the Kibabii University-National Music Festival.</p>
-          <p>The song, <em>"Maadili Mema"</e,m> explored themes of discipline and ambition, resonating deeply with audiences.</p>
+          <p>The song, <em>&#8220;Maadili Mema&#8221;</em>, explored themes of discipline and ambition, resonating deeply with audiences.</p>
         </div>
       </div>
-     
+
       <div class="arts-feature">
-        <img src="WEBSITE-PHOTOS/IMG-20260704-WA0030.jpg" alt="Drama club performance at the county festival">
+        <img src="img/img-20260704-wa0030-960.webp" srcset="img/img-20260704-wa0030-480.webp 480w, img/img-20260704-wa0030-960.webp 960w" sizes="(max-width: 860px) 92vw, 500px" width="960" height="1276" alt="Drama club performance at the county festival" loading="lazy" decoding="async">
        <div>
-         <h3>'"Inkíshú" — The Pride of Our Community'</h3>
-        <p class="meta">By  Abraham Saitoti, Form 3 — pos 4/15 🥈, music festivals at Nationals 2026</p>
+         <h3>&#8220;Inkíshú&#8221; &#8212; The Pride of Our Community</h3>
+        <p class="meta">By Abraham Saitoti, Form 3 — pos 4/15 🥈, music festivals at Nationals 2026</p>
         <p>Cattle are our wealth, our pride, and our living treasure. They feed our children and make our homes better. With milk in the morning and strength through the day, they guide our community in a meaningful way.</p>
         <p>Goats and sheep bring hope in hard times. They are carefully loved, protected, and guarded. Our livestock unite us, young and old alike. They teach us responsibility, courage and pride.</p>
         <button type="button" class="rm-btn" data-article="essay">Read more</button>
@@ -306,66 +321,66 @@
   <section class="gallery" id="gallery">
     <div class="wrap">
       <div class="section-head">
-        <div class="kicker"><h2>Life at Kavingoni</h2></div>
+        <p class="kicker">Life at Kavingoni</p>
         <h2 class="section-title">School Gallery</h2>
         <p>A glimpse into the places, activities, and experiences that make our school community special.</p>
       </div>
       <div class="gallery-grid">
-        <figure class="gallery-card"><img src="PHOTOS/MWIKALI BURAILA PHOTOS_6.JPG" alt="Imperiums rewarding Scheme" loading="lazy"><figcaption>The Imperiums rewarding Scheme</figcaption></figure>
-        <figure class="gallery-card"><img src="WEBSITE-PHOTOS/IMG-20260508-WA0263.jpg" alt="The Imperiums 2026 launch" loading="lazy"><figcaption>The Imperiums Launching</figcaption></figure>
-        <figure class="gallery-card"><img src="PHOTOS/MWIKALI BURAILA PHOTOS_119.JPG" alt="Subject targets 2026" loading="lazy"><figcaption>Subject Targets 2026</figcaption></figure>
-        <figure class="gallery-card"><img src="web-photos/computer-lab.jpeg" alt="Computer laboratory" loading="lazy"><figcaption>Digital Learning Area</figcaption></figure>
-        <figure class="gallery-card"><img src="web-photos/laun-national-games.png" alt="Students at national games" loading="lazy"><figcaption>Peter Laun Representing The school at the Term 1 National Games in Kisumu</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_309.JPG" alt="Esther at county games" loading="lazy"><figcaption>Esther Manyeki, lawn tennis finalist at the Term 2 County Games in wote</figcaption></figure>
-        <figure class="gallery-card"><img src="PHOTOS/WhatsApp Image 2026-10-22 at 00.24.16.jpeg" alt="Amani club students" loading="lazy"><figcaption>Amani Club National-Essay Competition winners</figcaption></figure>
-        <figure class="gallery-card"><img src="web-photos/harambee.jpeg" alt="School bus harambee" loading="lazy"><figcaption>School Bus Harambee</figcaption></figure>
-        <figure class="gallery-card"><img src="web-photos/kcse-analysis.png" alt="KCSE analysis 2025" loading="lazy"><figcaption>KCSE Analysis 2025</figcaption></figure>
-        <figure class="gallery-card"><img src="PHOTOS/MWIKALI BURAILA PHOTOS_142.JPG" alt="School Bursar" loading="lazy"><figcaption>School Bursar</figcaption></figure>
-        <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_97.JPG" alt="regionals music competitions winners" loading="lazy"><figcaption>regionals music competitions winners</figcaption></figure>
-        <figure class="gallery-card"><img src="web-photos/WhatsApp Image 2026-07-29 at 17.22.44.jpeg" alt="AI training for JSS " loading="lazy"><figcaption>AI Training for JSS Teachers</figcaption></figure>
-        <figure class="gallery-card"><img src="WEBSITE-PHOTOS/IMG-20260714-WA0051.jpg" alt="bakery products" loading="lazy"><figcaption>Students Enjoying principal's Coffee</figcaption></figure>
-        <figure class="gallery-card"><img src="WEBSITE-PHOTOS/senior (2).jpg" alt="parent " loading="lazy"><figcaption>parents support during Harambe</figcaption></figure>
-        <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_11.JPG" alt="Grade 10 Taking the CBA Projects" loading="lazy"><figcaption>Grade 10 Learners Taking Chemistry CBA Projects</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/WhatsApp Image 2026-10-22 at 00.24.17 (1).jpeg" alt="Grade 10 Taking the CBA Projects" loading="lazy"><figcaption>Grade 10 ICT Learners Assembling Computers</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_7.JPG" alt="Grade 10 Taking the CBA Projects" loading="lazy"><figcaption>Grade 10 Taking The CBA Projects</figcaption></figure>
-       <figure class="gallery-card"><img src="WEBSITE-PHOTOS/project.jpg" alt="ICt Members Preparing a project" loading="lazy"><figcaption>ICt Members Preparing a project</figcaption></figure>
-        <figure class="gallery-card"><img src="WEBSITE-PHOTOS/science-lab-commisioning.jpg" alt="MNA Commisioning the Modern Science Lab" loading="lazy"><figcaption>MNA Commisioning the Modern Science Lab</figcaption></figure>
-        <figure class="gallery-card"><img src="WEBSITE-PHOTOS/ksef.jpg" alt="KSEF Project" loading="lazy"><figcaption>KSEF Project presentation at County Competitions</figcaption></figure>
-        <figure class="gallery-card"><img src="PHOTOS/WhatsApp Image 2026-10-22 at 00.24.16 (1).jpeg" alt="Scouts and CSL Students" loading="lazy"><figcaption>Scouts and CSL Students doing community service at Kavingoni Market </figcaption></figure>
-        <figure class="gallery-card"><img src="WEBSITE-PHOTOS/principal-addressing-staff.jpg" alt="Principal Introducing Staff During a School Event" loading="lazy"><figcaption>Principal Introducing Staff During a School Event</figcaption></figure>
-        <figure class="gallery-card"><img src="PHOTOS/WhatsApp Image 2026-10-22 at 00.24.17.jpeg" alt="Rewarding Best Students" loading="lazy"><figcaption>Rewarding Best Students</figcaption></figure>
-        <figure class="gallery-card"><img src="web-photos/WhatsApp Image 2026-07-29 at 16.23.49 (1).jpeg" alt="Teaching Staff" loading="lazy"><figcaption>Teaching Staff</figcaption></figure>
-        <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_103.JPG" alt="Student's council" loading="lazy"><figcaption>Student's council</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/G10_BOYS.JPG" alt="Grade 10 Boys" loading="lazy"><figcaption>Grade 10 Boys</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_46.JPG" alt="Grade 10 Girls" loading="lazy"><figcaption>Grade 10 Girls</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_19.JPG" alt="Form 3A" loading="lazy"><figcaption>Form 3A</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/FORM_3B.JPG" alt="Form 3B" loading="lazy"><figcaption>Form 3B</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/FORM_3C.JPG" alt="Form 3C" loading="lazy"><figcaption>Form 3C</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_40.JPG" alt="Form 3D" loading="lazy"><figcaption>Form 3D</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/MWIKALI BURAILA PHOTOS_232.JPG" alt="Form 4A" loading="lazy"><figcaption>Form 4A</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/MWIKALI BURAILA PHOTOS_241.JPG" alt="Form 4B" loading="lazy"><figcaption>Form 4B</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/FORM_4C.JPG" alt="Form 4C" loading="lazy"><figcaption>Form 4C</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/FORM_4D.JPG" alt="Form 4D" loading="lazy"><figcaption>Form 4D</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_252.JPG" alt="Football Girls" loading="lazy"><figcaption>Football Girls</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_267.JPG" alt="Volleybal Boys" loading="lazy"><figcaption>Volleybal Boys</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_298.JPG" alt="Netball" loading="lazy"><figcaption>Netball</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_295.JPG" alt="Badminton" loading="lazy"><figcaption>Badminton</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_304.JPG" alt="Handball Girls" loading="lazy"><figcaption>Handball Girls</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_318.JPG" alt="Handball Boys" loading="lazy"><figcaption>Handball Boys</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_307.JPG" alt="lawn Tennis Girls" loading="lazy"><figcaption>lawn Tennis Girls</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_312.JPG" alt="lawn Tennis Boys" loading="lazy"><figcaption>lawn Tennis Boys</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_272.JPG" alt="Athletics" loading="lazy"><figcaption>Athletics</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_326.JPG" alt="Basketball Girls" loading="lazy"><figcaption>Basketball Girls</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_450.JPG" alt="Table Tennis" loading="lazy"><figcaption>Table Tennis</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_202.JPG" alt="St. Monica's Dorm" loading="lazy"><figcaption>St. Monica's Dorm</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_203.JPG" alt="St. Mary's Dorm" loading="lazy"><figcaption>St. Mary's Dorm</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_214.JPG" alt="St. Joseph's Dorm" loading="lazy"><figcaption>St. Joseph's Dorm</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_210.JPG" alt="St. Thomas' Dorm" loading="lazy"><figcaption>St. Thomas' Dorm</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_367.JPG" alt="School Borehole" loading="lazy"><figcaption>School Borehole</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_395.JPG" alt="School Bakery" loading="lazy"><figcaption>School Bakery</figcaption></figure>
-        <figure class="gallery-card"><img src="PHOTOS/MWIKALI BURAILA PHOTOS_164.JPG" alt="School Farm" loading="lazy"><figcaption>School Farm</figcaption></figure>
-       <figure class="gallery-card"><img src="PHOTOS/kamixer kavingoni_576.JPG" alt="Non_Teaching Staff" loading="lazy"><figcaption>Non_Teaching Staff</figcaption></figure>
-       
+        <figure class="gallery-card"><img src="img/mb-6-960.webp" srcset="img/mb-6-480.webp 480w, img/mb-6-960.webp 960w, img/mb-6-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="2400" alt="The Imperiums reward scheme" loading="lazy" decoding="async" data-full="img/mb-6-1600.webp"><figcaption>The Imperiums Reward Scheme</figcaption></figure>
+        <figure class="gallery-card"><img src="img/img-20260508-wa0263-960.webp" srcset="img/img-20260508-wa0263-480.webp 480w, img/img-20260508-wa0263-960.webp 960w" sizes="(max-width: 600px) 92vw, 300px" width="960" height="540" alt="The Imperiums 2026 launch" loading="lazy" decoding="async" data-full="img/img-20260508-wa0263-960.webp"><figcaption>The Imperiums Launching</figcaption></figure>
+        <figure class="gallery-card"><img src="img/mb-119-960.webp" srcset="img/mb-119-480.webp 480w, img/mb-119-960.webp 960w, img/mb-119-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1492" alt="Subject targets 2026" loading="lazy" decoding="async" data-full="img/mb-119-1600.webp"><figcaption>Subject Targets 2026</figcaption></figure>
+        <figure class="gallery-card"><img src="img/computer-lab-960.webp" srcset="img/computer-lab-480.webp 480w, img/computer-lab-960.webp 960w, img/computer-lab-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1200" alt="Computer laboratory" loading="lazy" decoding="async" data-full="img/computer-lab-1600.webp"><figcaption>Digital Learning Area</figcaption></figure>
+        <figure class="gallery-card"><img src="img/laun-national-games-480.webp" srcset="img/laun-national-games-480.webp 386w" sizes="(max-width: 600px) 92vw, 300px" width="386" height="440" alt="Students at national games" loading="lazy" decoding="async" data-full="img/laun-national-games-480.webp"><figcaption>Peter Laun Representing the School at the Term 1 National Games in Kisumu</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-309-960.webp" srcset="img/kk-309-480.webp 480w, img/kk-309-960.webp 960w, img/kk-309-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="2400" alt="Esther at county games" loading="lazy" decoding="async" data-full="img/kk-309-1600.webp"><figcaption>Esther Manyeki, Lawn Tennis Finalist at the Term 2 County Games in Wote</figcaption></figure>
+        <figure class="gallery-card"><img src="img/wa-2026-10-22-at-00-24-16-960.webp" srcset="img/wa-2026-10-22-at-00-24-16-480.webp 480w, img/wa-2026-10-22-at-00-24-16-960.webp 960w, img/wa-2026-10-22-at-00-24-16-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1200" alt="Amani club students" loading="lazy" decoding="async" data-full="img/wa-2026-10-22-at-00-24-16-1600.webp"><figcaption>Amani Club National-Essay Competition winners</figcaption></figure>
+        <figure class="gallery-card"><img src="img/harambee-960.webp" srcset="img/harambee-480.webp 480w, img/harambee-960.webp 960w" sizes="(max-width: 600px) 92vw, 300px" width="960" height="540" alt="School bus harambee" loading="lazy" decoding="async" data-full="img/harambee-960.webp"><figcaption>School Bus Harambee</figcaption></figure>
+        <figure class="gallery-card"><img src="img/kcse-analysis-480.webp" srcset="img/kcse-analysis-480.webp 480w" sizes="(max-width: 600px) 92vw, 300px" width="480" height="346" alt="KCSE analysis 2025" loading="lazy" decoding="async" data-full="img/kcse-analysis-480.webp"><figcaption>KCSE Analysis 2025</figcaption></figure>
+        <figure class="gallery-card"><img src="img/mb-142-960.webp" srcset="img/mb-142-480.webp 480w, img/mb-142-960.webp 960w, img/mb-142-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="School Bursar" loading="lazy" decoding="async" data-full="img/mb-142-1600.webp"><figcaption>School Bursar</figcaption></figure>
+        <figure class="gallery-card"><img src="img/kk-97-960.webp" srcset="img/kk-97-480.webp 480w, img/kk-97-960.webp 960w, img/kk-97-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="2400" alt="regionals music competitions winners" loading="lazy" decoding="async" data-full="img/kk-97-1600.webp"><figcaption>Regional Music Competition Winners</figcaption></figure>
+        <figure class="gallery-card"><img src="img/wa-2026-07-29-at-17-22-44-960.webp" srcset="img/wa-2026-07-29-at-17-22-44-480.webp 480w, img/wa-2026-07-29-at-17-22-44-960.webp 960w" sizes="(max-width: 600px) 92vw, 300px" width="960" height="720" alt="AI training for JSS teachers" loading="lazy" decoding="async" data-full="img/wa-2026-07-29-at-17-22-44-960.webp"><figcaption>AI Training for JSS Teachers</figcaption></figure>
+        <figure class="gallery-card"><img src="img/img-20260714-wa0051-960.webp" srcset="img/img-20260714-wa0051-480.webp 480w, img/img-20260714-wa0051-960.webp 960w, img/img-20260714-wa0051-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="900" alt="Students enjoying the principal&amp;#8217;s coffee" loading="lazy" decoding="async" data-full="img/img-20260714-wa0051-1600.webp"><figcaption>Students Enjoying the Principal&#8217;s Coffee</figcaption></figure>
+        <figure class="gallery-card"><img src="img/senior-2-960.webp" srcset="img/senior-2-480.webp 480w, img/senior-2-960.webp 960w, img/senior-2-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1200" alt="Parents supporting the school bus harambee" loading="lazy" decoding="async" data-full="img/senior-2-1600.webp"><figcaption>Parents&#8217; Support During the Harambee</figcaption></figure>
+        <figure class="gallery-card"><img src="img/kk-11-960.webp" srcset="img/kk-11-480.webp 480w, img/kk-11-960.webp 960w, img/kk-11-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Grade 10 Taking the CBA Projects" loading="lazy" decoding="async" data-full="img/kk-11-1600.webp"><figcaption>Grade 10 Learners Taking Chemistry CBA Projects</figcaption></figure>
+       <figure class="gallery-card"><img src="img/wa-2026-10-22-at-00-24-17-1-960.webp" srcset="img/wa-2026-10-22-at-00-24-17-1-480.webp 480w, img/wa-2026-10-22-at-00-24-17-1-960.webp 960w" sizes="(max-width: 600px) 92vw, 300px" width="960" height="1280" alt="Grade 10 ICT learners assembling computers" loading="lazy" decoding="async" data-full="img/wa-2026-10-22-at-00-24-17-1-960.webp"><figcaption>Grade 10 ICT Learners Assembling Computers</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-7-960.webp" srcset="img/kk-7-480.webp 480w, img/kk-7-960.webp 960w, img/kk-7-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Grade 10 Taking the CBA Projects" loading="lazy" decoding="async" data-full="img/kk-7-1600.webp"><figcaption>Grade 10 Taking the CBA Projects</figcaption></figure>
+       <figure class="gallery-card"><img src="img/project-960.webp" srcset="img/project-480.webp 480w, img/project-960.webp 960w, img/project-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1200" alt="ICT Club members preparing a project" loading="lazy" decoding="async" data-full="img/project-1600.webp"><figcaption>ICT Club Members Preparing a Project</figcaption></figure>
+        <figure class="gallery-card"><img src="img/science-lab-commisioning-960.webp" srcset="img/science-lab-commisioning-480.webp 480w, img/science-lab-commisioning-960.webp 960w, img/science-lab-commisioning-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1200" alt="MNA commissioning the modern science laboratory" loading="lazy" decoding="async" data-full="img/science-lab-commisioning-1600.webp"><figcaption>MNA Commissioning the Modern Science Lab</figcaption></figure>
+        <figure class="gallery-card"><img src="img/ksef-960.webp" srcset="img/ksef-480.webp 480w, img/ksef-960.webp 960w, img/ksef-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1200" alt="KSEF Project" loading="lazy" decoding="async" data-full="img/ksef-1600.webp"><figcaption>KSEF Project presentation at County Competitions</figcaption></figure>
+        <figure class="gallery-card"><img src="img/wa-2026-10-22-at-00-24-16-1-960.webp" srcset="img/wa-2026-10-22-at-00-24-16-1-480.webp 480w, img/wa-2026-10-22-at-00-24-16-1-960.webp 960w, img/wa-2026-10-22-at-00-24-16-1-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1200" alt="Scouts and CSL Students" loading="lazy" decoding="async" data-full="img/wa-2026-10-22-at-00-24-16-1-1600.webp"><figcaption>Scouts and CSL Students doing community service at Kavingoni Market</figcaption></figure>
+        <figure class="gallery-card"><img src="img/principal-addressing-staff-960.webp" srcset="img/principal-addressing-staff-480.webp 480w, img/principal-addressing-staff-960.webp 960w, img/principal-addressing-staff-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1200" alt="Principal Introducing Staff During a School Event" loading="lazy" decoding="async" data-full="img/principal-addressing-staff-1600.webp"><figcaption>Principal Introducing Staff During a School Event</figcaption></figure>
+        <figure class="gallery-card"><img src="img/wa-2026-10-22-at-00-24-17-960.webp" srcset="img/wa-2026-10-22-at-00-24-17-480.webp 480w, img/wa-2026-10-22-at-00-24-17-960.webp 960w, img/wa-2026-10-22-at-00-24-17-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1200" alt="Rewarding Best Students" loading="lazy" decoding="async" data-full="img/wa-2026-10-22-at-00-24-17-1600.webp"><figcaption>Rewarding Best Students</figcaption></figure>
+        <figure class="gallery-card"><img src="img/wa-2026-07-29-at-16-23-49-1-960.webp" srcset="img/wa-2026-07-29-at-16-23-49-1-480.webp 480w, img/wa-2026-07-29-at-16-23-49-1-960.webp 960w, img/wa-2026-07-29-at-16-23-49-1-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1200" alt="Teaching Staff" loading="lazy" decoding="async" data-full="img/wa-2026-07-29-at-16-23-49-1-1600.webp"><figcaption>Teaching Staff</figcaption></figure>
+        <figure class="gallery-card"><img src="img/kk-103-960.webp" srcset="img/kk-103-480.webp 480w, img/kk-103-960.webp 960w, img/kk-103-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Students&amp;#8217; council" loading="lazy" decoding="async" data-full="img/kk-103-1600.webp"><figcaption>Students&#8217; Council</figcaption></figure>
+       <figure class="gallery-card"><img src="img/g10-boys-960.webp" srcset="img/g10-boys-480.webp 480w, img/g10-boys-960.webp 960w, img/g10-boys-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Grade 10 Boys" loading="lazy" decoding="async" data-full="img/g10-boys-1600.webp"><figcaption>Grade 10 Boys</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-46-960.webp" srcset="img/kk-46-480.webp 480w, img/kk-46-960.webp 960w, img/kk-46-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Grade 10 Girls" loading="lazy" decoding="async" data-full="img/kk-46-1600.webp"><figcaption>Grade 10 Girls</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-19-960.webp" srcset="img/kk-19-480.webp 480w, img/kk-19-960.webp 960w, img/kk-19-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Form 3A" loading="lazy" decoding="async" data-full="img/kk-19-1600.webp"><figcaption>Form 3A</figcaption></figure>
+       <figure class="gallery-card"><img src="img/form-3b-960.webp" srcset="img/form-3b-480.webp 480w, img/form-3b-960.webp 960w, img/form-3b-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Form 3B" loading="lazy" decoding="async" data-full="img/form-3b-1600.webp"><figcaption>Form 3B</figcaption></figure>
+       <figure class="gallery-card"><img src="img/form-3c-960.webp" srcset="img/form-3c-480.webp 480w, img/form-3c-960.webp 960w, img/form-3c-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Form 3C" loading="lazy" decoding="async" data-full="img/form-3c-1600.webp"><figcaption>Form 3C</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-40-960.webp" srcset="img/kk-40-480.webp 480w, img/kk-40-960.webp 960w, img/kk-40-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Form 3D" loading="lazy" decoding="async" data-full="img/kk-40-1600.webp"><figcaption>Form 3D</figcaption></figure>
+       <figure class="gallery-card"><img src="img/mb-232-960.webp" srcset="img/mb-232-480.webp 480w, img/mb-232-960.webp 960w, img/mb-232-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Form 4A" loading="lazy" decoding="async" data-full="img/mb-232-1600.webp"><figcaption>Form 4A</figcaption></figure>
+       <figure class="gallery-card"><img src="img/mb-241-960.webp" srcset="img/mb-241-480.webp 480w, img/mb-241-960.webp 960w, img/mb-241-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Form 4B" loading="lazy" decoding="async" data-full="img/mb-241-1600.webp"><figcaption>Form 4B</figcaption></figure>
+       <figure class="gallery-card"><img src="img/form-4c-960.webp" srcset="img/form-4c-480.webp 480w, img/form-4c-960.webp 960w, img/form-4c-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Form 4C" loading="lazy" decoding="async" data-full="img/form-4c-1600.webp"><figcaption>Form 4C</figcaption></figure>
+       <figure class="gallery-card"><img src="img/form-4d-960.webp" srcset="img/form-4d-480.webp 480w, img/form-4d-960.webp 960w, img/form-4d-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Form 4D" loading="lazy" decoding="async" data-full="img/form-4d-1600.webp"><figcaption>Form 4D</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-252-960.webp" srcset="img/kk-252-480.webp 480w, img/kk-252-960.webp 960w, img/kk-252-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Football Girls" loading="lazy" decoding="async" data-full="img/kk-252-1600.webp"><figcaption>Football Girls</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-267-960.webp" srcset="img/kk-267-480.webp 480w, img/kk-267-960.webp 960w, img/kk-267-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Volleyball boys" loading="lazy" decoding="async" data-full="img/kk-267-1600.webp"><figcaption>Volleyball Boys</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-298-960.webp" srcset="img/kk-298-480.webp 480w, img/kk-298-960.webp 960w, img/kk-298-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Netball" loading="lazy" decoding="async" data-full="img/kk-298-1600.webp"><figcaption>Netball</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-295-960.webp" srcset="img/kk-295-480.webp 480w, img/kk-295-960.webp 960w, img/kk-295-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Badminton" loading="lazy" decoding="async" data-full="img/kk-295-1600.webp"><figcaption>Badminton</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-304-960.webp" srcset="img/kk-304-480.webp 480w, img/kk-304-960.webp 960w, img/kk-304-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Handball Girls" loading="lazy" decoding="async" data-full="img/kk-304-1600.webp"><figcaption>Handball Girls</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-318-960.webp" srcset="img/kk-318-480.webp 480w, img/kk-318-960.webp 960w, img/kk-318-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Handball Boys" loading="lazy" decoding="async" data-full="img/kk-318-1600.webp"><figcaption>Handball Boys</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-307-960.webp" srcset="img/kk-307-480.webp 480w, img/kk-307-960.webp 960w, img/kk-307-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="lawn Tennis Girls" loading="lazy" decoding="async" data-full="img/kk-307-1600.webp"><figcaption>Lawn Tennis Girls</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-312-960.webp" srcset="img/kk-312-480.webp 480w, img/kk-312-960.webp 960w, img/kk-312-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="lawn Tennis Boys" loading="lazy" decoding="async" data-full="img/kk-312-1600.webp"><figcaption>Lawn Tennis Boys</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-272-960.webp" srcset="img/kk-272-480.webp 480w, img/kk-272-960.webp 960w, img/kk-272-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Athletics" loading="lazy" decoding="async" data-full="img/kk-272-1600.webp"><figcaption>Athletics</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-326-960.webp" srcset="img/kk-326-480.webp 480w, img/kk-326-960.webp 960w, img/kk-326-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Basketball Girls" loading="lazy" decoding="async" data-full="img/kk-326-1600.webp"><figcaption>Basketball Girls</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-450-960.webp" srcset="img/kk-450-480.webp 480w, img/kk-450-960.webp 960w, img/kk-450-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Table Tennis" loading="lazy" decoding="async" data-full="img/kk-450-1600.webp"><figcaption>Table Tennis</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-202-960.webp" srcset="img/kk-202-480.webp 480w, img/kk-202-960.webp 960w, img/kk-202-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="St. Monica&#x27;s Dorm" loading="lazy" decoding="async" data-full="img/kk-202-1600.webp"><figcaption>St. Monica's Dorm</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-203-960.webp" srcset="img/kk-203-480.webp 480w, img/kk-203-960.webp 960w, img/kk-203-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="St. Mary&#x27;s Dorm" loading="lazy" decoding="async" data-full="img/kk-203-1600.webp"><figcaption>St. Mary's Dorm</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-214-960.webp" srcset="img/kk-214-480.webp 480w, img/kk-214-960.webp 960w, img/kk-214-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="St. Joseph&#x27;s Dorm" loading="lazy" decoding="async" data-full="img/kk-214-1600.webp"><figcaption>St. Joseph's Dorm</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-210-960.webp" srcset="img/kk-210-480.webp 480w, img/kk-210-960.webp 960w, img/kk-210-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="St. Thomas&#x27; Dorm" loading="lazy" decoding="async" data-full="img/kk-210-1600.webp"><figcaption>St. Thomas' Dorm</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-367-960.webp" srcset="img/kk-367-480.webp 480w, img/kk-367-960.webp 960w, img/kk-367-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="School Borehole" loading="lazy" decoding="async" data-full="img/kk-367-1600.webp"><figcaption>School Borehole</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-395-960.webp" srcset="img/kk-395-480.webp 480w, img/kk-395-960.webp 960w, img/kk-395-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="School Bakery" loading="lazy" decoding="async" data-full="img/kk-395-1600.webp"><figcaption>School Bakery</figcaption></figure>
+        <figure class="gallery-card"><img src="img/mb-164-960.webp" srcset="img/mb-164-480.webp 480w, img/mb-164-960.webp 960w, img/mb-164-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="School Farm" loading="lazy" decoding="async" data-full="img/mb-164-1600.webp"><figcaption>School Farm</figcaption></figure>
+       <figure class="gallery-card"><img src="img/kk-576-960.webp" srcset="img/kk-576-480.webp 480w, img/kk-576-960.webp 960w, img/kk-576-1600.webp 1600w" sizes="(max-width: 600px) 92vw, 300px" width="1600" height="1067" alt="Non-teaching staff" loading="lazy" decoding="async" data-full="img/kk-576-1600.webp"><figcaption>Non-Teaching Staff</figcaption></figure>
+
       </div>
     </div>
   </section>
@@ -386,41 +401,41 @@
   <div class="wrap footer-grid">
     <div>
       <h4>St. Thomas Kavingoni Senior School</h4>
-      <p>Providing quality education through academic excellence, discipline, innovation, and strong moral values.</p>
-      <p style="margin-top:12px;color:var(--gold-light);font-weight:800;">EDUCATION FOR A BETTER LIFE</p>
+      <p>Providing quality education through academic excellence, discipline, innovation and strong moral values.</p>
+      <p class="footer-motto">Education for a Better Life</p>
     </div>
     <div>
       <h4>Quick Links</h4>
       <ul class="footer-links">
-        <li><a href="index.html#home">Home</a></li>
-        <li><a href="about.html#about">About Us</a></li>
-        <li><a href="school-life.html#news">News</a></li>
-        <li><a href="academics.html#academics">Academics</a></li>
-        <li><a href="academics.html#teachers">Teachers</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="academics.html#teachers">Our Teachers</a></li>
+        <li><a href="school-life.html#news">News &amp; Updates</a></li>
         <li><a href="contact.html#contact">Admissions</a></li>
       </ul>
     </div>
     <div>
       <h4>Contact</h4>
-      <p>Phone: +254 736 975 416</p>
-      <p>Email: skavingoni@gmail.com</p>
-      <p>Kavingoni, Kathonzweni Subcounty, Makueni County, Kenya</p>
+      <ul class="footer-links">
+        <li><a href="tel:+254736975416">+254 736 975 416</a></li>
+        <li><a href="mailto:skavingoni@gmail.com">skavingoni@gmail.com</a></li>
+        <li>Kavingoni, Kathonzweni Sub-County, Makueni County, Kenya</li>
+      </ul>
     </div>
     <div>
-      <h4>KCSE Target 2026</h4>
-      <p>Mean 2025: <strong style="color:var(--gold-light)">6.5</strong></p>
-      <p>Target 2026: <strong style="color:var(--gold-light)">7.2</strong></p>
+      <h4>KCSE Performance</h4>
+      <p>Mean grade 2025: <strong class="footer-hl">6.5</strong></p>
+      <p>Target 2026: <strong class="footer-hl">7.2</strong></p>
     </div>
   </div>
   <div class="wrap footer-bottom">
-    <span>© 2026 St. Thomas Kavingoni Senior School. All Rights Reserved.</span>
-    <span>Designed &amp; Developed by <strong>JazTech</strong></span>
+    <span>&copy; 2026 St. Thomas Kavingoni Senior School. All rights reserved.</span>
+    <span>Designed &amp; developed by <strong>Jazque Technologies</strong></span>
   </div>
-  <div class="flag-rule"><span class="fr-black"></span><span class="fr-red"></span><span class="fr-green"></span><span class="fr-white"></span></div>
+  <div class="flag-rule" aria-hidden="true"><span class="fr-black"></span><span class="fr-red"></span><span class="fr-green"></span><span class="fr-white"></span></div>
 </footer>
 
-<a class="back-top" href="#top" aria-label="Back to top">↑</a>
-<script src="script.js"></script>
- <script src="gallery-lightbox.js"></script>
+<a class="back-top" href="#top" aria-label="Back to top">&#8593;</a>
 </body>
 </html>
